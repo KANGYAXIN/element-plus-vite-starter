@@ -1,0 +1,56 @@
+//重写基础色
+$--colors: (
+  'white': #ffffff,
+  'black': #000000,
+  'primary': (
+    'base': #327DE8,
+    'light-3': #5B97ED,
+    'light-5': #C1D8F8,
+    'light-9': #F8F8F9,
+    'dark-2': #2864B9
+  ),
+  'success': (
+    'base': #00B35A,
+    'light-3': #33C27B,
+    'light-5': #CCF0DE,
+    'light-9': #F8F8F9,
+    'dark-2': #008F48
+  ),
+  'warning': (
+    'base': #ED6A0C,
+    'light-3': #F1883D,
+    'light-5': #FBE1CE,
+    'light-9': #F8F8F9,
+    'dark-2': #BD5409
+  ),
+  'danger': (
+    'base': #D40000,
+    'light-3': #DD3333,
+    'light-5': #F6CCCC,
+    'light-9': #F8F8F9,
+    'dark-2': #A90000
+  ),
+  'error': (
+    'base': #D40000,
+    'light-3': #DD3333,
+    'light-5': #F6CCCC,
+    'light-9': #F8F8F9,
+    'dark-2': #A90000
+  ),
+  'info': (
+    'base': #909399
+  )
+);
+//通过sass中的@forward with函数对var.scss文件的$colors变量进行重新复制
+@forward "./element-plus/var.scss" with (
+  $colors: $--colors
+);
+
+//注：这段代码是核心，这段代码引入后更改的变量生效
+//通过@use函数引入css-vars.scss文件，并把变量引入到当前文件下
+@use "./element-plus/css-vars.scss" as *;
+
+//设置本套主题色为custom前缀，当html标签中设置class="custom"此套主题生效
+html.custom {
+  
+}
