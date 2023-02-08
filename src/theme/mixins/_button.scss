@@ -13,23 +13,21 @@
       ),
       'bg-color': (
         'color',
-        $type,
-        'light-9',
+        'white',
       ),
       'border-color': (
         'color',
         $type,
-        'light-5',
       ),
     ),
     'hover': (
       'text-color': (
         'color',
-        'white',
+        $type,
       ),
       'bg-color': (
         'color',
-        $type,
+        'white',
       ),
       'border-color': (
         'color',
@@ -39,17 +37,16 @@
     'active': (
       'text-color': (
         'color',
-        'white',
+        $type,
       ),
       'bg-color': (
         'color',
         $type,
-        'light-5',
+        'light-5', // 色系值(带实现)
       ),
       'border-color': (
         'color',
         $type,
-        'light-5',
       ),
     ),
   );
@@ -66,8 +63,11 @@
     &:focus,
     &:active {
       color: getCssVar('color', $type, 'light-5');
-      background-color: getCssVar('color', $type, 'light-9');
-      border-color: getCssVar('color', $type, 'light-8');
+      background-color: getCssVar('color','white');
+      border-color: getCssVar('color', $type, 'light-5');
+    }
+    &.is-text {
+      color: #D3D4D6; // 色系值(带实现)
     }
   }
 }

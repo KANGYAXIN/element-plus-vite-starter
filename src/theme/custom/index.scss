@@ -6,6 +6,7 @@ $--colors: (
     'base': #327DE8,
     'light-3': #5B97ED,
     'light-5': #C1D8F8,
+    // 'light-6': #EAF2FC, // 色系值待定
     'light-9': #F8F8F9,
     'dark-2': #2864B9
   ),
@@ -13,6 +14,7 @@ $--colors: (
     'base': #00B35A,
     'light-3': #33C27B,
     'light-5': #CCF0DE,
+    // 'light-6': #E5F7EE,
     'light-9': #F8F8F9,
     'dark-2': #008F48
   ),
@@ -20,6 +22,7 @@ $--colors: (
     'base': #ED6A0C,
     'light-3': #F1883D,
     'light-5': #FBE1CE,
+    // 'light-6': #FDF0E6,
     'light-9': #F8F8F9,
     'dark-2': #BD5409
   ),
@@ -27,6 +30,7 @@ $--colors: (
     'base': #D40000,
     'light-3': #DD3333,
     'light-5': #F6CCCC,
+    // 'light-6': #FAE5E5,
     'light-9': #F8F8F9,
     'dark-2': #A90000
   ),
@@ -34,6 +38,7 @@ $--colors: (
     'base': #D40000,
     'light-3': #DD3333,
     'light-5': #F6CCCC,
+    // 'light-6': #FAE5E5,
     'light-9': #F8F8F9,
     'dark-2': #A90000
   ),
@@ -49,6 +54,8 @@ $--colors: (
 //注：这段代码是核心，这段代码引入后更改的变量生效
 //通过@use函数引入css-vars.scss文件，并把变量引入到当前文件下
 @use "./element-plus/css-vars.scss" as *;
+
+@use "./element-plus/button.scss" as *;
 
 //设置本套主题色为custom前缀，当html标签中设置class="custom"此套主题生效
 html.custom {

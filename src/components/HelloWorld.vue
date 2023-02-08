@@ -37,7 +37,9 @@ const toast = (type: any) => {
   <br />
   <p>Plain</p>
   <el-button plain>Plain</el-button>
+  <el-button plain disabled>Plain</el-button>
   <el-button type="primary" plain>Plain</el-button>
+  <el-button type="primary" plain disabled>Plain</el-button>
   <el-button type="success" plain>Plain</el-button>
   <el-button type="warning" plain>Plain</el-button>
   <el-button type="danger" plain>Plain</el-button>

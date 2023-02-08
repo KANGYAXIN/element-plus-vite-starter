@@ -13,6 +13,8 @@ html.custom {
     @include set-css-color-type($colors, $type);
   }
 
+  @include set-component-css-var('button', $button);
+
   // --el-box-shadow-#{$type}
   // @include set-component-css-var('box-shadow', $box-shadow);
 
@@ -20,15 +22,15 @@ html.custom {
   // Background --el-bg-color-#{$type}
   // @include set-component-css-var('bg-color', $bg-color);
   // --el-text-color-#{$type}
-  // @include set-component-css-var('text-color', $text-color);
+  @include set-component-css-var('text-color', $text-color);
   // --el-border-color-#{$type}
   // @include set-component-css-var('border-color', $border-color);
   // Fill --el-fill-color-#{$type}
-  // @include set-component-css-var('fill-color', $fill-color);
-  // @include set-component-css-var('mask-color', $mask-color);
+  @include set-component-css-var('fill-color', $fill-color);
+  @include set-component-css-var('mask-color', $mask-color);
 }
 
-// @include dark(button) {
+// @include custom(button) {
 //   @include set-component-css-var('button', $button);
 // }
 

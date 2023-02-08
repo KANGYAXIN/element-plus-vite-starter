@@ -40,3 +40,44 @@ $colors: () !default;
 @each $type in common.$types {
   @include set-color-mix-level($type, 2, 'dark', common.$color-black);
 }
+
+// Button
+// css3 var in packages/theme-chalk/src/button.scss
+$button: () !default;
+$button: map.merge(
+  (
+    'disabled-text-color': #D3D4D6,
+    'disabled-border-color': #E9E9EA,
+    'disabled-bg-color': #F8F8F9,
+  ),
+  $button
+);
+
+// text
+$text-color: () !default;
+$text-color: map.merge(
+  (
+    // 'placeholder': #D3D4D6,
+  ),
+  $text-color
+);
+
+// fill
+$fill-color: () !default;
+$fill-color: map.merge(
+  (
+    '': #F8F8F9,
+    'light': #FFFFFF,
+    'dark': #F8F8F9,
+  ),
+  $fill-color
+);
+
+// mask
+$mask-color: () !default;
+$mask-color: map.merge(
+  (
+    'extra-light': rgba(0, 0, 0, 0)
+  ),
+  $mask-color
+);
