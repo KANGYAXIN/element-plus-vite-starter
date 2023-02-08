@@ -2,8 +2,12 @@
 
 // 获取element-plus 原始的 var变量 进行重写
 @use './var' as *;
-@use 'element-plus/theme-chalk/src/mixins/_var.scss' as *;
-@use 'element-plus/theme-chalk/src/mixins/mixins.scss' as *;
+
+@use '../../mixins/_var.scss' as *;
+@use '../../mixins/mixins.scss' as *;
+
+// @use 'element-plus/theme-chalk/src/mixins/_var.scss' as *;
+// @use 'element-plus/theme-chalk/src/mixins/mixins.scss' as *;
 
 html.custom {
   color-scheme: custom;
@@ -13,6 +17,7 @@ html.custom {
     @include set-css-color-type($colors, $type);
   }
 
+  // --el-button-#{$type}
   @include set-component-css-var('button', $button);
 
   // --el-box-shadow-#{$type}
@@ -22,22 +27,10 @@ html.custom {
   // Background --el-bg-color-#{$type}
   // @include set-component-css-var('bg-color', $bg-color);
   // --el-text-color-#{$type}
-  @include set-component-css-var('text-color', $text-color);
+  // @include set-component-css-var('text-color', $text-color);
   // --el-border-color-#{$type}
   // @include set-component-css-var('border-color', $border-color);
   // Fill --el-fill-color-#{$type}
   @include set-component-css-var('fill-color', $fill-color);
   @include set-component-css-var('mask-color', $mask-color);
 }
-
-// @include custom(button) {
-//   @include set-component-css-var('button', $button);
-// }
-
-// @include dark(card) {
-//   @include set-component-css-var('card', $card);
-// }
-
-// @include dark(empty) {
-//   @include set-component-css-var('empty', $empty);
-// }

@@ -42,7 +42,6 @@ $colors: () !default;
 }
 
 // Button
-// css3 var in packages/theme-chalk/src/button.scss
 $button: () !default;
 $button: map.merge(
   (
@@ -51,15 +50,6 @@ $button: map.merge(
     'disabled-bg-color': #F8F8F9,
   ),
   $button
-);
-
-// text
-$text-color: () !default;
-$text-color: map.merge(
-  (
-    // 'placeholder': #D3D4D6,
-  ),
-  $text-color
 );
 
 // fill
@@ -81,3 +71,4 @@ $mask-color: map.merge(
   ),
   $mask-color
 );
+
