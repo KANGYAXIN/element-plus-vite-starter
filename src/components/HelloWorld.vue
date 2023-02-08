@@ -9,8 +9,11 @@ const input = ref("element-plus");
 
 const curDate = ref('')
 
-const toast = () => {
-  ElMessage.success('Hello')
+const toast = (type: any) => {
+  ElMessage({
+    message: 'Congrats, this is a message.',
+    type: type,
+  })
 }
 </script>
 
@@ -24,12 +27,53 @@ const toast = () => {
   </p>
 
   <!-- example components -->
-  <el-button @click="toast">El Message</el-button>
-  <el-button type="primary" @click="count++">count is: {{ count }}</el-button>
-  <el-button type="success" @click="count++">count is: {{ count }}</el-button>
-  <el-button type="warning" @click="count++">count is: {{ count }}</el-button>
-  <el-button type="danger" @click="count++">count is: {{ count }}</el-button>
-  <el-button type="info" @click="count++">count is: {{ count }}</el-button>
+  <p>Normal</p>
+  <el-button>Button</el-button>
+  <el-button type="primary">Button</el-button>
+  <el-button type="success" @click="toast('success')">Button</el-button>
+  <el-button type="warning" @click="toast('warning')">Button</el-button>
+  <el-button type="danger" @click="toast('danger')">Button</el-button>
+  <el-button type="info" @click="toast('info')">Button</el-button>
+  <br />
+  <p>Plain</p>
+  <el-button plain>Plain</el-button>
+  <el-button type="primary" plain>Plain</el-button>
+  <el-button type="success" plain>Plain</el-button>
+  <el-button type="warning" plain>Plain</el-button>
+  <el-button type="danger" plain>Plain</el-button>
+  <el-button type="info" plain>Plain</el-button>
+  <br />
+  <p>Disabled</p>
+  <el-button disabled>Disabled</el-button>
+  <el-button type="primary" disabled>Disabled</el-button>
+  <el-button type="success" disabled>Disabled</el-button>
+  <el-button type="warning" disabled>Disabled</el-button>
+  <el-button type="danger" disabled>Disabled</el-button>
+  <el-button type="info" disabled>Disabled</el-button>
+  <br />
+  <p>Link</p>
+  <el-button link>文字链接</el-button>
+  <el-button type="primary" link>文字链接</el-button>
+  <el-button type="success" link>文字链接</el-button>
+  <el-button type="warning" link>文字链接</el-button>
+  <el-button type="danger" link>文字链接</el-button>
+  <el-button type="info" link>文字链接</el-button>
+  <br />
+  <p>Text</p>
+  <el-button text bg>文字链接</el-button>
+  <el-button type="primary" text bg>文字链接</el-button>
+  <el-button type="success" text bg>文字链接</el-button>
+  <el-button type="warning" text bg>文字链接</el-button>
+  <el-button type="danger" text bg>文字链接</el-button>
+  <el-button type="info" text bg>文字链接</el-button>
+  <br />
+  <p>Loading</p>
+  <el-button loading>Loading</el-button>
+  <el-button type="primary" loading>Loading</el-button>
+  <el-button type="success" loading>Loading</el-button>
+  <el-button type="warning" loading>Loading</el-button>
+  <el-button type="danger" loading>Loading</el-button>
+  <el-button type="info" loading>Loading</el-button>
   <br />
   <el-input v-model="input" style="width: 200px; margin: 20px" />
   <el-tag>Tag 1</el-tag>

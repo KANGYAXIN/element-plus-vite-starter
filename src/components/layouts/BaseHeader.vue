@@ -1,5 +1,11 @@
 <script lang="ts" setup>
 import { toggleDark } from '~/composables';
+import { ref } from 'vue';
+import { toggleHtmlClass } from '~/theme/utils'
+
+const list = ref(
+  ['base', 'dark', 'china-red', 'custom']
+)
 </script>
 
 <template>
@@ -24,5 +30,14 @@ import { toggleDark } from '~/composables';
         <i inline-flex i="dark:ep-moon ep-sunny" />
       </button>
     </el-menu-item>
+    <el-sub-menu index="6">
+      <template #title>切换皮肤</template>
+      <el-menu-item 
+        v-for="item in list"
+        :key="item"
+        :index="item"
+        @click="toggleHtmlClass(item)"
+      >{{ item }}</el-menu-item>
+    </el-sub-menu>
   </el-menu>
 </template>
