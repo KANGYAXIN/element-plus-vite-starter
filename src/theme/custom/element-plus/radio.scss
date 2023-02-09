@@ -1,0 +1,33 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/utils' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use 'element-plus/theme-chalk/src/mixins/button' as *;
+@use './var.scss' as *;
+
+@include b(radio) {
+  @include set-component-css-var('radio', $radio);
+}
+
+@include b(radio) {
+  
+  @include e(input) {
+
+    @include when(checked) {
+      .#{$namespace}-radio__inner {
+        border-color: map.get($radio-checked, 'input-border-color');
+        background: map.get($radio-checked, 'icon-color');
+
+        &::after {
+          transform: translate(-50%, -50%) scale(2);
+          background: map.get($radio-checked, 'input-border-color');
+        }
+      }
+
+      & + .#{$namespace}-radio__label {
+        color: map.get($radio-checked, 'text-color');
+      }
+    }
+  }
+}

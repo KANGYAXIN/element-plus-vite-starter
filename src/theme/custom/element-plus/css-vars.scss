@@ -44,4 +44,7 @@ html.custom {
       getCssVar('border-color')
   );
 
+  // Font
+  @include set-css-var-value('font-weight-primary', 400);
+
 }

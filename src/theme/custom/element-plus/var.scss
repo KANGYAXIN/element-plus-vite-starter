@@ -97,6 +97,46 @@ $input-disabled: map.merge(
   $input-disabled
 );
 
+// Radio
+/// fontSize||Font|1
+$radio: () !default;
+$radio: map.merge(
+  (
+    // 'font-size': getCssVar('font-size-base'),
+    // 'text-color': getCssVar('text-color-regular'),
+    // 'font-weight': getCssVar('font-weight-primary'),
+    // 'input-height': 14px,
+    // 'input-width': 14px,
+    // 'input-border-radius': getCssVar('border-radius-circle'),
+    // 'input-bg-color': getCssVar('fill-color', 'blank'),
+    // 'input-border': getCssVar('border'),
+    // 'input-border-color': getCssVar('border-color'),
+    // 'input-border-color-hover': getCssVar('color-primary'),
+  ),
+  $radio
+);
+
+$radio-checked: () !default;
+$radio-checked: map.merge(
+  (
+    'text-color': getCssVar('text-color-regular'),
+    'input-border-color': getCssVar('color-primary'),
+    'icon-color': getCssVar('color-white'),
+  ),
+  $radio-checked
+);
+
+$radio-button: () !default;
+$radio-button: map.merge(
+  (
+    'checked-bg-color': #F4F8FE,
+    'checked-text-color': getCssVar('color-primary'),
+    // 'checked-border-color': getCssVar('color-primary'),
+    'disabled-checked-fill': getCssVar('button-disabled-border-color'),
+  ),
+  $radio-button
+);
+
 // Button
 $button: () !default;
 $button: map.merge(

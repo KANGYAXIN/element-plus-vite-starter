@@ -1,0 +1,28 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/utils' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use 'element-plus/theme-chalk/src/mixins/button' as *;
+@use './var.scss' as *;
+
+@include b(radio-button) {
+  @include set-component-css-var('radio-button', $radio-button);
+}
+
+@include b(radio-button) {
+
+  @include e(original-radio) {
+
+    &:disabled {
+
+      & + .#{$namespace}-radio-button__inner {
+        
+        border-color: getCssVarWithDefault(
+          'button-disabled-text-color',
+          map.get($button, 'disabled-text-color')
+        );
+      }
+    }
+  }
+}

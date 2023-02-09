@@ -19,6 +19,7 @@ const toast = (type: any) => {
 
 const loading = ref(false)
 const inputValue = ref('啊啊啊啊')
+const radioValue = ref(1)
 </script>
 
 <template>
@@ -120,6 +121,20 @@ const inputValue = ref('啊啊啊啊')
     <p>Input：</p>
     <el-input placeholder="暗提示" v-model="inputValue"></el-input>
     <el-input placeholder="暗提示" disabled v-model="inputValue"></el-input>
+  </div>
+  <div class="flex-content">
+    <p>Radio：</p>
+    <el-radio-group v-model="radioValue">
+      <el-radio :label="1">Option A</el-radio>
+      <el-radio :label="2" disabled>Option B</el-radio>
+      <el-radio :label="3">Option C</el-radio>
+    </el-radio-group>
+
+    <el-radio-group v-model="radioValue" style="margin-left: 12px;">
+      <el-radio-button :label="1" disabled>Option A</el-radio-button>
+      <el-radio-button :label="2">Option B</el-radio-button>
+      <el-radio-button :label="3">Option C</el-radio-button>
+    </el-radio-group>
   </div>
  
   <!-- <el-input v-model="input" style="width: 200px; margin: 20px" />
