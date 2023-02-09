@@ -1,0 +1,40 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+// @use 'common/var' as *;
+@use './var.scss' as *;
+
+@mixin mixed-input-border($color) {
+  box-shadow: 0 0 0 1px $color inset; 
+}
+
+@include b(input) {
+  @include set-component-css-var('input', $input);
+}
+
+@include b(input) {
+
+  @include when(disabled) {
+    cursor: not-allowed;
+
+    .#{$namespace}-input__wrapper {
+      background-color: map.get($input-disabled, 'fill');
+      @include mixed-input-border(map.get($input-disabled, 'border'));
+    }
+
+    .#{$namespace}-input__inner {
+      color: map.get($input-disabled, 'text-color');
+      -webkit-text-fill-color: map.get($input-disabled, 'text-color');
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: map.get($input-disabled, 'placeholder-color');
+      }
+    }
+
+    .#{$namespace}-input__icon {
+      cursor: not-allowed;
+    }
+  }
+}

@@ -18,6 +18,7 @@ const toast = (type: any) => {
 }
 
 const loading = ref(false)
+const inputValue = ref('啊啊啊啊')
 </script>
 
 <template>
@@ -115,7 +116,11 @@ const loading = ref(false)
       </template>
     </el-dropdown>
   </div>
-  <div class="flex-content"></div>
+  <div class="flex-content">
+    <p>Input：</p>
+    <el-input placeholder="暗提示" v-model="inputValue"></el-input>
+    <el-input placeholder="暗提示" disabled v-model="inputValue"></el-input>
+  </div>
  
   <!-- <el-input v-model="input" style="width: 200px; margin: 20px" />
   <el-tag>Tag 1</el-tag>
@@ -165,5 +170,10 @@ const loading = ref(false)
 
 .ep-button {
   width: 120px;
+}
+
+.ep-input {
+  width: 300px;
+  margin-right: 12px;
 }
 </style>
