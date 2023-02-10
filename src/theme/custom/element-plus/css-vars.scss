@@ -2,8 +2,9 @@
 
 // 获取element-plus 原始的 var变量 进行重写
 @use './var' as *;
-@use 'element-plus/theme-chalk/src/mixins/_var.scss' as *;
-@use 'element-plus/theme-chalk/src/mixins/mixins.scss' as *;
+
+@use '../../mixins/_var.scss' as *;
+@use '../../mixins/mixins.scss' as *;
 
 html.custom {
   color-scheme: custom;

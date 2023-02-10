@@ -241,6 +241,13 @@ const switchValue = ref(true)
     <el-switch v-model="switchValue" />
     <el-switch v-model="switchValue" disabled style="margin-left: 12px;" />
   </div>
+  <div class="flex-content">
+    <p>Tooltip：</p>
+    <el-alert title="success alert" type="success" show-icon />
+    <el-alert title="info alert" type="info" show-icon />
+    <el-alert title="warning alert" type="warning" show-icon />
+    <el-alert title="error alert" type="error" show-icon />
+  </div>
  
   <!-- <el-input v-model="input" style="width: 200px; margin: 20px" />
   <el-tag>Tag 1</el-tag>

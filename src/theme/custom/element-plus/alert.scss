@@ -1,0 +1,39 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var.scss' as *;
+
+@include b(alert) {
+  // @include set-component-css-var('alert', $alert);
+
+  @each $type in (success, info, warning, error) {
+    @include m($type) {
+
+      @include css-var-from-global(
+        ('alert', 'bg-color'),
+        ('color', $type, 'light-2')
+      );
+      
+      &.is-light {
+        color: getCssVar('text-color', 'regular');
+        border: getCssVar('border', 'width') getCssVar('border', 'style') getCssVar('color', $type, 'light-3');
+      }
+
+      & .#{$namespace}-alert__icon {
+        color: getCssVar('color', $type, 'light-3')
+      }
+
+      &.ep-alert--info {
+        background-color: getCssVar('color', 'primary', 'light-2');
+         border: getCssVar('border', 'width') getCssVar('border', 'style') getCssVar('color', 'primary', 'light-3');
+
+         & .#{$namespace}-alert__icon {
+          color: getCssVar('color', 'primary', 'light-3');
+        }
+      }
+
+      
+    }
+  }
+}
