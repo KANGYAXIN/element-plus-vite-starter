@@ -137,6 +137,29 @@ $radio-button: map.merge(
   $radio-button
 );
 
+// Checkbox
+// css3 var in packages/theme-chalk/src/checkbox.scss
+$checkbox: () !default;
+$checkbox: map.merge(
+  (
+    'disabled-input-fill': #F4F4F5,
+    'disabled-checked-input-fill': #F4F4F5,
+    'disabled-checked-icon-color': getCssVar('button-disabled-text-color'),
+    'checked-text-color': getCssVar('text-color-regular'),
+  ),
+  $checkbox
+);
+
+$checkbox-button: () !default;
+$checkbox-button: map.merge(
+  (
+    'checked-bg-color': #F4F8FE,
+    'checked-text-color': getCssVar('color-primary'),
+    // 'checked-border-color': getCssVar('color-primary'),
+  ),
+  $checkbox-button
+);
+
 // Button
 $button: () !default;
 $button: map.merge(

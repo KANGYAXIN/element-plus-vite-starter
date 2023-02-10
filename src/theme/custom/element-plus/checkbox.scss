@@ -1,0 +1,35 @@
+@use 'sass:map';
+
+@use './var.scss' as *;
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+
+@include b(checkbox) {
+  @include set-component-css-var('checkbox', $checkbox);
+}
+
+@include b(checkbox) {
+
+  @include e(input) {
+
+    @include when(disabled) {
+
+      & + span.#{$namespace}-checkbox__label {
+        color: getCssVar('text-color-placeholder');
+        cursor: not-allowed;
+      }
+    }
+
+    @include when(indeterminate) {
+
+      .#{$namespace}-checkbox__inner {
+        background-color: getCssVar('fill-color-light');
+        border-color: getCssVar('checkbox-checked-input-border-color');
+
+        &::before {
+          background-color: getCssVar('checkbox-checked-bg-color');
+        }
+      }
+    }
+  }
+}

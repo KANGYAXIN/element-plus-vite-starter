@@ -20,6 +20,48 @@ const toast = (type: any) => {
 const loading = ref(false)
 const inputValue = ref('啊啊啊啊')
 const radioValue = ref(1)
+const checkValue = ref([1, 5])
+const checkList = ref(
+  [
+    {
+      name: 'Option A',
+      label: 1,
+      indeterminate: false,
+      disabled: false
+    },
+    {
+      name: 'Option B',
+      label: 2,
+      indeterminate: true,
+      disabled: false
+    },
+    {
+      name: 'Option C',
+      label: 3,
+      indeterminate: true,
+      disabled: true
+    },
+    {
+      name: 'Option D',
+      label: 4,
+      indeterminate: false,
+      disabled: true
+    },
+    {
+      name: 'Disabled',
+      label: 5,
+      indeterminate: false,
+      disabled: true
+    },
+    {
+      name: 'Option E',
+      label: 5,
+      indeterminate: false,
+      disabled: false
+    },
+
+  ]
+)
 </script>
 
 <template>
@@ -135,6 +177,27 @@ const radioValue = ref(1)
       <el-radio-button :label="2">Option B</el-radio-button>
       <el-radio-button :label="3">Option C</el-radio-button>
     </el-radio-group>
+  </div>
+  <div class="flex-content">
+    <p>Checkbox：</p>
+    <el-checkbox-group v-model="checkValue">
+      <el-checkbox
+        v-for="item in checkList"
+        :key="item.label"
+        :label="item.label"
+        :indeterminate="item.indeterminate"
+        :disabled="item.disabled"
+      >{{ item.name }}</el-checkbox>
+    </el-checkbox-group>
+
+    <el-checkbox-group v-model="checkValue" style="margin-left: 12px;">
+      <el-checkbox-button 
+        v-for="item in checkList"
+        :key="item.label"
+        :label="item.label"
+        :disabled="item.disabled"
+      >{{ item.name }}</el-checkbox-button>
+    </el-checkbox-group>
   </div>
  
   <!-- <el-input v-model="input" style="width: 200px; margin: 20px" />

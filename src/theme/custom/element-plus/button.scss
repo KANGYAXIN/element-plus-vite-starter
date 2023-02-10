@@ -1,12 +1,8 @@
 @use 'sass:map';
 
-
-// @use 'element-plus/theme-chalk/src/common/var' as *;
-// @use 'element-plus/theme-chalk/src/mixins/button' as *;
 @use './var.scss' as *;
 @use '../../mixins/button' as *;
 @use 'element-plus/theme-chalk/src/mixins/mixins' as *;
-@use 'element-plus/theme-chalk/src/mixins/utils' as *;
 @use 'element-plus/theme-chalk/src/mixins/var' as *;
 
 @include b(button) {

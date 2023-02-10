@@ -1,0 +1,20 @@
+@use 'sass:map';
+
+@use './var.scss' as *;
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+
+@include b(checkbox-button) {
+  @include set-component-css-var('checkbox-button', $checkbox-button);
+}
+
+@include b(checkbox-button) {
+
+  &.is-disabled {
+    & .#{$namespace}-checkbox-button__inner {
+      border-color: var(
+        #{getCssVarName('button-disabled-text-color')},
+        map.get($button, 'disabled-text-color')
+      );
+    }
+  }
+}
