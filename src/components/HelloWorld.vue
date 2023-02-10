@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { ElMessage } from 'element-plus'
 import { ArrowDown, Eleme } from '@element-plus/icons-vue'
+import { ElNotification } from 'element-plus'
 
 defineProps<{ msg: string }>();
 
@@ -79,6 +80,15 @@ const selectList = ref(
   ]
 )
 const switchValue = ref(true)
+
+const noticeHandle = (type: string) => {
+  ElNotification({
+    title: type,
+    message: `This is a ${type} message`,
+    duration: 0,
+    type: type,
+  });
+}
 </script>
 
 <template>
@@ -247,6 +257,13 @@ const switchValue = ref(true)
     <el-alert title="info alert" type="info" show-icon />
     <el-alert title="warning alert" type="warning" show-icon />
     <el-alert title="error alert" type="error" show-icon />
+  </div>
+  <div class="flex-content">
+    <p>Notification：</p>
+    <el-button plain @click="noticeHandle('success')">Success</el-button>
+    <el-button plain @click="noticeHandle('warning')">Warning</el-button>
+    <el-button plain @click="noticeHandle('info')">Info</el-button>
+    <el-button plain @click="noticeHandle('error')">Error</el-button>
   </div>
  
   <!-- <el-input v-model="input" style="width: 200px; margin: 20px" />
