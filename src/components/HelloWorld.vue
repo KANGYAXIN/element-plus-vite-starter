@@ -78,6 +78,7 @@ const selectList = ref(
     },
   ]
 )
+const switchValue = ref(true)
 </script>
 
 <template>
@@ -215,7 +216,7 @@ const selectList = ref(
       >{{ item.name }}</el-checkbox-button>
     </el-checkbox-group>
   </div>
-  <div class="flex-content">
+  <!-- <div class="flex-content">
     <p>Select：</p>
     <el-select v-model="selectValue" placeholder="Select">
       <el-option
@@ -234,6 +235,11 @@ const selectList = ref(
         :value="item.value"
       ></el-option>
     </el-select>
+  </div> -->
+  <div class="flex-content">
+    <p>Switch：</p>
+    <el-switch v-model="switchValue" />
+    <el-switch v-model="switchValue" disabled style="margin-left: 12px;" />
   </div>
  
   <!-- <el-input v-model="input" style="width: 200px; margin: 20px" />

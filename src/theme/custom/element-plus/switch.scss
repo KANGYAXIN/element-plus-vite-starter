@@ -1,0 +1,18 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/utils' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var.scss' as *;
+
+
+@include b(switch) {
+
+  @include when(disabled) {
+    opacity: 0.9;
+
+    &.is-checked {
+      opacity: 0.3;
+    }
+  }
+}
