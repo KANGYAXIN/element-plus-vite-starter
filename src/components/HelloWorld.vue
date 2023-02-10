@@ -88,6 +88,12 @@ const noticeHandle = (type: string) => {
     duration: 0,
     type: type,
   });
+
+  ElMessage({
+    message: `Congrats, this is a ${type} message.`,
+    duration: 0,
+    type: type,
+  })
 }
 </script>
 
@@ -265,6 +271,13 @@ const noticeHandle = (type: string) => {
     <el-button plain @click="noticeHandle('info')">Info</el-button>
     <el-button plain @click="noticeHandle('error')">Error</el-button>
   </div>
+   <div class="flex-content">
+    <p>Message：</p>
+      <el-button plain @click="noticeHandle('success')">Success</el-button>
+      <el-button plain @click="noticeHandle('warning')">Warning</el-button>
+      <el-button plain @click="noticeHandle('info')">Info</el-button>
+      <el-button plain @click="noticeHandle('error')">Error</el-button>
+  </div>
  
   <!-- <el-input v-model="input" style="width: 200px; margin: 20px" />
   <el-tag>Tag 1</el-tag>
@@ -304,7 +317,7 @@ const noticeHandle = (type: string) => {
 }
 
 .flex-content > p {
-  width: 100px;
+  width: 140px;
   text-align: right;
 }
 
@@ -317,7 +330,8 @@ const noticeHandle = (type: string) => {
 }
 
 .ep-input,
-.ep-select {
+.ep-select,
+.ep-alert {
   width: 300px;
   margin-right: 12px;
 }
