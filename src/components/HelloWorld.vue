@@ -59,7 +59,23 @@ const checkList = ref(
       indeterminate: false,
       disabled: false
     },
-
+  ]
+)
+const selectValue = ref()
+const selectList = ref(
+  [
+    {
+      label: 'Option A',
+      value: 1
+    },
+    {
+      label: 'Option B',
+      value: 2
+    },
+    {
+      label: 'Option C',
+      value: 3
+    },
   ]
 )
 </script>
@@ -199,6 +215,26 @@ const checkList = ref(
       >{{ item.name }}</el-checkbox-button>
     </el-checkbox-group>
   </div>
+  <div class="flex-content">
+    <p>Select：</p>
+    <el-select v-model="selectValue" placeholder="Select">
+      <el-option
+        v-for="item in selectList"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      ></el-option>
+    </el-select>
+
+    <el-select v-model="selectValue" placeholder="Select" disabled>
+      <el-option
+        v-for="item in selectList"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      ></el-option>
+    </el-select>
+  </div>
  
   <!-- <el-input v-model="input" style="width: 200px; margin: 20px" />
   <el-tag>Tag 1</el-tag>
@@ -250,7 +286,8 @@ const checkList = ref(
   width: 120px;
 }
 
-.ep-input {
+.ep-input,
+.ep-select {
   width: 300px;
   margin-right: 12px;
 }
