@@ -64,28 +64,6 @@ $border-style: solid !default;
 $border-color-hover: getCssVar('color', 'primary') !default;
 
 // Input
-// css3 var in packages/theme-chalk/src/input.scss
-$input: () !default;
-$input: map.merge(
-  (
-    'text-color': getCssVar('text-color-regular'),
-    'border': getCssVar('border'),
-    'hover-border': getCssVar('border-color-hover'),
-    'focus-border': getCssVar('color-primary'),
-    'transparent-border': 0 0 0 1px transparent inset,
-    'border-color': getCssVar('border-color'),
-    'border-radius': getCssVar('border-radius-base'),
-    'bg-color': getCssVar('fill-color', 'blank'),
-    'icon-color': getCssVar('text-color-placeholder'),
-    'placeholder-color': getCssVar('text-color-placeholder'),
-    'hover-border-color': getCssVar('border-color-hover'),
-    'clear-hover-color': getCssVar('text-color-secondary'),
-    'focus-border-color': getCssVar('color-primary'),
-  ),
-  $input
-);
-
-// Input
 $input-disabled: () !default;
 $input-disabled: map.merge(
   (
@@ -95,25 +73,6 @@ $input-disabled: map.merge(
     'placeholder-color': getCssVar('button', 'disabled-text-color'),
   ),
   $input-disabled
-);
-
-// Radio
-/// fontSize||Font|1
-$radio: () !default;
-$radio: map.merge(
-  (
-    // 'font-size': getCssVar('font-size-base'),
-    // 'text-color': getCssVar('text-color-regular'),
-    // 'font-weight': getCssVar('font-weight-primary'),
-    // 'input-height': 14px,
-    // 'input-width': 14px,
-    // 'input-border-radius': getCssVar('border-radius-circle'),
-    // 'input-bg-color': getCssVar('fill-color', 'blank'),
-    // 'input-border': getCssVar('border'),
-    // 'input-border-color': getCssVar('border-color'),
-    // 'input-border-color-hover': getCssVar('color-primary'),
-  ),
-  $radio
 );
 
 $radio-checked: () !default;
@@ -131,14 +90,12 @@ $radio-button: map.merge(
   (
     'checked-bg-color': #F4F8FE,
     'checked-text-color': getCssVar('color-primary'),
-    // 'checked-border-color': getCssVar('color-primary'),
     'disabled-checked-fill': getCssVar('button-disabled-border-color'),
   ),
   $radio-button
 );
 
 // Checkbox
-// css3 var in packages/theme-chalk/src/checkbox.scss
 $checkbox: () !default;
 $checkbox: map.merge(
   (
@@ -155,13 +112,11 @@ $checkbox-button: map.merge(
   (
     'checked-bg-color': #F4F8FE,
     'checked-text-color': getCssVar('color-primary'),
-    // 'checked-border-color': getCssVar('color-primary'),
   ),
   $checkbox-button
 );
 
 // Notification
-// css3 var in packages/theme-chalk/src/notification.scss
 $notification: () !default;
 $notification: map.merge(
   (
@@ -171,11 +126,6 @@ $notification: map.merge(
     'shadow': 0px 2px 24px 0px rgba(36,41,51,0.11),
     'border-color': getCssVar('border-color-lighter'),
     'icon-size': 16px,
-    // 'close-font-size':
-    //   var(
-    //     #{getCssVarName('message-close-size')},
-    //     map.get($message, 'close-size')
-    //   ),
     'group-margin-left': 8px,
     'group-margin-right': 8px,
     'content-font-size': getCssVar('font-size-base'),

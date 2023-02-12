@@ -6,9 +6,9 @@
 @use 'element-plus/theme-chalk/src/mixins/button' as *;
 @use './var.scss' as *;
 
-@include b(radio) {
-  @include set-component-css-var('radio', $radio);
-}
+// @include b(radio) {
+//   @include set-component-css-var('radio', $radio);
+// }
 
 @include b(radio) {
   

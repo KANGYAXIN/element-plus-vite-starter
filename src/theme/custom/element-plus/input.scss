@@ -8,9 +8,9 @@
   box-shadow: 0 0 0 1px $color inset; 
 }
 
-@include b(input) {
-  @include set-component-css-var('input', $input);
-}
+// @include b(input) {
+//   @include set-component-css-var('input', $input);
+// }
 
 @include b(input) {
 

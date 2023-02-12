@@ -6,11 +6,6 @@ import { ElNotification } from 'element-plus'
 
 defineProps<{ msg: string }>();
 
-const count = ref(0);
-const input = ref("element-plus");
-
-const curDate = ref('')
-
 const toast = (type: any) => {
   ElMessage({
     message: 'Congrats, this is a message.',
@@ -18,6 +13,7 @@ const toast = (type: any) => {
   })
 }
 
+// 初始化
 const loading = ref(false)
 const inputValue = ref('啊啊啊啊')
 const radioValue = ref(1)
@@ -62,23 +58,6 @@ const checkList = ref(
     },
   ]
 )
-const selectValue = ref()
-const selectList = ref(
-  [
-    {
-      label: 'Option A',
-      value: 1
-    },
-    {
-      label: 'Option B',
-      value: 2
-    },
-    {
-      label: 'Option C',
-      value: 3
-    },
-  ]
-)
 const switchValue = ref(true)
 
 const noticeHandle = (type: string) => {
@@ -95,18 +74,12 @@ const noticeHandle = (type: string) => {
     type: type,
   })
 }
+const dialogVisible = ref(false)
 </script>
 
 <template>
-  <!-- <h1>{{ msg }}</h1>
-
-  <p>
-    See
-    <a href="https://element-plus.org" target="_blank">element-plus</a> for
-    more information.
-  </p> -->
-
   <!-- example components -->
+  <!-- Button -->
   <div class="flex-content">
     <p>Normal：</p>
     <el-button>Button</el-button>
@@ -115,45 +88,19 @@ const noticeHandle = (type: string) => {
     <el-button type="warning" @click="toast('warning')">Button</el-button>
     <el-button type="danger" @click="toast('danger')">Button</el-button>
     <el-button type="info" @click="toast('info')">Button</el-button>
-  </div>
-  <div class="flex-content">
-    <p>Plain：</p>
+    <el-button type="primary" disabled>Disabled</el-button>
     <el-button plain>Plain</el-button>
     <el-button plain disabled>Plain - Disabled</el-button>
     <el-button type="primary" plain>Plain</el-button>
     <el-button type="primary" plain disabled>Plain - Disabled</el-button>
-    <el-button type="success" plain>Plain</el-button>
-    <el-button type="warning" plain>Plain</el-button>
-    <el-button type="danger" plain>Plain</el-button>
-    <el-button type="info" plain>Plain</el-button>
-  </div>
-  <div class="flex-content">
-    <p>Disabled：</p>
-    <el-button disabled>Disabled</el-button>
-    <el-button type="primary" disabled>Disabled</el-button>
-    <el-button type="success" disabled>Disabled</el-button>
-    <el-button type="warning" disabled>Disabled</el-button>
-    <el-button type="danger" disabled>Disabled</el-button>
-    <el-button type="info" disabled>Disabled</el-button>
-  </div>
-  <div class="flex-content">
-    <p>Text：</p>
-    <el-button text bg>文字链接</el-button>
     <el-button type="primary" text bg>文字链接</el-button>
-    <el-button type="success" text bg>文字链接</el-button>
-    <el-button type="warning" text bg>文字链接</el-button>
-    <el-button type="danger" text bg>文字链接</el-button>
-    <el-button type="info" text bg>文字链接</el-button>
   </div>
   <div class="flex-content">
     <p @click="loading = !loading" style="cursor: pointer;">Loading：</p>
     <el-button loading :loading-icon="Eleme"></el-button>
     <el-button type="primary" :loading="loading">{{ loading ? '' : 'Loading' }}</el-button>
-    <el-button type="success" loading>Loading</el-button>
-    <el-button type="warning" loading></el-button>
-    <el-button type="danger" loading></el-button>
-    <el-button type="info" loading></el-button>
   </div>
+  <!-- Dropdown -->
   <div class="flex-content">
     <p>Dropdown：</p>
     <el-dropdown split-button type="primary">
@@ -192,11 +139,13 @@ const noticeHandle = (type: string) => {
       </template>
     </el-dropdown>
   </div>
+  <!-- Input -->
   <div class="flex-content">
     <p>Input：</p>
     <el-input placeholder="暗提示" v-model="inputValue"></el-input>
     <el-input placeholder="暗提示" disabled v-model="inputValue"></el-input>
   </div>
+  <!-- Radio -->
   <div class="flex-content">
     <p>Radio：</p>
     <el-radio-group v-model="radioValue">
@@ -211,6 +160,7 @@ const noticeHandle = (type: string) => {
       <el-radio-button :label="3">Option C</el-radio-button>
     </el-radio-group>
   </div>
+  <!-- Checkbox -->
   <div class="flex-content">
     <p>Checkbox：</p>
     <el-checkbox-group v-model="checkValue">
@@ -232,31 +182,13 @@ const noticeHandle = (type: string) => {
       >{{ item.name }}</el-checkbox-button>
     </el-checkbox-group>
   </div>
-  <!-- <div class="flex-content">
-    <p>Select：</p>
-    <el-select v-model="selectValue" placeholder="Select">
-      <el-option
-        v-for="item in selectList"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
-      ></el-option>
-    </el-select>
-
-    <el-select v-model="selectValue" placeholder="Select" disabled>
-      <el-option
-        v-for="item in selectList"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
-      ></el-option>
-    </el-select>
-  </div> -->
+  <!-- Switch -->
   <div class="flex-content">
     <p>Switch：</p>
     <el-switch v-model="switchValue" />
     <el-switch v-model="switchValue" disabled style="margin-left: 12px;" />
-  </div>
+  </div>  
+  <!-- Tooltip -->
   <div class="flex-content">
     <p>Tooltip：</p>
     <el-alert title="success alert" type="success" show-icon />
@@ -264,50 +196,21 @@ const noticeHandle = (type: string) => {
     <el-alert title="warning alert" type="warning" show-icon />
     <el-alert title="error alert" type="error" show-icon />
   </div>
+  <!-- Message + Notification -->
   <div class="flex-content">
-    <p>Notification：</p>
+    <p>Message：</p>
     <el-button plain @click="noticeHandle('success')">Success</el-button>
     <el-button plain @click="noticeHandle('warning')">Warning</el-button>
     <el-button plain @click="noticeHandle('info')">Info</el-button>
     <el-button plain @click="noticeHandle('error')">Error</el-button>
   </div>
-   <div class="flex-content">
-    <p>Message：</p>
-      <el-button plain @click="noticeHandle('success')">Success</el-button>
-      <el-button plain @click="noticeHandle('warning')">Warning</el-button>
-      <el-button plain @click="noticeHandle('info')">Info</el-button>
-      <el-button plain @click="noticeHandle('error')">Error</el-button>
+  <!-- Dialog -->
+  <div class="flex-content">
+    <p>Dialog：</p>
+    <el-dialog
+      v-model="dialogVisible"
+    ></el-dialog>
   </div>
- 
-  <!-- <el-input v-model="input" style="width: 200px; margin: 20px" />
-  <el-tag>Tag 1</el-tag>
-
-  <br />
-  <el-date-picker v-model="curDate" type="date" placeholder="Pick a day"></el-date-picker>
-
-  <p>For example, we can custom primary color to 'green'.</p>
-
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test components.
-  </p>
-  <p>
-    Edit
-    <code>styles/element/var.scss</code> to test scss variables.
-  </p>
-
-  <p>
-    Full Example:
-    <a
-      href="https://github.com/element-plus/element-plus-vite-starter"
-      target="_blank"
-    >element-plus-vite-starter</a>
-    | On demand Example:
-    <a
-      href="https://github.com/element-plus/unplugin-element-plus"
-      target="_blank"
-    >unplugin-element-plus/examples/vite</a>
-  </p> -->
 </template>
 
 <style scoped>
