@@ -207,9 +207,18 @@ const dialogVisible = ref(false)
   <!-- Dialog -->
   <div class="flex-content">
     <p>Dialog：</p>
+    <el-button plain @click="dialogVisible = true">Dialog</el-button>
     <el-dialog
       v-model="dialogVisible"
-    ></el-dialog>
+      title="提示"
+      width="560px"
+    >
+      <div>内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域</div>
+      <template #footer>
+        <el-button @click="dialogVisible = false">取消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">确认</el-button>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -226,10 +235,6 @@ const dialogVisible = ref(false)
 
 .ep-dropdown {
   margin-right: 12px;
-}
-
-.ep-button {
-  width: 120px;
 }
 
 .ep-input,

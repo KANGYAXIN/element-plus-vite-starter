@@ -80,7 +80,15 @@ $--colors: (
 
 @use "./element-plus/message.scss" as *;
 
+@use "./element-plus/dialog.scss" as *;
+
 //设置本套主题色为custom前缀，当html标签中设置class="custom"此套主题生效
 html.custom {
-  
+
+  .ep-dialog__footer {
+
+    .ep-button + .ep-button {
+      margin-left: 16px;
+    }
+  }
 }

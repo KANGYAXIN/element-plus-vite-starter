@@ -1,0 +1,40 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/utils' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var' as *;
+
+@include b(dialog) {
+  @include set-component-css-var('dialog', $dialog);
+
+  @include e(header) {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    padding: getCssVar('dialog', 'padding-primary');
+    border-bottom: getCssVar('border', 'width') getCssVar('border', 'style') getCssVar('dialog', 'header-border-color');
+  }
+
+  @include e(headerbtn) {
+    top: 2px;
+    width: 56px;
+    height: 56px;
+  }
+
+  @include e(title) {
+    line-height: getCssVar('dialog-font-line-height');
+    font-size: getCssVar('dialog-title-font-size');
+    font-weight: getCssVar('dialog-title-font-weight');
+    color: getCssVar('text-color', 'regular');
+  }
+
+  @include e(body) {
+    padding: getCssVar('dialog-content-padding');
+  }
+
+  @include e(footer) {
+    padding: getCssVar('dialog-footer-padding');
+    border-top: getCssVar('border', 'width') getCssVar('border', 'style') getCssVar('dialog', 'header-border-color');
+  }
+}
