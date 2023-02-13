@@ -169,6 +169,15 @@ $dialog: map.merge(
   $dialog
 );
 
+// skeleton
+$skeleton: () !default;
+$skeleton: map.merge(
+  (
+    'color': #F4F4F5,
+  ),
+  $skeleton
+);
+
 // Button
 $button: () !default;
 $button: map.merge(

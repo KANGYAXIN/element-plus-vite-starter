@@ -220,6 +220,11 @@ const dialogVisible = ref(false)
       </template>
     </el-dialog>
   </div>
+  <!-- Skeleton -->
+  <div class="flex-content">
+    <p>Skeleton：</p>
+    <el-skeleton :rows="1" />
+  </div>
 </template>
 
 <style scoped>
