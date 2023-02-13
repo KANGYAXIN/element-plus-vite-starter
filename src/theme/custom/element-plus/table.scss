@@ -1,0 +1,27 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var.scss' as *;
+
+@include b(table) {
+
+  th.#{$namespace}-table__cell {
+    background-color: getCssVar('color', 'primary', 'light-2');
+    color: getCssVar('text-color', 'regular');
+    font-weight: 600;
+  }
+
+  .#{$namespace}-table__cell {
+    padding: map.get($table-padding, 'default');
+  }
+
+  @include e((header-wrapper, body-wrapper)) {
+    .#{$namespace}-table-column--selection {
+      text-align: center;
+      > .cell {
+        padding: 0px;
+      }
+    }
+  }
+}

@@ -102,6 +102,18 @@ const pagination = ref({
   currentPage: 1,
   pageSize: 20,
 })
+const tableData = ref([
+  {
+    type: '淘宝',
+    orderSn: '14556578340297',
+    name: '荷叶边吊带裙开衫套装',
+  },
+  {
+    type: '拼多多',
+    orderSn: '14556578340297',
+    name: '困惑的赫德森的小店铺',
+  },
+])
 </script>
 
 <template>
@@ -271,6 +283,20 @@ const pagination = ref({
   <div class="flex-content">
     <p>Skeleton：</p>
     <el-skeleton :rows="1" />
+  </div>
+  <!-- Table -->
+  <div class="flex-content">
+    <p>Table：</p>
+    <el-table
+      :data="tableData"
+      style="width: 50%"
+      border
+    >
+      <el-table-column type="selection" width="55" />
+      <el-table-column label="图片/商品名称" prop="name" header-align="center"></el-table-column>
+      <el-table-column label="平台类型" prop="type" header-align="center"></el-table-column>
+      <el-table-column label="订单编号" prop="orderSn" header-align="center" show-overflow-tooltip></el-table-column>
+    </el-table>
   </div>
   <!-- Pagination -->
   <div class="flex-content">

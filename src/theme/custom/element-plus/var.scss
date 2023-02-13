@@ -178,6 +178,17 @@ $skeleton: map.merge(
   $skeleton
 );
 
+// Table
+$table-padding: () !default;
+$table-padding: map.merge(
+  (
+    'large': 12px 0,
+    'default': 8px 12px,
+    'small': 4px 0,
+  ),
+  $table-padding
+);
+
 // Pagination
 $pagination: () !default;
 $pagination: map.merge(
