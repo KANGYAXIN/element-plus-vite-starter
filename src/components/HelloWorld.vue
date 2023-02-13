@@ -75,6 +75,10 @@ const noticeHandle = (type: string) => {
   })
 }
 const dialogVisible = ref(false)
+const pagination = ref({
+  currentPage: 1,
+  pageSize: 20,
+})
 </script>
 
 <template>
@@ -224,6 +228,18 @@ const dialogVisible = ref(false)
   <div class="flex-content">
     <p>Skeleton：</p>
     <el-skeleton :rows="1" />
+  </div>
+  <!-- Pagination -->
+  <div class="flex-content">
+    <p>Pagination：</p>
+    <el-pagination
+      v-model:current-page="pagination.currentPage"
+      v-model:page-size="pagination.pageSize"
+      :page-sizes="[100, 200, 300, 400]"
+      background
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="400"
+    />
   </div>
 </template>
 

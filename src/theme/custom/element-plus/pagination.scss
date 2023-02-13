@@ -1,0 +1,26 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/utils' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var' as *;
+
+@include b(pagination) {
+
+  @include set-component-css-var('pagination', $pagination);
+
+  @include when(background) {
+
+    .btn-prev,
+    .btn-next,
+    .#{$namespace}-pager li {
+      background-color: getCssVar('color', 'white');
+      border: getCssVar('border', 'width') getCssVar('border', 'style') getCssVar('pagination-button-bg-color');
+
+      &.is-active {
+        border: none;
+      }
+    }
+  }
+}
+
