@@ -58,6 +58,29 @@ const checkList = ref(
     },
   ]
 )
+const selectValue = ref('')
+const selectList = ref([
+  {
+    label: 'Option A',
+    value: 1,
+    disabled: true
+  },
+  {
+    label: 'Option B',
+    value: 2,
+    disabled: false
+  },
+  {
+    label: 'Option C',
+    value: 3,
+    disabled: false
+  },
+  {
+    label: 'Option D',
+    value: 4,
+    disabled: false
+  }
+])
 const switchValue = ref(true)
 
 const noticeHandle = (type: string) => {
@@ -185,6 +208,26 @@ const pagination = ref({
         :disabled="item.disabled"
       >{{ item.name }}</el-checkbox-button>
     </el-checkbox-group>
+  </div>
+  <!-- Select -->
+  <div class="flex-content">
+    <p>Select：</p>
+    <el-select 
+      v-model="selectValue" 
+      clearable 
+      multiple
+      collapse-tags
+      collapse-tags-tooltip
+    >
+      <el-option
+        v-for="item in selectList"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+        :disabled="item.disabled"
+      ></el-option>
+    </el-select>
+    <el-select v-model="selectValue" clearable disabled></el-select>
   </div>
   <!-- Switch -->
   <div class="flex-content">

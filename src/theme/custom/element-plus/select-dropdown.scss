@@ -1,0 +1,20 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use './var.scss' as *;
+
+@include b(select-dropdown) {
+
+  .#{$namespace}-select-dropdown__item.hover {
+    background-color: #F8F8F9;
+  }
+
+  .#{$namespace}-select-dropdown__item.selected {
+    background-color: #F4F8FE;
+    font-weight: 500;
+  }
+
+  .#{$namespace}-select-dropdown__item.is-disabled {
+    color: getCssVar('border-color');
+  }
+}

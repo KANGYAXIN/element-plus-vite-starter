@@ -1,0 +1,28 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/utils' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var.scss' as *;
+@use './select-dropdown.scss';
+@use 'element-plus/theme-chalk/src/select/common.scss' as *;
+
+@mixin select-tag-normal {
+
+  .#{$namespace}-tag--info {
+    background-color: getCssVar('color-primary-light-9');
+    border-color: map.get($button, 'disabled-border-color');
+    color: map.get($text-color, 'regular');
+  }
+}
+
+@include b(select) {
+
+  @include e(tags) {
+    @include select-tag-normal;
+  }
+
+  @include e(collapse-tags) {
+    @include select-tag-normal;
+  }
+}
