@@ -1,0 +1,114 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use './var.scss' as *;
+
+$step-item-success: () !default;
+$step-item-success: map.merge(
+  (
+    'color': #1975FE,
+  ),
+  $step-item-success
+);
+
+@include b(step) {
+
+  @include e(head) {
+
+    @include when(process) {
+      border-color: getCssVar('color-primary');
+
+      @include e(icon) {
+        background-color: getCssVar('color-primary');
+      }
+
+      @include e(icon-inner) {
+        color: getCssVar('color-white');
+      }
+    }
+
+    @include when(wait) {
+
+      @include e(icon) {
+        background-color: getCssVar('border-color');
+        border-color: getCssVar('border-color');
+      }
+
+      @include e(icon-inner) {
+        color: getCssVar('color-white');
+      }
+    }
+
+    @include when(success) {
+      color: getCssVar('step-item-success');
+      border: getCssVar('step-item-success');
+    }
+
+    @include when(error) {
+
+      @include e(icon) {
+        background-color: getCssVar('color-error');
+      }
+
+      @include e(icon-inner) {
+        color: getCssVar('color-white');
+      }
+    }
+  }
+
+  @include e(line) {
+    left: calc(50% + 20px) !important;
+    right: calc(-50% + 20px) !important;
+  }
+
+  @include e(title) {
+    font-size: 14px;
+    font-weight: 500;
+
+    @include when(process) {
+      color: getCssVar('color-primary');
+    }
+
+    @include when(wait) {
+      font-weight: 400;
+      color: getCssVar('text-color-placeholder');
+    }
+
+    @include when(success) {
+      color: getCssVar('text-color-regular');
+    }
+
+    @include when(error) {
+      color: getCssVar('color-danger');
+    }
+
+    @include when(finish) {
+      color: getCssVar('text-color-regular');
+    }
+  }
+
+  @include e(description) {
+    font-size: 12px;
+
+    @include when(process) {
+      color: getCssVar('text-color', 'placeholder');
+    }
+
+    @include when(wait) {
+      color: getCssVar('text-color', 'placeholder');
+    }
+
+    @include when(success) {
+      color: getCssVar('text-color', 'placeholder');
+    }
+
+    @include when(error) {
+      color: getCssVar('text-color', 'placeholder');
+    }
+
+    @include when(finish) {
+      color: getCssVar('text-color', 'placeholder');
+    }
+    
+  }
+}

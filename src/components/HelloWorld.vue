@@ -114,6 +114,10 @@ const tableData = ref([
     name: '困惑的赫德森的小店铺',
   },
 ])
+const stepValue = ref(0)
+const stepHandle = () => {
+  if (stepValue.value++ > 2) stepValue.value = 0
+}
 </script>
 
 <template>
@@ -330,6 +334,16 @@ const tableData = ref([
       <el-breadcrumb-item>当前页面</el-breadcrumb-item>
     </el-breadcrumb>
   </div>
+  <!-- Step -->
+  <div class="flex-content">
+    <p>Step：</p>
+    <el-button plain @click="stepHandle">Step</el-button>
+    <el-steps :active="stepValue" align-center finish-status="success">
+      <el-step title="状态文案" description="辅助说明" />
+      <el-step title="状态文案" description="辅助说明" />
+      <el-step title="状态文案" description="辅助说明" />
+    </el-steps>
+  </div>
 </template>
 
 <style scoped>
@@ -352,5 +366,9 @@ const tableData = ref([
 .ep-alert {
   width: 300px;
   margin-right: 12px;
+}
+
+.ep-steps {
+  width: 800px;
 }
 </style>
