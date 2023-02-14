@@ -48,7 +48,7 @@ $--colors: (
     'dark-2': #A90000
   ),
   'info': (
-    'base': #909399
+    'base': #E9E9EA,
   )
 );
 //通过sass中的@forward with函数对var.scss文件的$colors变量进行重新复制
@@ -61,6 +61,8 @@ $--colors: (
 @use "./element-plus/css-vars.scss" as *;
 
 @use "./element-plus/button.scss" as *;
+
+@use "./element-plus/button-group.scss" as *;
 
 @use "./element-plus/input.scss" as *;
 

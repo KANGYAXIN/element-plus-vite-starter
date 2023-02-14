@@ -152,8 +152,13 @@ const tableData = ref([
         </el-dropdown-menu>
       </template>
     </el-dropdown>
-    <el-dropdown split-button>
-      Dropdown List
+    <el-dropdown>
+      <el-button-group>
+        <el-button plain type="primary">Dropdown List</el-button>
+        <el-button plain type="primary" style="width: 32px;">
+          <el-icon><arrow-down /></el-icon>
+        </el-button>
+      </el-button-group>
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item>Action 1</el-dropdown-item>
