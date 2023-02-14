@@ -64,6 +64,8 @@ $--colors: (
 
 @use "./element-plus/button-group.scss" as *;
 
+@use "./element-plus/dropdown.scss" as *;
+
 @use "./element-plus/input.scss" as *;
 
 @use "./element-plus/radio.scss" as *;
@@ -91,6 +93,8 @@ $--colors: (
 @use "./element-plus/pagination.scss" as *;
 
 @use "./element-plus/table.scss" as *;
+
+@use "./element-plus/breadcrumb.scss" as *;
 
 //设置本套主题色为custom前缀，当html标签中设置class="custom"此套主题生效
 html.custom {

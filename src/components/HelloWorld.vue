@@ -320,6 +320,16 @@ const tableData = ref([
       :total="400"
     />
   </div>
+  <!-- Breadcrumb -->
+  <div class="flex-content">
+    <p>Breadcrumb：</p>
+    <el-breadcrumb separator="/">
+      <el-breadcrumb-item :to="{ path: '/' }">一级内容</el-breadcrumb-item>
+      <el-breadcrumb-item><a href="/">二级内容</a></el-breadcrumb-item>
+      <el-breadcrumb-item>三级内容</el-breadcrumb-item>
+      <el-breadcrumb-item>当前页面</el-breadcrumb-item>
+    </el-breadcrumb>
+  </div>
 </template>
 
 <style scoped>

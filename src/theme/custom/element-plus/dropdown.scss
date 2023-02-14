@@ -1,0 +1,27 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var.scss' as *;
+
+$dropdown-item-padding: () !default;
+$dropdown-item-padding: map.merge(
+  (
+    'large': 7px 20px,
+    'default': 5px 12px,
+    'small': 2px 12px,
+  ),
+  $dropdown-item-padding
+);
+
+@include b(dropdown-menu) {
+  padding: 0;
+
+  @include e(item) {
+
+    &:not(.is-disabled):focus {
+      background-color: getCssVar('color-primary-light-9');
+      color: getCssVar('text-color-regular');
+    }
+  }
+}

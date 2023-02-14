@@ -1,0 +1,28 @@
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/utils' as *;
+@use './var' as *;
+
+@include b(breadcrumb) {
+
+  @include e(separator) {
+    font-weight: getCssVar('font-weight-primary');
+  }
+
+  @include e(item) {
+
+    @include e(inner) {
+      color: getCssVar('text-color', 'placeholder');
+
+      &.is-link,
+      & a {
+        font-weight: getCssVar('font-weight-primary');
+        color: getCssVar('text-color', 'placeholder');
+
+        &:hover {
+          color: getCssVar('color-primary');
+        }
+      }
+
+    }
+  }
+}
