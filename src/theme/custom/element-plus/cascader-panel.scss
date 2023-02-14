@@ -1,0 +1,40 @@
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var' as *;
+
+@include b(cascader-menu) {
+
+  &:last-child {
+
+    .#{$namespace}-cascader-node {
+      padding-right: 0px;
+    }
+  }
+
+  @include e(list) {
+    padding: 0px;
+  }
+}
+
+@include b(cascader-node) {
+  padding: 0px 12px;
+
+  &.in-active-path,
+  &.is-selectable.in-checked-path,
+  &.is-active {
+    background-color: getCssVar('color', 'primary', 'light-2');
+    font-weight: 500;
+  }
+
+  @include e(prefix) {
+    left: -2px;
+  }
+
+  @include e(postfix) {
+    color: getCssVar('text-color', 'placeholder');
+  }
+
+  @include e(label) {
+    padding: 0px;
+  }
+}
