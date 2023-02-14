@@ -9,10 +9,24 @@
   @each $type in (primary, success, warning, danger, info) {
     .#{$namespace}-button--#{$type} {
       &:first-child {
-        border-right-color: getCssVar('button', $type);
+        border-right-color: getCssVar('color', $type, 'dark-2');
       }
       &:last-child {
-        border-left-color: getCssVar('button', $type);
+        border-left-color: getCssVar('color', $type, 'dark-2');
+      }
+      &.is-plain:first-child,
+      &:active:first-child {
+        border-right-color: getCssVar('color', $type);
+      }
+      &.is-plain:last-child,
+      &:active:last-child {
+        border-left-color: getCssVar('color', $type);
+      }
+      &:hover:first-child {
+        border-right-color: getCssVar('color', $type, 'light-3');
+      }
+      &:hover:last-child {
+        border-left-color: getCssVar('color', $type, 'light-3');
       }
     }
   }

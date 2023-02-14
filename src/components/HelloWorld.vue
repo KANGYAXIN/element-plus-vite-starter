@@ -142,19 +142,24 @@ const tableData = ref([
   <!-- Dropdown -->
   <div class="flex-content">
     <p>Dropdown：</p>
-    <el-dropdown split-button type="primary">
-      Dropdown List
+    <el-dropdown trigger="click" placement="bottom-start">
+      <el-button-group>
+        <el-button type="primary" @click.stop>Dropdown List</el-button>
+        <el-button type="primary" style="width: 32px;">
+          <el-icon><arrow-down /></el-icon>
+        </el-button>
+      </el-button-group>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item>Action 1</el-dropdown-item>
+          <el-dropdown-item>Action 1Action 1Action 1Action 1</el-dropdown-item>
           <el-dropdown-item>Action 2</el-dropdown-item>
           <el-dropdown-item>Action 3</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
-    <el-dropdown>
+    <el-dropdown trigger="click" placement="bottom-start">
       <el-button-group>
-        <el-button plain type="primary">Dropdown List</el-button>
+        <el-button plain type="primary" @click.stop>Dropdown List</el-button>
         <el-button plain type="primary" style="width: 32px;">
           <el-icon><arrow-down /></el-icon>
         </el-button>
@@ -167,7 +172,7 @@ const tableData = ref([
         </el-dropdown-menu>
       </template>
     </el-dropdown>
-    <el-dropdown>
+    <el-dropdown trigger="click" placement="bottom-start">
       <el-button-group>
         <el-button plain>Dropdown List</el-button>
         <el-button plain style="width: 32px;">
@@ -252,10 +257,10 @@ const tableData = ref([
     <el-switch v-model="switchValue" />
     <el-switch v-model="switchValue" disabled style="margin-left: 12px;" />
   </div>  
-  <!-- Tooltip -->
+  <!-- Alert -->
   <div class="flex-content">
-    <p>Tooltip：</p>
-    <el-alert title="success alert" type="success" show-icon />
+    <p>Alert：</p>
+    <el-alert title="info alert" type="success" show-icon />
     <el-alert title="info alert" type="info" show-icon />
     <el-alert title="warning alert" type="warning" show-icon />
     <el-alert title="error alert" type="error" show-icon />
