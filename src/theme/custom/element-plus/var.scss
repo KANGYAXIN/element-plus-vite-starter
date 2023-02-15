@@ -63,6 +63,17 @@ $border-width: 1px !default;
 $border-style: solid !default;
 $border-color-hover: getCssVar('color', 'primary') !default;
 
+$border-radius: () !default;
+$border-radius: map.merge(
+  (
+    'base': 2px,
+    'small': 2px,
+    'round': 20px,
+    'circle': 100%,
+  ),
+  $border-radius
+);
+
 // Input
 $input-disabled: () !default;
 $input-disabled: map.merge(
@@ -223,6 +234,17 @@ $slider: map.merge(
     // 'button-wrapper-offset': -15px,
   ),
   $slider
+);
+
+$date-editor: () !default;
+$date-editor: map.merge(
+  (
+    'width': 240px,
+    // 'monthrange-width': 300px,
+    // 'daterange-width': 350px,
+    // 'datetimerange-width': 400px,
+  ),
+  $date-editor
 );
 
 // Button

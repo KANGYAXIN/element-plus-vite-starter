@@ -9,6 +9,12 @@
 
 @include b(checkbox-button) {
 
+  @include e(inner) {
+    height: 32px;
+    line-height: 30px;
+    padding: 0px 12px;
+  }
+
   &.is-checked.is-disabled {
 
     & .#{$namespace}-checkbox-button__inner {

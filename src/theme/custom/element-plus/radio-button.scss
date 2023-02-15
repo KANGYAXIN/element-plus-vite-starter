@@ -12,6 +12,12 @@
 
 @include b(radio-button) {
 
+  @include e(inner) {
+    height: 32px;
+    line-height: 30px;
+    padding: 0px 12px;
+  }
+
   @include e(original-radio) {
 
     &:disabled {

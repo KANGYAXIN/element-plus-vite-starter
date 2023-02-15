@@ -462,7 +462,7 @@ const sliderMarks = ref({
         </el-dropdown-menu>
       </template>
     </el-dropdown>
-    <el-dropdown trigger="click" placement="bottom-start">
+    <el-dropdown trigger="click" placement="bottom-start" style="margin-left: 12px;">
       <el-button-group>
         <el-button plain type="primary" @click.stop>Dropdown List</el-button>
         <el-button plain type="primary" style="width: 32px;">
@@ -477,7 +477,7 @@ const sliderMarks = ref({
         </el-dropdown-menu>
       </template>
     </el-dropdown>
-    <el-dropdown trigger="click" placement="bottom-start">
+    <el-dropdown trigger="click" placement="bottom-start" style="margin-left: 12px;">
       <el-button-group>
         <el-button plain>Dropdown List</el-button>
         <el-button plain style="width: 32px;">
@@ -509,7 +509,7 @@ const sliderMarks = ref({
   <div class="flex-content">
     <p>Step：</p>
     <el-button plain @click="stepHandle">Step</el-button>
-    <el-steps :active="stepValue" align-center finish-status="success">
+    <el-steps :active="stepValue" align-center finish-status="success" style="width: 800px;">
       <el-step title="状态文案" description="辅助说明" />
       <el-step title="状态文案" description="辅助说明" />
       <el-step title="状态文案" description="辅助说明" />
@@ -521,25 +521,25 @@ const sliderMarks = ref({
   <div class="flex-content">
     <p>Input：</p>
     <el-input placeholder="暗提示" v-model="inputValue"></el-input>
-    <el-input placeholder="暗提示" disabled v-model="inputValue"></el-input>
-    <el-input placeholder="暗提示" disabled v-model="inputValue">
+    <el-input placeholder="暗提示" disabled v-model="inputValue" style="margin-left: 12px;"></el-input>
+    <el-input placeholder="暗提示" disabled v-model="inputValue" style="margin-left: 12px;">
       <template #prepend>Http://</template>
       <template #append>.com</template>
     </el-input>
     <el-input
       v-model="inputValue"
-      class="w-50 m-2"
       placeholder="暗提示"
       :prefix-icon="Search"
       :suffix-icon="Search"
       clearable
+      style="margin-left: 12px;"
     />
     <el-input 
       placeholder="暗提示" 
       v-model="inputValue"
       :rows="3"
       type="textarea"
-      style="width: 300px;"
+      style="margin-left: 12px;"
     />
   </div>
   <!-- Radio -->
@@ -614,22 +614,26 @@ const sliderMarks = ref({
       type="month"
       placeholder="请选择月份"
       :disabled-date="disabledDate"
-    />
-    <el-date-picker
-      v-model="dateValue3"
-      type="dates"
-      placeholder="请选择日期"
-      :disabled-date="disabledDate"
+      style="margin-left: 12px;"
     />
     <el-date-picker
       v-model="dateValue4"
       type="week"
       placeholder="请选择周"
       :disabled-date="disabledDate"
+      style="margin-left: 12px;"
+    />
+    <el-date-picker
+      v-model="dateValue3"
+      type="dates"
+      placeholder="请选择日期"
+      :disabled-date="disabledDate"
+      style="margin-left: 12px;"
     />
     <el-time-picker
       v-model="dataValue6"
       placeholder="请选择时间"
+      style="margin-left: 12px;"
     ></el-time-picker>
     <el-date-picker
       v-model="dateValue5"
@@ -637,6 +641,7 @@ const sliderMarks = ref({
       range-separator="至"
       start-placeholder="开始日期"
       end-placeholder="结束日期"
+      style="margin-left: 12px;"
     />
   </div>
   <!-- Switch -->
@@ -651,7 +656,6 @@ const sliderMarks = ref({
     <el-cascader 
       v-model="cascaderValue" 
       :options="cascaderOptions" 
-      style="width: 300px"
     ></el-cascader>
   </div>
   <!-- 颜色选择器 -->
@@ -757,6 +761,7 @@ const sliderMarks = ref({
 .flex-content {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .flex-content:last-child {
@@ -768,18 +773,12 @@ const sliderMarks = ref({
   text-align: right;
 }
 
-.ep-dropdown {
-  margin-right: 12px;
-}
-
-.ep-input,
 .ep-select,
 .ep-alert {
-  width: 300px;
   margin-right: 12px;
 }
 
-.ep-steps {
-  width: 800px;
+.ep-alert {
+  width: 240px;
 }
 </style>
