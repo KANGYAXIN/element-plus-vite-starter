@@ -17,6 +17,7 @@
 
   @include e(wrapper) {
     width: getCssVar('date-editor-width');
+    box-sizing: border-box;
   }
 
   @include when(disabled) {

@@ -240,9 +240,9 @@ $date-editor: () !default;
 $date-editor: map.merge(
   (
     'width': 240px,
-    // 'monthrange-width': 300px,
-    // 'daterange-width': 350px,
-    // 'datetimerange-width': 400px,
+    'monthrange-width': 300px,
+    'daterange-width': 350px,
+    'datetimerange-width': 400px,
   ),
   $date-editor
 );

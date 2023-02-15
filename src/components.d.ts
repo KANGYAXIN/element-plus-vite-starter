@@ -22,6 +22,8 @@ declare module '@vue/runtime-core' {
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
+    ElForm: typeof import('element-plus/es')['ElForm']
+    ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElMenu: typeof import('element-plus/es')['ElMenu']
@@ -44,6 +46,9 @@ declare module '@vue/runtime-core' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    'HelloWorld copy': typeof import('./components/HelloWorld copy.vue')['default']
+    HelloWorld_copy: typeof import('./components/HelloWorld_copy.vue')['default']
+    HelloWorld_old: typeof import('./components/HelloWorld_old.vue')['default']
   }
 }
 

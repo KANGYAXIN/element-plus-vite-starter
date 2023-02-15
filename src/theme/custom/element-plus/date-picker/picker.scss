@@ -1,0 +1,36 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use '../var' as *;
+@use 'element-plus/theme-chalk/src/common/transition' as *;
+
+@include b(date-editor) {
+  @include set-component-css-var('date-editor', $date-editor);
+
+  &.#{$namespace}-input,
+  &.#{$namespace}-input__wrapper {
+    width: getCssVar('date-editor-width');
+  }
+
+  @include m((monthrange)) {
+    @include css-var-from-global(
+      'date-editor-width',
+      'date-editor-monthrange-width'
+    );
+  }
+
+  @include m((daterange, timerange)) {
+    @include css-var-from-global(
+      'date-editor-width',
+      'date-editor-daterange-width'
+    );
+  }
+
+  @include m(datetimerange) {
+    @include css-var-from-global(
+      'date-editor-width',
+      'date-editor-datetimerange-width'
+    );
+  }
+}
