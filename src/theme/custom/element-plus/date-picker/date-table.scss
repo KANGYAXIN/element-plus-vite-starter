@@ -3,6 +3,21 @@
 
 @include b(date-table) {
 
+  @include when(week-mode) {
+    .#{$namespace}-date-table__row {
+      &:hover {
+        td:first-child .#{$namespace}-date-table-cell {
+          border-top-left-radius: 2px;
+          border-bottom-left-radius: 2px;
+        }
+        td:last-child .#{$namespace}-date-table-cell {
+          border-top-right-radius: 2px;
+          border-bottom-right-radius: 2px;
+        }
+      }
+    }
+  }
+
   td {
 
     @include b(date-table-cell) {
@@ -21,6 +36,16 @@
       &:hover {
         background-color: getCssVar('color', 'primary', 'light-2');
       }
+    }
+
+    &.start-date .#{$namespace}-date-table-cell {
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
+
+    &.end-date .#{$namespace}-date-table-cell {
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
     }
   }
 }

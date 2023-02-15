@@ -13,6 +13,10 @@
     background-color: getCssVar('color-primary-light-9');
     border-color: map.get($button, 'disabled-border-color');
     color: map.get($text-color, 'regular');
+
+    .#{$namespace}-tag__close {
+      color: getCssVar('text-color-placeholder');
+    }
   }
 }
 
