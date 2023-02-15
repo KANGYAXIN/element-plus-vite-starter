@@ -1,0 +1,38 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/utils' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var' as *;
+
+@include b(slider) {
+  @include set-component-css-var('slider', $slider);
+}
+
+@include b(slider) {
+
+  @include e(bar) {
+
+    &:hover {
+      background-color: getCssVar('slider-main-hover-bg-color');
+    }
+  }
+
+  @include e(button) {
+
+    &:hover,
+    &.hover,
+    &.dragging {
+      transform: scale(1);
+      border-color: getCssVar('slider-main-hover-bg-color');
+    }
+  }
+
+  @include e(marks) {
+
+    @include e(marks-text) {
+      color: getCssVar('text-color-regular');
+      margin-top: 12px;
+    }
+  }
+}

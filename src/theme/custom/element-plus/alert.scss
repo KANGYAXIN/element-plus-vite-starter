@@ -5,7 +5,7 @@
 @use './var.scss' as *;
 
 @include b(alert) {
-  // @include set-component-css-var('alert', $alert);
+  @include set-component-css-var('alert', $alert);
 
   @each $type in (success, info, warning, error) {
     @include m($type) {

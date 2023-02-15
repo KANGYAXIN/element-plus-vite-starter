@@ -1,0 +1,12 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var' as *;
+
+@include b(rate) {
+
+  @include e(text) {
+    color: getCssVar('text-color-regular');
+  }
+}

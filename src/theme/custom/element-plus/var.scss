@@ -139,6 +139,15 @@ $notification: map.merge(
   $notification
 );
 
+// Alert
+$alert: () !default;
+$alert: map.merge(
+  (
+    'padding': 9.5px 16px,
+  ),
+  $alert
+);
+
 // Message
 $message: () !default;
 $message: map.merge(
@@ -196,6 +205,24 @@ $pagination: map.merge(
     'button-bg-color': getCssVar('button', 'disabled-border-color'),
   ),
   $pagination
+);
+
+// Slider
+$slider: () !default;
+$slider: map.merge(
+  (
+    'main-bg-color': #94B4EB,
+    'main-hover-bg-color': getCssVar('color-primary'),
+    'runway-bg-color': #E9E9EA,
+    // 'stop-bg-color': getCssVar('color-white'),
+    // 'disabled-color': getCssVar('text-color-placeholder'),
+    // 'border-radius': 3px,
+    'height': 4px,
+    'button-size': 10px, 
+    // 'button-wrapper-size': 36px,
+    // 'button-wrapper-offset': -15px,
+  ),
+  $slider
 );
 
 // Button

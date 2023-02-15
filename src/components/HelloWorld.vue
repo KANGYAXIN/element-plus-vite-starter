@@ -396,10 +396,24 @@ const dataValue6 = ref('')
 const disabledDate = (time: Date) => {
   return time.getTime() < Date.now()
 }
+const rateValue = ref()
+const sliderValue = ref(0)
+const sliderMarks = ref({
+  0: '0',
+  10: '10',
+  20: '20',
+  30: '30',
+  40: '40',
+  50: '50',
+  60: '60',
+  70: '70',
+  80: '80',
+  90: '90',
+  100: '100',
+})
 </script>
 
 <template>
-  <!-- example components -->
   <!-- Button -->
   <div class="flex-content">
     <p>Normal：</p>
@@ -415,11 +429,20 @@ const disabledDate = (time: Date) => {
     <el-button type="primary" plain>Plain</el-button>
     <el-button type="primary" plain disabled>Plain - Disabled</el-button>
     <el-button type="primary" text bg>文字链接</el-button>
-  </div>
-  <div class="flex-content">
-    <p @click="loading = !loading" style="cursor: pointer;">Loading：</p>
     <el-button loading :loading-icon="Eleme"></el-button>
-    <el-button type="primary" :loading="loading">{{ loading ? '' : 'Loading' }}</el-button>
+    <el-button type="primary" :loading="true">loading</el-button>
+  </div>
+
+  <!-- ------------------------------------------------------------ -->
+  <!-- Breadcrumb -->
+  <div class="flex-content">
+    <p>Breadcrumb：</p>
+    <el-breadcrumb separator="/">
+      <el-breadcrumb-item :to="{ path: '/' }">一级内容</el-breadcrumb-item>
+      <el-breadcrumb-item><a href="/">二级内容</a></el-breadcrumb-item>
+      <el-breadcrumb-item>三级内容</el-breadcrumb-item>
+      <el-breadcrumb-item>当前页面</el-breadcrumb-item>
+    </el-breadcrumb>
   </div>
   <!-- Dropdown -->
   <div class="flex-content">
@@ -470,6 +493,30 @@ const disabledDate = (time: Date) => {
       </template>
     </el-dropdown>
   </div>
+  <!-- Pagination -->
+  <div class="flex-content">
+    <p>Pagination：</p>
+    <el-pagination
+      v-model:current-page="pagination.currentPage"
+      v-model:page-size="pagination.pageSize"
+      :page-sizes="[100, 200, 300, 400]"
+      background
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="400"
+    />
+  </div>
+  <!-- Step -->
+  <div class="flex-content">
+    <p>Step：</p>
+    <el-button plain @click="stepHandle">Step</el-button>
+    <el-steps :active="stepValue" align-center finish-status="success">
+      <el-step title="状态文案" description="辅助说明" />
+      <el-step title="状态文案" description="辅助说明" />
+      <el-step title="状态文案" description="辅助说明" />
+    </el-steps>
+  </div>
+
+  <!-- ------------------------------------------------------------ -->
   <!-- Input -->
   <div class="flex-content">
     <p>Input：</p>
@@ -533,104 +580,6 @@ const disabledDate = (time: Date) => {
     </el-select>
     <el-select v-model="selectValue" clearable disabled></el-select>
   </div>
-  <!-- Cascader -->
-  <div class="flex-content">
-    <p>Cascader：</p>
-    <el-cascader 
-      v-model="cascaderValue" 
-      :options="cascaderOptions" 
-      style="width: 300px"
-    ></el-cascader>
-  </div>
-  <!-- Switch -->
-  <div class="flex-content">
-    <p>Switch：</p>
-    <el-switch v-model="switchValue" />
-    <el-switch v-model="switchValue" disabled style="margin-left: 12px;" />
-  </div>  
-  <!-- Alert -->
-  <div class="flex-content">
-    <p>Alert：</p>
-    <el-alert title="info alert" type="success" show-icon />
-    <el-alert title="info alert" type="info" show-icon />
-    <el-alert title="warning alert" type="warning" show-icon />
-    <el-alert title="error alert" type="error" show-icon />
-  </div>
-  <!-- Message + Notification -->
-  <div class="flex-content">
-    <p>Message：</p>
-    <el-button plain @click="noticeHandle('success')">Success</el-button>
-    <el-button plain @click="noticeHandle('warning')">Warning</el-button>
-    <el-button plain @click="noticeHandle('info')">Info</el-button>
-    <el-button plain @click="noticeHandle('error')">Error</el-button>
-  </div>
-  <!-- Dialog -->
-  <div class="flex-content">
-    <p>Dialog：</p>
-    <el-button plain @click="dialogVisible = true">Dialog</el-button>
-    <el-dialog
-      v-model="dialogVisible"
-      title="提示"
-      width="560px"
-    >
-      <div>内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域</div>
-      <template #footer>
-        <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="primary" @click="dialogVisible = false">确认</el-button>
-      </template>
-    </el-dialog>
-  </div>
-  <!-- Skeleton -->
-  <div class="flex-content">
-    <p>Skeleton：</p>
-    <el-skeleton :rows="1" />
-  </div>
-  <!-- Table -->
-  <div class="flex-content">
-    <p>Table：</p>
-    <el-table
-      :data="tableData"
-      style="width: 50%"
-      border
-    >
-      <el-table-column type="selection" width="55" />
-      <el-table-column label="图片/商品名称" prop="name" header-align="center"></el-table-column>
-      <el-table-column label="平台类型" prop="type" header-align="center"></el-table-column>
-      <el-table-column label="订单编号" prop="orderSn" header-align="center" show-overflow-tooltip></el-table-column>
-    </el-table>
-  </div>
-  <!-- Pagination -->
-  <div class="flex-content">
-    <p>Pagination：</p>
-    <el-pagination
-      v-model:current-page="pagination.currentPage"
-      v-model:page-size="pagination.pageSize"
-      :page-sizes="[100, 200, 300, 400]"
-      background
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="400"
-    />
-  </div>
-  <!-- Breadcrumb -->
-  <div class="flex-content">
-    <p>Breadcrumb：</p>
-    <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/' }">一级内容</el-breadcrumb-item>
-      <el-breadcrumb-item><a href="/">二级内容</a></el-breadcrumb-item>
-      <el-breadcrumb-item>三级内容</el-breadcrumb-item>
-      <el-breadcrumb-item>当前页面</el-breadcrumb-item>
-    </el-breadcrumb>
-  </div>
-  <!-- Step -->
-  <div class="flex-content">
-    <p>Step：</p>
-    <el-button plain @click="stepHandle">Step</el-button>
-    <el-steps :active="stepValue" align-center finish-status="success">
-      <el-step title="状态文案" description="辅助说明" />
-      <el-step title="状态文案" description="辅助说明" />
-      <el-step title="状态文案" description="辅助说明" />
-    </el-steps>
-  </div>
   <!-- DatePicker -->
   <div class="flex-content">
     <p>DatePicker：</p>
@@ -671,12 +620,128 @@ const disabledDate = (time: Date) => {
       end-placeholder="结束日期"
     />
   </div>
+  <!-- Switch -->
+  <div class="flex-content">
+    <p>Switch：</p>
+    <el-switch v-model="switchValue" />
+    <el-switch v-model="switchValue" disabled style="margin-left: 12px;" />
+  </div>  
+  <!-- Cascader -->
+  <div class="flex-content">
+    <p>Cascader：</p>
+    <el-cascader 
+      v-model="cascaderValue" 
+      :options="cascaderOptions" 
+      style="width: 300px"
+    ></el-cascader>
+  </div>
+  <!-- 颜色选择器 -->
+  <!-- Rate -->
+  <div class="flex-content">
+    <p>Rate：</p>
+    <el-rate
+      v-model="rateValue"
+      :texts="['1星', '2星', '3星', '4星', '5星']"
+      show-text
+    />
+  </div>
+  <!-- Slider -->
+  <div class="flex-content">
+    <p>Slider：</p>
+    <el-slider 
+      v-model="sliderValue" 
+      :min="0"
+      :max="100"
+      :step="10"
+      :marks="sliderMarks"
+      :show-input="true"
+      :show-input-controls="false"
+      style="width: 700px;margin-left: 12px;"
+    />
+  </div>
+  <!-- 树选择 -->
+  <!-- 步进器 -->
+  <!-- 穿梭框 -->
+  <!-- 文件上传 -->
+
+  <!-- ------------------------------------------------------------ -->
+  <!-- 文字提示 -->
+  <!-- 气泡提示 -->
+  <!-- 微标数 -->
+  <!-- 卡片 -->
+  <!-- 走马灯 -->
+  <!-- 折叠面板 -->
+  <!-- Table -->
+  <div class="flex-content">
+    <p>Table：</p>
+    <el-table
+      :data="tableData"
+      style="width: 50%"
+      border
+    >
+      <el-table-column type="selection" width="55" />
+      <el-table-column label="图片/商品名称" prop="name" header-align="center"></el-table-column>
+      <el-table-column label="平台类型" prop="type" header-align="center"></el-table-column>
+      <el-table-column label="订单编号" prop="orderSn" header-align="center" show-overflow-tooltip></el-table-column>
+    </el-table>
+  </div>
+  <!-- 标签选择器（待定） -->
+  <!-- 时间轴 -->
+  <!-- Alert -->
+  <div class="flex-content">
+    <p>Alert：</p>
+    <el-alert title="info alert" type="success" show-icon />
+    <el-alert title="info alert" type="info" show-icon />
+    <el-alert title="warning alert" type="warning" show-icon />
+    <el-alert title="error alert" type="error" show-icon />
+  </div>
+  <!-- 默认图片 -->
+  <!-- 标签 -->
+
+  <!-- ------------------------------------------------------------ -->
+  <!-- Message + Notification -->
+  <div class="flex-content">
+    <p>Message：</p>
+    <el-button plain @click="noticeHandle('success')">Success</el-button>
+    <el-button plain @click="noticeHandle('warning')">Warning</el-button>
+    <el-button plain @click="noticeHandle('info')">Info</el-button>
+    <el-button plain @click="noticeHandle('error')">Error</el-button>
+  </div>
+  <!-- Skeleton -->
+  <div class="flex-content">
+    <p>Skeleton：</p>
+    <el-skeleton :rows="1" />
+  </div>
+  <!-- Dialog -->
+  <div class="flex-content">
+    <p>Dialog：</p>
+    <el-button plain @click="dialogVisible = true">Dialog</el-button>
+    <el-dialog
+      v-model="dialogVisible"
+      title="提示"
+      width="560px"
+    >
+      <div>内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域-内容区域</div>
+      <template #footer>
+        <el-button @click="dialogVisible = false">取消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">确认</el-button>
+      </template>
+    </el-dialog>
+  </div>
+  <!-- 抽屉（待定） -->
+  <!-- 全局Loading（待定） -->
+  <!-- 进度条 -->
+  <!-- ------------------------------------------------------------ -->
 </template>
 
 <style scoped>
 .flex-content {
   display: flex;
   align-items: center;
+}
+
+.flex-content:last-child {
+  margin-bottom: 100px
 }
 
 .flex-content > p {
