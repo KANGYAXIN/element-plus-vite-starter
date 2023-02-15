@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { ElMessage } from 'element-plus'
-import { ArrowDown, Eleme } from '@element-plus/icons-vue'
+import { ArrowDown, Eleme, Search } from '@element-plus/icons-vue'
 import { ElNotification } from 'element-plus'
 
 defineProps<{ msg: string }>();
@@ -522,6 +522,25 @@ const sliderMarks = ref({
     <p>Input：</p>
     <el-input placeholder="暗提示" v-model="inputValue"></el-input>
     <el-input placeholder="暗提示" disabled v-model="inputValue"></el-input>
+    <el-input placeholder="暗提示" disabled v-model="inputValue">
+      <template #prepend>Http://</template>
+      <template #append>.com</template>
+    </el-input>
+    <el-input
+      v-model="inputValue"
+      class="w-50 m-2"
+      placeholder="暗提示"
+      :prefix-icon="Search"
+      :suffix-icon="Search"
+      clearable
+    />
+    <el-input 
+      placeholder="暗提示" 
+      v-model="inputValue"
+      :rows="3"
+      type="textarea"
+      style="width: 300px;"
+    />
   </div>
   <!-- Radio -->
   <div class="flex-content">
@@ -534,7 +553,7 @@ const sliderMarks = ref({
 
     <el-radio-group v-model="radioValue" style="margin-left: 12px;">
       <el-radio-button :label="1" disabled>Option A</el-radio-button>
-      <el-radio-button :label="2">Option B</el-radio-button>
+      <el-radio-button :label="2" disabled>Option B</el-radio-button>
       <el-radio-button :label="3">Option C</el-radio-button>
     </el-radio-group>
   </div>

@@ -8,10 +8,6 @@
   box-shadow: 0 0 0 1px $color inset; 
 }
 
-// @include b(input) {
-//   @include set-component-css-var('input', $input);
-// }
-
 @include b(input) {
 
   @include when(disabled) {
@@ -35,5 +31,21 @@
     .#{$namespace}-input__icon {
       cursor: not-allowed;
     }
+  }
+
+  @include e(inner) {
+
+    &:focus {
+      caret-color: getCssVar('color-primary');
+    }
+  }
+}
+
+@include b(input-group) {
+
+  @include e((append, prepend)) {
+    background-color: getCssVar('color-primary-light-9');
+    color:#7C7F85;
+    padding: 0 10px;
   }
 }
