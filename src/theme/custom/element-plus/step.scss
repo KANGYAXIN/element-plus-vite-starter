@@ -3,14 +3,6 @@
 @use 'element-plus/theme-chalk/src/mixins/mixins' as *;
 @use './var.scss' as *;
 
-$step-item-success: () !default;
-$step-item-success: map.merge(
-  (
-    'color': #1975FE,
-  ),
-  $step-item-success
-);
-
 @include b(step) {
 
   @include e(head) {
@@ -40,8 +32,8 @@ $step-item-success: map.merge(
     }
 
     @include when(success) {
-      color: getCssVar('step-item-success');
-      border: getCssVar('step-item-success');
+      color: #1975FE;
+      border: #1975FE;
     }
 
     @include when(error) {

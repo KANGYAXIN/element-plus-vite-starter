@@ -1,0 +1,26 @@
+@use '../var' as *;
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+
+@include b(date-table) {
+
+  td {
+
+    @include b(date-table-cell) {
+
+      @include b(date-table-cell__text) {
+        border-radius: 2px;
+
+        &:hover {
+          border: getCssVar('border-width') getCssVar('border-style') getCssVar('color-primary');
+        }
+      }
+    }
+
+    &.in-range .#{$namespace}-date-table-cell {
+      background-color: getCssVar('color', 'primary', 'light-2');
+      &:hover {
+        background-color: getCssVar('color', 'primary', 'light-2');
+      }
+    }
+  }
+}

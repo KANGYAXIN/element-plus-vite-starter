@@ -387,6 +387,15 @@ const stepValue = ref(0)
 const stepHandle = () => {
   if (stepValue.value++ > 2) stepValue.value = 0
 }
+const dateValue1 = ref('')
+const dateValue2 = ref('')
+const dateValue3 = ref('')
+const dateValue4 = ref('')
+const dateValue5 = ref('')
+const dataValue6 = ref('')
+const disabledDate = (time: Date) => {
+  return time.getTime() < Date.now()
+}
 </script>
 
 <template>
@@ -621,6 +630,46 @@ const stepHandle = () => {
       <el-step title="状态文案" description="辅助说明" />
       <el-step title="状态文案" description="辅助说明" />
     </el-steps>
+  </div>
+  <!-- DatePicker -->
+  <div class="flex-content">
+    <p>DatePicker：</p>
+    <el-date-picker
+      v-model="dateValue1"
+      type="year"
+      placeholder="请选择年份"
+      clearable
+      :disabled-date="disabledDate"
+    />
+    <el-date-picker
+      v-model="dateValue2"
+      type="month"
+      placeholder="请选择月份"
+      :disabled-date="disabledDate"
+    />
+    <el-date-picker
+      v-model="dateValue3"
+      type="dates"
+      placeholder="请选择日期"
+      :disabled-date="disabledDate"
+    />
+    <el-date-picker
+      v-model="dateValue4"
+      type="week"
+      placeholder="请选择周"
+      :disabled-date="disabledDate"
+    />
+    <el-time-picker
+      v-model="dataValue6"
+      placeholder="请选择时间"
+    ></el-time-picker>
+    <el-date-picker
+      v-model="dateValue5"
+      type="daterange"
+      range-separator="至"
+      start-placeholder="开始日期"
+      end-placeholder="结束日期"
+    />
   </div>
 </template>
 

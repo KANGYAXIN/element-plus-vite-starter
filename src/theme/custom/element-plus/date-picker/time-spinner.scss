@@ -1,0 +1,16 @@
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use '../var' as *;
+
+@include b(time-spinner) {
+
+  @include e(item) {
+
+    &:hover:not(.is-disabled):not(.is-active) {
+      background-color: getCssVar('color-primary-light-2');
+    }
+
+    &.is-active:not(.is-disabled)  {
+      background-color: getCssVar('color-primary-light-9');
+    }
+  }
+}

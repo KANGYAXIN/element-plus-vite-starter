@@ -1,0 +1,31 @@
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use '../var' as *;
+
+@include b(month-table) {
+
+  td {
+
+    &.disabled .cell {
+      color: getCssVar('border-color');
+
+      &:hover {
+        color: getCssVar('border-color');
+        border: none;
+      }
+    }
+
+    .cell {
+      border-radius: 2px;
+
+      &:hover {
+        border: getCssVar('border-width') getCssVar('border-style') getCssVar('color-primary'); 
+      }
+    }
+
+    &.current:not(.disabled) .cell {
+      background-color: getCssVar('color-primary');
+      color: getCssVar('color-white');
+      font-weight: 500;
+    }
+  }
+}
