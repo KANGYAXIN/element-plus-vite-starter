@@ -1,0 +1,37 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use './var.scss' as *;
+
+$color-picker-size: () !default;
+$color-picker-size: map.merge(
+  (
+    'large': 52px,
+    'default': 52px,
+    'small': 52px,
+  ),
+  $color-picker-size
+);
+
+@include b(color-picker) {
+
+  .#{$namespace}-color-picker__trigger {
+    width: 52px;
+  }
+
+  @each $size in (large, small) {
+    @include m($size) {
+      height: map.get($color-picker-size, $size);
+
+      .#{$namespace}-color-picker__trigger {
+        height: map.get($color-picker-size, $size);
+        width: map.get($color-picker-size, $size);
+      }
+
+      .#{$namespace}-color-picker__mask {
+        height: map.get($color-picker-size, $size)-2px;
+        width: map.get($color-picker-size, $size)-2px;
+      }
+    }
+  }
+}
