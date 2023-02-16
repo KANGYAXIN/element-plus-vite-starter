@@ -500,6 +500,7 @@ const treeSelectData = ref([
     ],
   },
 ])
+const inputNumValue = ref(1)
 </script>
 
 <template>
@@ -758,7 +759,9 @@ const treeSelectData = ref([
         placeholder="请选择"
       />
     </el-form-item>
-    <el-form-item label="步进器" v-if="false"></el-form-item>
+    <el-form-item label="InputNumber">
+      <el-input-number v-model="inputNumValue" :min="1" :max="10" controls-position="right" />
+    </el-form-item>
     <el-form-item label="穿梭框" v-if="false"></el-form-item>
     <el-form-item label="文件上传" v-if="false"></el-form-item>
     <!-- ------------------------------------------------------------ -->

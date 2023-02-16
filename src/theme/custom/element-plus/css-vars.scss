@@ -20,6 +20,9 @@ html.custom {
   // --el-box-shadow-#{$type}
   // @include set-component-css-var('box-shadow', $box-shadow);
 
+  // --el-border-radius-#{$type}
+  @include set-component-css-var('border-radius', $border-radius);
+
   // color-scheme
   // Background --el-bg-color-#{$type}
   // @include set-component-css-var('bg-color', $bg-color);

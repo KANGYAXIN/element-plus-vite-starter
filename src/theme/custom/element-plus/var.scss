@@ -256,6 +256,16 @@ $rate: map.merge(
   $rate
 );
 
+$input-number-width: () !default;
+$input-number-width: map.merge(
+  (
+    'large': 180px,
+    'default': 184px,
+    'small': 120px,
+  ),
+  $input-number-width
+);
+
 // Button
 $button: () !default;
 $button: map.merge(
