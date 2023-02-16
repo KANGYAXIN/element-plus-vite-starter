@@ -46,6 +46,7 @@ declare module '@vue/runtime-core' {
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
+    ElTreeSelect: typeof import('element-plus/es')['ElTreeSelect']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     'HelloWorld copy': typeof import('./components/HelloWorld copy.vue')['default']
     HelloWorld_copy: typeof import('./components/HelloWorld_copy.vue')['default']

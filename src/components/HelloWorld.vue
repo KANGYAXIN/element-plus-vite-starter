@@ -428,6 +428,78 @@ const predefineColors = ref([
   'hsla(209, 100%, 56%, 0.73)',
   '#c7158577',
 ])
+const treeSelectValue = ref()
+const treeSelectData = ref([
+  {
+    value: '1',
+    label: 'Level one 1',
+    children: [
+      {
+        value: '1-1',
+        label: 'Level two 1-1',
+        disabled: true,
+        children: [
+          {
+            value: '1-1-1',
+            label: 'Level three 1-1-1',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    value: '2',
+    label: 'Level one 2',
+    children: [
+      {
+        value: '2-1',
+        label: 'Level two 2-1',
+        children: [
+          {
+            value: '2-1-1',
+            label: 'Level three 2-1-1',
+          },
+        ],
+      },
+      {
+        value: '2-2',
+        label: 'Level two 2-2',
+        children: [
+          {
+            value: '2-2-1',
+            label: 'Level three 2-2-1',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    value: '3',
+    label: 'Level one 3',
+    children: [
+      {
+        value: '3-1',
+        label: 'Level two 3-1',
+        children: [
+          {
+            value: '3-1-1',
+            label: 'Level three 3-1-1',
+          },
+        ],
+      },
+      {
+        value: '3-2',
+        label: 'Level two 3-2',
+        children: [
+          {
+            value: '3-2-1',
+            label: 'Level three 3-2-1',
+          },
+        ],
+      },
+    ],
+  },
+])
 </script>
 
 <template>
@@ -671,7 +743,21 @@ const predefineColors = ref([
         :show-input-controls="false"
       />
     </el-form-item>
-    <el-form-item label="树选择" v-if="false"></el-form-item>
+    <el-form-item label="TreeSelect">
+      <el-tree-select 
+        v-model="treeSelectValue" 
+        :data="treeSelectData" 
+        :render-after-expand="false" 
+        placeholder="请选择"
+      />
+      <el-tree-select 
+        v-model="treeSelectValue" 
+        :data="treeSelectData" 
+        show-checkbox 
+        :render-after-expand="false" 
+        placeholder="请选择"
+      />
+    </el-form-item>
     <el-form-item label="步进器" v-if="false"></el-form-item>
     <el-form-item label="穿梭框" v-if="false"></el-form-item>
     <el-form-item label="文件上传" v-if="false"></el-form-item>

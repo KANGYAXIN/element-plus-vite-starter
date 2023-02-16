@@ -1,0 +1,12 @@
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var.scss' as *;
+@use 'element-plus/theme-chalk/src/common/transition';
+
+@include b(tree-node) {
+  @include e(content) {
+    & > .#{$namespace}-tree-node__expand-icon {
+      padding: 0px;
+    }
+  }
+}
