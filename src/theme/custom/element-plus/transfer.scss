@@ -1,0 +1,72 @@
+@use 'sass:math';
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/utils' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var.scss' as *;
+
+@include b(transfer) {
+  @include set-component-css-var('transfer', $transfer);
+}
+
+@include b(transfer) {
+
+  @include e(buttons) {
+    width: 32px;
+    padding: 0 16px;
+  }
+
+  @include e(button) {
+    width: 32px;
+
+    &:nth-child(2) {
+      margin: 16px 0px 0px 0px;
+    }
+    
+    &.is-disabled,
+    &.is-disabled:hover {
+      background-color: getCssVar('color-primary-light-9');
+      border-color: getCssVar('color-info');
+      color: getCssVar('text-color-placeholder');
+    }
+  }
+}
+
+@include b(transfer-panel) {
+  width: 240px;
+
+  @include e(body) {
+
+    .#{$namespace}-input {
+      padding: 8px 12px 0;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+      
+  }
+
+  @include e(list) {
+    padding: 0px;
+  }
+
+  @include e(item) {
+    padding-left: 12px;
+  }
+
+  .#{$namespace}-transfer-panel__header {
+    padding-left: 12px;
+
+    .#{$namespace}-checkbox {
+
+      .#{$namespace}-checkbox__label {
+
+        span {
+          right: 12px;
+          font-size: 14px;
+          color: getCssVar('text-color-placeholder');
+        }
+      }
+    }
+  }
+}

@@ -266,6 +266,15 @@ $input-number-width: map.merge(
   $input-number-width
 );
 
+// Transfer
+$transfer: () !default;
+$transfer: map.merge(
+  (
+    'panel-body-height': 272px,
+  ),
+  $transfer
+);
+
 // Button
 $button: () !default;
 $button: map.merge(

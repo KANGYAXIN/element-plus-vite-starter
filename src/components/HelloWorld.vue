@@ -501,6 +501,25 @@ const treeSelectData = ref([
   },
 ])
 const inputNumValue = ref(1)
+const transferValue = ref([])
+interface Option {
+  key: number
+  label: string
+  disabled: boolean
+}
+
+const generateData = () => {
+  const data: Option[] = []
+  for (let i = 1; i <= 15; i++) {
+    data.push({
+      key: i,
+      label: `Option ${i}`,
+      disabled: i % 4 === 0,
+    })
+  }
+  return data
+}
+const transferData = ref<Option[]>(generateData())
 </script>
 
 <template>
@@ -762,7 +781,9 @@ const inputNumValue = ref(1)
     <el-form-item label="InputNumber">
       <el-input-number v-model="inputNumValue" :min="1" :max="10" controls-position="right" />
     </el-form-item>
-    <el-form-item label="穿梭框" v-if="false"></el-form-item>
+    <el-form-item label="Transfer">
+      <el-transfer v-model="transferValue" :data="transferData" filterable />
+    </el-form-item>
     <el-form-item label="文件上传" v-if="false"></el-form-item>
     <!-- ------------------------------------------------------------ -->
     <el-form-item label="文字提示" v-if="false"></el-form-item>
