@@ -1,0 +1,19 @@
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var.scss' as *;
+
+@include b(popover) {
+  @include set-component-css-var('popover', $popover);
+
+  &.#{$namespace}-popper {
+    min-width: 240px;
+
+    @include e(title) {
+      font-weight: 500;
+    }
+
+    @include e(arrow) {
+      left: 16px;
+    }
+  }
+}

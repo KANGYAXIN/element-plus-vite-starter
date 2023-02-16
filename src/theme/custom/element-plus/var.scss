@@ -275,6 +275,16 @@ $transfer: map.merge(
   $transfer
 );
 
+// Popover
+$popover: () !default;
+$popover: map.merge(
+  (
+    'padding': 16px,
+    'title-text-color': getCssVar('text-color-regular'),
+  ),
+  $popover
+);
+
 // Button
 $button: () !default;
 $button: map.merge(

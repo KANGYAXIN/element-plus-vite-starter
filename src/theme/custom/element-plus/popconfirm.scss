@@ -1,0 +1,15 @@
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use './var.scss' as *;
+
+@include b(popconfirm) {
+  @include e(action) {
+    margin-top: 16px;
+
+    .#{$namespace}-button {
+
+      &.is-text {
+        border: getCssVar('border-width') getCssVar('border-style') getCssVar('button-disabled-border-color');
+      }
+    }
+  }
+}

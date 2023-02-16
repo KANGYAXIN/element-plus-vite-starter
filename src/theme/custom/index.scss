@@ -116,6 +116,14 @@ $--colors: (
 
 @use "./element-plus/transfer.scss" as *;
 
+@use "./element-plus/tooltip-v2.scss" as *;
+
+@use "./element-plus/popover.scss" as *;
+
+@use "./element-plus/popconfirm.scss" as *;
+
+@use "./element-plus/popper.scss" as *;
+
 //设置本套主题色为custom前缀，当html标签中设置class="custom"此套主题生效
 html.custom {
 

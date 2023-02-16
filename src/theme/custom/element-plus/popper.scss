@@ -1,0 +1,26 @@
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var.scss' as *;
+
+@include b(popper) {
+  
+  $arrow-selector: #{& + '__arrow'};
+
+  $placements: (
+    'top': 'bottom',
+    'bottom': 'top',
+    'left': 'right',
+    'right': 'left',
+  );
+
+  @each $placement, $adjacency in ('top': 'left', 'bottom': 'right', 'left': 'bottom', 'right': 'top') {
+    
+    &[data-popper-placement^='#{$placement}-start'] #{$arrow-selector} {
+      left: 16px !important;
+    }
+    &[data-popper-placement^='#{$placement}-end'] #{$arrow-selector} {
+      left: unset !important;
+      right: 16px !important;
+    }
+  }
+}
