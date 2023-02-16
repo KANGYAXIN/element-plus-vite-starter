@@ -1,11 +1,15 @@
 <script lang="ts" setup>
 import { toggleDark } from '~/composables';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { toggleHtmlClass } from '~/theme/utils'
 
 const list = ref(
   ['base', 'dark', 'china-red', 'custom']
 )
+
+onMounted(() => {
+  toggleHtmlClass('custom')
+})
 </script>
 
 <template>

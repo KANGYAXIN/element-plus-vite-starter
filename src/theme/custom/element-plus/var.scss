@@ -247,6 +247,15 @@ $date-editor: map.merge(
   $date-editor
 );
 
+// Rate
+$rate: () !default;
+$rate: map.merge(
+  (
+    'fill-color': #FAD20C,
+  ),
+  $rate
+);
+
 // Button
 $button: () !default;
 $button: map.merge(

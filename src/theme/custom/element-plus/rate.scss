@@ -5,6 +5,14 @@
 @use './var' as *;
 
 @include b(rate) {
+  @include set-component-css-var('rate', $rate);
+}
+
+@include b(rate) {
+
+  @include e(item) {
+    color: getCssVar('color-info');
+  }
 
   @include e(text) {
     color: getCssVar('text-color-regular');

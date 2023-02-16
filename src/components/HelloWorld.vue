@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { ElMessage } from 'element-plus'
-import { ArrowDown, Eleme, Search } from '@element-plus/icons-vue'
+import { ArrowDown, Eleme, Search, StarFilled } from '@element-plus/icons-vue'
 import { ElNotification } from 'element-plus'
 
 defineProps<{ msg: string }>();
@@ -655,6 +655,7 @@ const predefineColors = ref([
     <el-form-item label="Rate">
       <el-rate
         v-model="rateValue"
+        :void-icon="StarFilled"
         :texts="['1星', '2星', '3星', '4星', '5星']"
         show-text
       />
