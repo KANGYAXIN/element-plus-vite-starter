@@ -3,6 +3,7 @@
 @use './var.scss' as *;
 
 @include b(popper) {
+  padding: 5px 16px;
   
   $arrow-selector: #{& + '__arrow'};
 
@@ -14,13 +15,18 @@
   );
 
   @each $placement, $adjacency in ('top': 'left', 'bottom': 'right', 'left': 'bottom', 'right': 'top') {
+
+    @if $placement == 'top' or $placement == 'bottom' {
     
-    &[data-popper-placement^='#{$placement}-start'] #{$arrow-selector} {
-      left: 16px !important;
-    }
-    &[data-popper-placement^='#{$placement}-end'] #{$arrow-selector} {
-      left: unset !important;
-      right: 16px !important;
+      &[data-popper-placement^='#{$placement}-start'] #{$arrow-selector} {
+        left: 16px !important;
+        transform: translate3d(0px, 0px, 0px) !important;
+      }
+      &[data-popper-placement^='#{$placement}-end'] #{$arrow-selector} {
+        left: unset !important;
+        right: 16px !important;
+        transform: translate3d(0px, 0px, 0px) !important;
+      }
     }
   }
 }

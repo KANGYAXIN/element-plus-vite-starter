@@ -799,6 +799,7 @@ const transferData = ref<Option[]>(generateData())
         effect="dark"
         content="Top Center prompts info"
         placement="top"
+        trigger="click"
       >
         <el-button>top</el-button>
       </el-tooltip>
@@ -806,6 +807,7 @@ const transferData = ref<Option[]>(generateData())
         effect="dark"
         content="Top Right prompts info"
         placement="top-end"
+        trigger="click"
       >
         <el-button>top-end</el-button>
       </el-tooltip>
@@ -813,6 +815,7 @@ const transferData = ref<Option[]>(generateData())
         effect="dark"
         content="Left Top prompts info"
         placement="left-start"
+        trigger="click"
       >
         <el-button>left-start</el-button>
       </el-tooltip>
@@ -820,6 +823,7 @@ const transferData = ref<Option[]>(generateData())
         effect="dark"
         content="Right Top prompts info"
         placement="right-start"
+        trigger="click"
       >
         <el-button>right-start</el-button>
       </el-tooltip>
@@ -827,6 +831,7 @@ const transferData = ref<Option[]>(generateData())
         effect="dark"
         content="Left Center prompts info"
         placement="left"
+        trigger="click"
       >
         <el-button class="mt-3 mb-3">left</el-button>
       </el-tooltip>
@@ -834,6 +839,7 @@ const transferData = ref<Option[]>(generateData())
         effect="dark"
         content="Right Center prompts info"
         placement="right"
+        trigger="click"
       >
         <el-button>right</el-button>
       </el-tooltip>
@@ -842,6 +848,7 @@ const transferData = ref<Option[]>(generateData())
         effect="dark"
         content="Left Bottom prompts info"
         placement="left-end"
+        trigger="click"
       >
         <el-button>left-end</el-button>
       </el-tooltip>
@@ -850,6 +857,7 @@ const transferData = ref<Option[]>(generateData())
         effect="dark"
         content="Right Bottom prompts info"
         placement="right-end"
+        trigger="click"
       >
         <el-button>right-end</el-button>
       </el-tooltip>
@@ -858,6 +866,7 @@ const transferData = ref<Option[]>(generateData())
         effect="dark"
         content="Bottom Left prompts info"
         placement="bottom-start"
+        trigger="click"
       >
         <el-button>bottom-start</el-button>
       </el-tooltip>
@@ -866,6 +875,7 @@ const transferData = ref<Option[]>(generateData())
         effect="dark"
         content="Bottom Center prompts info"
         placement="bottom"
+        trigger="click"
       >
         <el-button>bottom</el-button>
       </el-tooltip>
@@ -874,13 +884,14 @@ const transferData = ref<Option[]>(generateData())
         effect="dark"
         content="Bottom Right prompts info"
         placement="bottom-end"
+        trigger="click"
       >
         <el-button>bottom-end</el-button>
       </el-tooltip>
     </el-form-item>
     <el-form-item label="Popover">
       <el-popover
-        placement="top-end"
+        placement="top-start"
         title="标题内容"
         trigger="click"
         content="需勾选表格项后进行批量删除文字文字中"
