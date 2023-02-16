@@ -41,6 +41,16 @@ $colors: () !default;
   @include set-color-mix-level($type, 2, 'dark', common.$color-black);
 }
 
+$common-component-size: () !default;
+$common-component-size: map.merge(
+  (
+    'large': 40px,
+    'default': 32px,
+    'small': 24px,
+  ),
+  $common-component-size
+);
+
 $text-color: () !default;
 $text-color: map.merge(
   (
@@ -85,6 +95,9 @@ $input-disabled: map.merge(
   ),
   $input-disabled
 );
+
+$input-height: () !default;
+$input-height: map.merge($common-component-size, $input-height);
 
 $radio-checked: () !default;
 $radio-checked: map.merge(
@@ -301,9 +314,9 @@ $button-border-width: $border-width !default;
 $button-font-size: () !default;
 $button-font-size: map.merge(
   (
-    'large': getCssVar('font-size', 'base'),
+    'large': getCssVar('font-size', 'medium'),
     'default': getCssVar('font-size', 'base'),
-    'small': 12px,
+    'small': getCssVar('font-size', 'base'),
   ),
   $button-font-size
 );
@@ -321,9 +334,9 @@ $button-border-radius: map.merge(
 $button-padding-vertical: () !default;
 $button-padding-vertical: map.merge(
   (
-    'large': 13px,
-    'default': 9px,
-    'small': 6px,
+    'large': 9px,
+    'default': 6px,
+    'small': 1px,
   ),
   $button-padding-vertical
 );
@@ -331,9 +344,9 @@ $button-padding-vertical: map.merge(
 $button-padding-horizontal: () !default;
 $button-padding-horizontal: map.merge(
   (
-    'large': 20px,
+    'large': 24px,
     'default': 16px,
-    'small': 12px,
+    'small': 8px,
   ),
   $button-padding-horizontal
 );

@@ -6,6 +6,16 @@
 @use 'element-plus/theme-chalk/src/mixins/utils' as *;
 @use 'element-plus/theme-chalk/src/mixins/var' as *;
 
+$button-icon-span-gap: () !default;
+$button-icon-span-gap: map.merge(
+  (
+    'large': 8px,
+    'default': 6px,
+    'small': 4px,
+  ),
+  $button-icon-span-gap
+);
+
 @include b(button) {
   @include set-component-css-var('button', $button);
 }
@@ -45,6 +55,35 @@
   @each $type in (primary, success, warning, danger, info) {
     @include m($type) {
       @include button-variant($type);
+    }
+  }
+
+  @each $size in (large, small) {
+    @include m($size) {
+      @include set-css-var-value(
+        ('button', 'size'),
+        map.get($input-height, $size)
+      );
+
+      height: getCssVar('button', 'size');
+
+      & [class*='#{$namespace}-icon'] {
+        & + span {
+          margin-left: map.get($button-icon-span-gap, $size);
+        }
+      }
+
+      @include button-size(
+        map.get($button-padding-vertical, $size) - $button-border-width,
+        map.get($button-padding-horizontal, $size) - $button-border-width,
+        map.get($button-font-size, $size),
+        map.get($button-border-radius, $size)
+      );
+
+      @include when(circle) {
+        width: getCssVar('button', 'size');
+        padding: map.get($button-padding-vertical, $size) - $button-border-width;
+      }
     }
   }
 }

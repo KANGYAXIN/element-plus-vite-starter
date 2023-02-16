@@ -528,9 +528,9 @@ const transferData = ref<Option[]>(generateData())
     label-suffix="："
   >
     <el-form-item label="Button">
-      <el-button>Button</el-button>
-      <el-button type="primary">Button</el-button>
-      <el-button type="success" @click="toast('success')">Button</el-button>
+      <el-button size="small">按钮</el-button>
+      <el-button type="primary">按钮</el-button>
+      <el-button type="success" @click="toast('success')" size="large">按钮</el-button>
       <el-button type="warning" @click="toast('warning')">Button</el-button>
       <el-button type="danger" @click="toast('danger')">Button</el-button>
       <el-button type="info" @click="toast('info')">Button</el-button>
