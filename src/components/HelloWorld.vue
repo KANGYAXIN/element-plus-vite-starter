@@ -585,7 +585,7 @@ const transferData = ref<Option[]>(generateData())
       </el-dropdown>
       <el-dropdown trigger="click" placement="bottom-start">
         <el-button-group>
-          <el-button plain>Dropdown List</el-button>
+          <el-button plain @click.stop>Dropdown List</el-button>
           <el-button plain style="width: 32px;">
             <el-icon><arrow-down /></el-icon>
           </el-button>

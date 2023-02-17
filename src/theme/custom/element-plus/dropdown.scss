@@ -7,9 +7,9 @@
 $dropdown-item-padding: () !default;
 $dropdown-item-padding: map.merge(
   (
-    'large': 7px 20px,
+    'large': 5px 12px,
     'default': 5px 12px,
-    'small': 2px 12px,
+    'small': 5px 12px,
   ),
   $dropdown-item-padding
 );
@@ -22,6 +22,13 @@ $dropdown-item-padding: map.merge(
     &:not(.is-disabled):focus {
       background-color: getCssVar('color-primary-light-9');
       color: getCssVar('text-color-regular');
+    }
+  }
+
+  @each $size in (large, small) {
+
+    @include e(item) {
+      padding: map.get($dropdown-item-padding, $size);
     }
   }
 }

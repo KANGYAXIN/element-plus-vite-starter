@@ -96,6 +96,16 @@ $input-disabled: map.merge(
   $input-disabled
 );
 
+$input-font-size: () !default;
+$input-font-size: map.merge(
+  (
+    'large': 14px,
+    'default': 14px,
+    'small': 12px,
+  ),
+  $input-font-size
+);
+
 $input-height: () !default;
 $input-height: map.merge($common-component-size, $input-height);
 
@@ -345,7 +355,7 @@ $button-padding-horizontal: () !default;
 $button-padding-horizontal: map.merge(
   (
     'large': 24px,
-    'default': 16px,
+    'default': 17px,
     'small': 8px,
   ),
   $button-padding-horizontal

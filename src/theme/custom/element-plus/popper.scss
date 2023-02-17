@@ -4,6 +4,7 @@
 
 @include b(popper) {
   padding: 5px 16px;
+  min-width: 160px;
   
   $arrow-selector: #{& + '__arrow'};
 
@@ -14,19 +15,63 @@
     'right': 'left',
   );
 
-  @each $placement, $adjacency in ('top': 'left', 'bottom': 'right', 'left': 'bottom', 'right': 'top') {
+  @each $placement, $opposite in $placements {
 
-    @if $placement == 'top' or $placement == 'bottom' {
+    &[data-popper-placement^='#{$placement}'] > #{$arrow-selector} {
+      #{$opposite}: -5px;
+
+      &::before {
+        @if $placement == top {
+          border-bottom-right-radius: 2px;
+        }
+        @if $placement == bottom {
+          border-top-left-radius: 2px;
+        }
+        @if $placement == left {
+          border-top-right-radius: 2px;
+        }
+        @if $placement == right {
+          border-bottom-left-radius: 2px;
+        }
+      }
+    }
+
+    &.is-dark,
+    &.is-light {
+
+      @if $placement == 'top' or $placement == 'bottom' {
     
-      &[data-popper-placement^='#{$placement}-start'] #{$arrow-selector} {
-        left: 16px !important;
-        transform: translate3d(0px, 0px, 0px) !important;
+        &[data-popper-placement^='#{$placement}-start'] #{$arrow-selector} {
+          left: 16px !important;
+          transform: translate3d(0px, 0px, 0px) !important;
+        }
+        &[data-popper-placement^='#{$placement}-end'] #{$arrow-selector} {
+          left: unset !important;
+          right: 16px !important;
+          transform: translate3d(0px, 0px, 0px) !important;
+        }
       }
-      &[data-popper-placement^='#{$placement}-end'] #{$arrow-selector} {
-        left: unset !important;
-        right: 16px !important;
-        transform: translate3d(0px, 0px, 0px) !important;
-      }
+    }
+
+    &.#{$namespace}-dropdown__popper,
+    &.#{$namespace}-select__popper,
+    &.#{$namespace}-picker__popper,
+    &.#{$namespace}-cascader__dropdown {
+
+      &[data-popper-placement^='#{$placement}'] {
+        
+        @if $placement == top { transform: translateY(8px); }
+        @if $placement == bottom { transform: translateY(-8px); }
+        @if $placement == left { transform: translateX(8px); }
+        @if $placement == right { transform: translateX(-8px); }
+
+        > #{$arrow-selector} {
+
+          &::before {
+            width: 0px;
+          }
+        }
+      } 
     }
   }
 }
