@@ -1,0 +1,14 @@
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use '../var' as *;
+
+@include b(picker-panel) {
+
+  @include e(shortcut) {
+    padding-left: 16px;
+  }
+}
+
+.#{$namespace}-picker-panel__sidebar {
+  padding-top: 8px;
+
+}

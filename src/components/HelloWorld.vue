@@ -393,9 +393,39 @@ const dateValue3 = ref('')
 const dateValue4 = ref('')
 const dateValue5 = ref('')
 const dataValue6 = ref('')
+const dataValue7 = ref('')
 const disabledDate = (time: Date) => {
   return time.getTime() < Date.now()
 }
+const shortcuts = ref([
+  {
+    text: '近一周',
+    value: () => {
+      const end = new Date()
+      const start = new Date()
+      start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+      return [start, end]
+    },
+  },
+  {
+    text: '近一个月',
+    value: () => {
+      const end = new Date()
+      const start = new Date()
+      start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+      return [start, end]
+    },
+  },
+  {
+    text: '近三个月',
+    value: () => {
+      const end = new Date()
+      const start = new Date()
+      start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+      return [start, end]
+    },
+  },
+])
 const rateValue = ref()
 const sliderValue = ref(0)
 const sliderMarks = ref({
@@ -728,6 +758,16 @@ const transferData = ref<Option[]>(generateData())
           range-separator="至"
           start-placeholder="开始日期"
           end-placeholder="结束日期"
+          style="margin-right: 12px;"
+        />
+        <el-date-picker
+          v-model="dataValue7"
+          type="daterange"
+          unlink-panels
+          range-separator="至"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+          :shortcuts="shortcuts"
         />
       </div>
     </el-form-item>
