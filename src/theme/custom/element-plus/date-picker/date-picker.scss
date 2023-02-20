@@ -2,3 +2,23 @@
 @use 'element-plus/theme-chalk/src/mixins/mixins' as *;
 @use 'element-plus/theme-chalk/src/mixins/var' as *;
 @use './picker-panel.scss';
+
+@include b(date-picker) {
+
+  @include e(time-header) {
+    padding: 8px 12px;
+  }
+
+  @include e(editor-wrap) {
+    padding: 0px;
+
+    &:first-child {
+      padding-right: 12px;
+    }
+
+    .#{$namespace}-input {
+      width: 100%;
+      height: 30px;
+    }
+  }
+}

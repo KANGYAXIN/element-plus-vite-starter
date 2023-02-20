@@ -395,8 +395,12 @@ const dateValue2 = ref('')
 const dateValue3 = ref('')
 const dateValue4 = ref('')
 const dateValue5 = ref('')
-const dataValue6 = ref('')
-const dataValue7 = ref('')
+const dateValue6 = ref('')
+const dateValue7 = ref('')
+const dateValue8 = ref('')
+const dateValue9 = ref('')
+const dateValue10 = ref('')
+
 const disabledDate = (time: Date) => {
   return time.getTime() < Date.now()
 }
@@ -725,55 +729,86 @@ const transferData = ref<Option[]>(generateData())
       <el-select v-model="selectValue" clearable disabled></el-select>
     </el-form-item>
     <el-form-item label="DatePicker">
-      <div>
-        <el-date-picker
-          v-model="dateValue1"
-          type="year"
-          placeholder="请选择年份"
-          clearable
-          :disabled-date="disabledDate"
-        />
-        <el-date-picker
-          v-model="dateValue2"
-          type="month"
-          placeholder="请选择月份"
-          :disabled-date="disabledDate"
-        />
-        <el-date-picker
-          v-model="dateValue4"
-          type="week"
-          placeholder="请选择周"
-          :disabled-date="disabledDate"
-        />
-      </div>
-      <div style="margin-top: 12px;">
-        <el-date-picker
-          v-model="dateValue3"
-          type="dates"
-          placeholder="请选择日期"
-          :disabled-date="disabledDate"
-        />
-        <el-time-picker
-          v-model="dataValue6"
-          placeholder="请选择时间"
-        ></el-time-picker>
-        <el-date-picker
-          v-model="dateValue5"
-          type="daterange"
-          range-separator="至"
-          start-placeholder="开始日期"
-          end-placeholder="结束日期"
-          style="margin-right: 12px;"
-        />
-        <el-date-picker
-          v-model="dataValue7"
-          type="daterange"
-          unlink-panels
-          range-separator="至"
-          start-placeholder="开始日期"
-          end-placeholder="结束日期"
-          :shortcuts="shortcuts"
-        />
+      <div style="display: flex;flex-direction: column;align-items: flex-start;">
+        <div>
+          <el-date-picker
+            v-model="dateValue1"
+            type="year"
+            placeholder="请选择年份"
+            clearable
+            :disabled-date="disabledDate"
+          />
+          <el-date-picker
+            v-model="dateValue2"
+            type="month"
+            placeholder="请选择月份"
+            :disabled-date="disabledDate"
+          />
+          <el-date-picker
+            v-model="dateValue3"
+            type="week"
+            placeholder="请选择周"
+            :disabled-date="disabledDate"
+          />
+          <el-date-picker
+            v-model="dateValue4"
+            type="dates"
+            placeholder="请选择日期"
+            :disabled-date="disabledDate"
+          />
+          <el-time-picker
+            v-model="dateValue5"
+            placeholder="请选择时间"
+          />
+        </div>
+        <div style="margin-top: 12px;">
+          <el-date-picker
+            v-model="dateValue6"
+            type="daterange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+          />
+          <el-date-picker
+            v-model="dateValue7"
+            type="datetimerange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+            style="margin-left: 12px;"
+          />
+          <el-date-picker
+            v-model="dateValue8"
+            type="daterange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+            :shortcuts="shortcuts"
+            style="margin-left: 12px;"
+          />
+          <el-date-picker
+            v-model="dateValue9"
+            type="datetimerange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+            :shortcuts="shortcuts"
+            style="margin-left: 12px;"
+          />
+        </div>
+        <div style="margin-top: 12px;">
+          <el-date-picker
+            v-model="dateValue10"
+            type="datetime"
+            placeholder="请选择日期"
+          />
+          <el-date-picker
+            v-model="dateValue10"
+            type="datetime"
+            placeholder="请选择日期"
+            :shortcuts="shortcuts"
+          />
+        </div>
       </div>
     </el-form-item>
     <el-form-item label="Switch">
