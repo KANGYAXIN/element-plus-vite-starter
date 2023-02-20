@@ -557,6 +557,7 @@ const generateData = () => {
   return data
 }
 const transferData = ref<Option[]>(generateData())
+const drawerValue = ref(false)
 </script>
 
 <template>
@@ -1042,9 +1043,30 @@ const transferData = ref<Option[]>(generateData())
         </template>
       </el-dialog>
     </el-form-item>
-    <el-form-item label="抽屉（待定）" v-if="false"></el-form-item>
+    <el-form-item label="Drawer">
+      <el-button plain @click="drawerValue = true">Drawer</el-button>
+      <el-drawer
+        v-model="drawerValue"
+        title="提示"
+        direction="rtl"
+      >
+        <span>内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域</span>
+        <template #footer>
+          <div style="flex: auto">
+            <el-button>取消</el-button>
+            <el-button type="primary">确定</el-button>
+          </div>
+        </template>
+      </el-drawer>
+    </el-form-item>
     <el-form-item label="全局Loading（待定）" v-if="false"></el-form-item>
     <el-form-item label="进度条" v-if="false"></el-form-item>
+    <!-- <el-form-item label="Test">
+      <svg-icon 
+        name="action" 
+        color="#327de8"
+      />
+    </el-form-item> -->
   </el-form>
 </template>
 

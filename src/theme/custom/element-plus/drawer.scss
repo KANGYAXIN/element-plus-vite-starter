@@ -1,0 +1,43 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var' as *;
+
+@include b(drawer) {
+  @include set-component-css-var('drawer', $drawer);
+}
+
+@include b(drawer) {
+
+  &__header {
+    margin-bottom: 0px;
+    padding: 16px 24px;
+    border-bottom: getCssVar('border-width') getCssVar('border-style') map.get($dialog, 'header-border-color');
+
+    & > :first-child {
+      text-align: left;
+      color: getCssVar('text-color-regular');
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
+  &__close-btn {
+    padding: 0;
+    font-size: 18px;
+  }
+
+  @include e(footer) {
+    padding: 12px 24px;
+    border-top: getCssVar('border-width') getCssVar('border-style') map.get($dialog, 'header-border-color');
+
+    .#{$namespace}-button {
+
+      + .#{$namespace}--button {
+
+        margin-left: 16px !important;
+      }
+    }
+  }
+}

@@ -308,6 +308,16 @@ $popover: map.merge(
   $popover
 );
 
+// drawer
+$drawer: () !default;
+$drawer: map.merge(
+  (
+    'border-color': getCssVar('dialog', 'header-border-color'),
+    'padding-primary': 24px,
+  ),
+  $drawer
+);
+
 // Button
 $button: () !default;
 $button: map.merge(
