@@ -1,0 +1,21 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/utils' as *;
+@use './var.scss' as *;
+
+@include b(progress) {
+
+  @include e(text) {
+    color: getCssVar('color-primary');
+    margin-left: 8px;
+  }
+}
+
+@include b(progress-bar) {
+
+  @include e(outer) {
+    background-color: map.get($dialog, 'header-border-color');
+  }
+}
+

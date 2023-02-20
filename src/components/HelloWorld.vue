@@ -1060,7 +1060,12 @@ const drawerValue = ref(false)
       </el-drawer>
     </el-form-item>
     <el-form-item label="全局Loading（待定）" v-if="false"></el-form-item>
-    <el-form-item label="进度条" v-if="false"></el-form-item>
+    <el-form-item label="进度条">
+      <el-progress :percentage="50" :stroke-width="2" />
+      <el-progress :percentage="100" status="success" :stroke-width="2" />
+      <el-progress :percentage="100" status="warning" :stroke-width="2" />
+      <el-progress :percentage="50" status="exception" :stroke-width="2" />
+    </el-form-item>
     <!-- <el-form-item label="Test">
       <svg-icon 
         name="action" 
@@ -1088,6 +1093,10 @@ const drawerValue = ref(false)
 }
 
 .ep-alert {
+  width: 240px;
+}
+
+.ep-progress {
   width: 240px;
 }
 
