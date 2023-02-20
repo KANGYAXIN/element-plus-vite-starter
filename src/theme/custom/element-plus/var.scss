@@ -318,6 +318,22 @@ $drawer: map.merge(
   $drawer
 );
 
+// MessageBox
+$messagebox: () !default;
+$messagebox: map.merge(
+  (
+    'title-color': getCssVar('text-color-regular'),
+    'width': 480px,
+    'border-radius': 4px,
+    'font-size': getCssVar('font-size-base'),
+    'content-font-size': getCssVar('font-size-base'),
+    'content-color': getCssVar('text-color-regular'),
+    'error-font-size': 12px,
+    'padding-primary': 14px 16px,
+  ),
+  $messagebox
+);
+
 // Button
 $button: () !default;
 $button: map.merge(

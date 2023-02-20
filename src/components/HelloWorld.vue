@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { ElMessage } from 'element-plus'
+import { ref, h } from "vue";
+import { ElMessage, ElNotification, ElMessageBox } from 'element-plus'
 import { ArrowDown, ArrowUp, Eleme, Search, StarFilled, WarningFilled } from '@element-plus/icons-vue'
-import { ElNotification } from 'element-plus'
 
 defineProps<{ msg: string }>();
 
@@ -558,6 +557,31 @@ const generateData = () => {
 }
 const transferData = ref<Option[]>(generateData())
 const drawerValue = ref(false)
+const handleMessageBox = () => {
+  ElMessageBox({
+    title: '提示',
+    message: h('p', null, [
+      h('span', null, '解除绑定，系统将停止与平台店铺的信息同步，停止自动抓单、订单信息回传、获取快递单号、库存同步等，'),
+      h('span', { style: 'color: var(--ep-color-error)' }, '请谨慎解绑！'),
+    ]),
+    showCancelButton: true,
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    type: 'warning',
+  })
+  .then(() => {
+    ElMessage({
+        type: 'success',
+        message: 'Delete completed',
+      })
+  })
+  .catch(() => {
+    ElMessage({
+        type: 'info',
+        message: 'Delete canceled',
+      })
+  })
+}
 </script>
 
 <template>
@@ -1060,11 +1084,14 @@ const drawerValue = ref(false)
       </el-drawer>
     </el-form-item>
     <el-form-item label="全局Loading（待定）" v-if="false"></el-form-item>
-    <el-form-item label="进度条">
+    <el-form-item label="Progress">
       <el-progress :percentage="50" :stroke-width="2" />
       <el-progress :percentage="100" status="success" :stroke-width="2" />
       <el-progress :percentage="100" status="warning" :stroke-width="2" />
       <el-progress :percentage="50" status="exception" :stroke-width="2" />
+    </el-form-item>
+    <el-form-item label="MessageBox">
+      <el-button plain @click="handleMessageBox">MessageBox</el-button>
     </el-form-item>
     <!-- <el-form-item label="Test">
       <svg-icon 
