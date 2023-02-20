@@ -13,7 +13,17 @@ const toast = (type: any) => {
 }
 
 // 初始化
-const loading = ref(false)
+const loadingValue = ref(false)
+const svg = `
+        <path class="path" d="
+          M 30 15
+          L 28 17
+          M 25.61 25.61
+          A 15 15, 0, 0, 1, 15 30
+          A 15 15, 0, 1, 1, 27.99 7.5
+          L 15 15
+        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
+      `
 const inputValue = ref('啊啊啊啊')
 const radioValue = ref(1)
 const checkValue = ref([1, 5])
@@ -1083,7 +1093,17 @@ const handleMessageBox = () => {
         </template>
       </el-drawer>
     </el-form-item>
-    <el-form-item label="全局Loading（待定）" v-if="false"></el-form-item>
+    <el-form-item label="Page Loading">
+      <el-button plain @click="loadingValue = !loadingValue">Loading</el-button>
+      <div 
+        v-loading="loadingValue"
+        element-loading-text="加载中"
+        :element-loading-spinner="svg"
+        element-loading-svg-view-box="-10, -10, 50, 50"
+        element-loading-background="rgba(255, 255, 255, 0.9)"
+        style="width: 600px;height: 200px;background: #E9E9EA;border: 1px solid #E9E9EA;margin-left: 12px;"
+      ></div>
+    </el-form-item>
     <el-form-item label="Progress">
       <el-progress :percentage="50" :stroke-width="2" />
       <el-progress :percentage="100" status="success" :stroke-width="2" />
