@@ -13,6 +13,7 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 const pathSrc = path.resolve(__dirname, 'src')
 
@@ -63,6 +64,13 @@ export default defineConfig({
         transformerDirectives(),
         transformerVariantGroup(),
       ]
+    }),
+
+    createSvgIconsPlugin({
+      // Specify the icon folder to be cached
+      iconDirs: [path.resolve(process.cwd(), 'src/icons/svg')],
+      // Specify symbolId format
+      symbolId: 'icon-[dir]-[name]'
     }),
   ],
 })

@@ -54,6 +54,7 @@ declare module '@vue/runtime-core' {
     ElTreeSelect: typeof import('element-plus/es')['ElTreeSelect']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     HelloWorld_old: typeof import('./components/HelloWorld_old.vue')['default']
+    SvgIcon: typeof import('./components/svgIcon/index.vue')['default']
   }
 }
 

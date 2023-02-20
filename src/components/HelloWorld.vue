@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { ElMessage } from 'element-plus'
-import { ArrowDown, Eleme, Search, StarFilled, WarningFilled } from '@element-plus/icons-vue'
+import { ArrowDown, ArrowUp, Eleme, Search, StarFilled, WarningFilled } from '@element-plus/icons-vue'
 import { ElNotification } from 'element-plus'
 
 defineProps<{ msg: string }>();
@@ -58,6 +58,9 @@ const checkList = ref(
     },
   ]
 )
+const arrowFlag1 = ref(true)
+const arrowFlag2 = ref(true)
+const arrowFlag3 = ref(true)
 const selectValue = ref('')
 const selectList = ref([
   {
@@ -560,18 +563,17 @@ const transferData = ref<Option[]>(generateData())
     <el-form-item label="Button">
       <el-button size="small">按钮</el-button>
       <el-button type="primary">按钮</el-button>
-      <el-button type="success" @click="toast('success')" size="large">按钮</el-button>
-      <el-button type="warning" @click="toast('warning')">Button</el-button>
-      <el-button type="danger" @click="toast('danger')">Button</el-button>
-      <el-button type="info" @click="toast('info')">Button</el-button>
+      <el-button type="success" size="large">按钮</el-button>
+      <el-button type="warning">Button</el-button>
+      <el-button type="danger">Button</el-button>
+      <el-button type="info">Button</el-button>
       <el-button type="primary" disabled>Disabled</el-button>
       <el-button plain>Plain</el-button>
       <el-button plain disabled>Plain - Disabled</el-button>
       <el-button type="primary" plain>Plain</el-button>
       <el-button type="primary" plain disabled>Plain - Disabled</el-button>
       <el-button type="primary" text bg>文字链接</el-button>
-      <el-button loading :loading-icon="Eleme"></el-button>
-      <el-button type="primary" :loading="true">loading</el-button>
+      <el-button type="primary" loading>Loading</el-button>
     </el-form-item>
     <!-- ------------------------------------------------------------ -->
     <el-form-item label="Breadcrumb">
@@ -586,8 +588,9 @@ const transferData = ref<Option[]>(generateData())
       <el-dropdown trigger="click" placement="bottom-start">
         <el-button-group>
           <el-button type="primary" @click.stop>Dropdown List</el-button>
-          <el-button type="primary" style="width: 32px;">
-            <el-icon><arrow-down /></el-icon>
+          <el-button type="primary" style="width: 32px;" @click="arrowFlag1 = !arrowFlag1">
+            <el-icon v-if="arrowFlag1"><ArrowDown /></el-icon>
+            <el-icon v-else><ArrowUp /></el-icon>
           </el-button>
         </el-button-group>
         <template #dropdown>
@@ -601,8 +604,9 @@ const transferData = ref<Option[]>(generateData())
       <el-dropdown trigger="click" placement="bottom-start">
         <el-button-group>
           <el-button plain type="primary" @click.stop>Dropdown List</el-button>
-          <el-button plain type="primary" style="width: 32px;">
-            <el-icon><arrow-down /></el-icon>
+          <el-button plain type="primary" style="width: 32px;"  @click="arrowFlag2 = !arrowFlag2">
+            <el-icon v-if="arrowFlag2"><ArrowDown /></el-icon>
+            <el-icon v-else><ArrowUp /></el-icon>
           </el-button>
         </el-button-group>
         <template #dropdown>
@@ -616,8 +620,9 @@ const transferData = ref<Option[]>(generateData())
       <el-dropdown trigger="click" placement="bottom-start">
         <el-button-group>
           <el-button plain @click.stop>Dropdown List</el-button>
-          <el-button plain style="width: 32px;">
-            <el-icon><arrow-down /></el-icon>
+          <el-button plain style="width: 32px;" @click="arrowFlag3 = !arrowFlag3">
+            <el-icon v-if="arrowFlag3"><ArrowDown /></el-icon>
+            <el-icon v-else><ArrowUp /></el-icon>
           </el-button>
         </el-button-group>
         <template #dropdown>
@@ -1038,5 +1043,18 @@ const transferData = ref<Option[]>(generateData())
   margin-right: 12px;
 }
 
-
+/* .ep-button .custom-loading .circular {
+  margin-right: 6px;
+  width: 18px;
+  height: 18px;
+  animation: loading-rotate 2s linear infinite;
+}
+.ep-button .custom-loading .circular .path {
+  animation: loading-dash 1.5s ease-in-out infinite;
+  stroke-dasharray: 90, 150;
+  stroke-dashoffset: 0;
+  stroke-width: 2;
+  stroke: var(--el-button-text-color);
+  stroke-linecap: round;
+} */
 </style>
