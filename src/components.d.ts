@@ -20,6 +20,7 @@ declare module '@vue/runtime-core' {
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
     ElDialog: typeof import('element-plus/es')['ElDialog']
+    ElDrawer: typeof import('element-plus/es')['ElDrawer']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
@@ -54,7 +55,7 @@ declare module '@vue/runtime-core' {
     ElTreeSelect: typeof import('element-plus/es')['ElTreeSelect']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     HelloWorld_old: typeof import('./components/HelloWorld_old.vue')['default']
-    SvgIcon: typeof import('./components/svgIcon/index.vue')['default']
+    SvgIcon: typeof import('./components/SvgIcon/index.vue')['default']
   }
 }
 

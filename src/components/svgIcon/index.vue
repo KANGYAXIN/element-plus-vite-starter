@@ -1,6 +1,6 @@
 <template>
   <svg aria-hidden="true" class="svg-icon">
-    <use :xlink:href="symbolId" rel="external nofollow"  :fill="color" />
+    <use :xlink:href="symbolId" :fill="color" />
   </svg>
 </template>
 
@@ -9,11 +9,11 @@ import { computed } from 'vue';
 
 const props = defineProps({
   prefix: {type: String,default: 'icon',},
-  iconClass: {type: String,required: true,},
+  name: {type: String,required: true,},
   color: {type: String,default: ''}
 })
 
-const symbolId = computed(() => `#${props.prefix}-${props.iconClass}`);
+const symbolId = computed(() => `#${props.prefix}-${props.name}`);
 </script>
 
 <style scoped>
@@ -22,6 +22,6 @@ const symbolId = computed(() => `#${props.prefix}-${props.iconClass}`);
   height: 1em;
   vertical-align: -0.15em;
   overflow: hidden;
-  fill: currentColor;
+  fill: '#000';
 }
 </style>

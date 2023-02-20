@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import 'virtual:svg-icons-register' // 引入注册脚本
-import SvgIcon from '~/components/svgIcon/index.vue' // 引入组件
+import svgIcon from '~/components/SvgIcon/index.vue' // 引入组件
+import 'virtual:svg-icons-register'; // 引入注册脚本
 
 // import "~/styles/element/index.scss";
 
@@ -21,4 +21,4 @@ import "~/theme/index.scss";
 
 const app = createApp(App);
 // app.use(ElementPlus);
-app.component('svg-icon', SvgIcon).mount("#app");
+app.component('svg-icon', svgIcon).mount("#app");
