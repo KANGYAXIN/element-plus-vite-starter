@@ -2,7 +2,7 @@
 import { ref, h } from "vue";
 import { ElMessage, ElNotification, ElMessageBox } from 'element-plus'
 import type { TagProps } from 'element-plus'
-import { ArrowDown, ArrowUp, Eleme, Search, StarFilled, WarningFilled } from '@element-plus/icons-vue'
+import { ArrowDown, ArrowUp, Eleme, Search, StarFilled, WarningFilled, ArrowRight } from '@element-plus/icons-vue'
 
 defineProps<{ msg: string }>();
 
@@ -601,6 +601,7 @@ const tagItems = ref<Array<Item>>([
   { type: 'danger', label: 'Tag 4', size: '' },
   { type: 'warning', label: 'Tag 5', size: '' },
 ])
+const collapseValue = ref([])
 </script>
 
 <template>
@@ -1072,9 +1073,34 @@ const tagItems = ref<Array<Item>>([
       </el-popconfirm>
     </el-form-item>
     <el-form-item label="微标数" v-if="false"></el-form-item>
-    <el-form-item label="卡片" v-if="false"></el-form-item>
+    <el-form-item label="Card">
+      <el-card>
+        <template #header>
+          <div style="display: flex;justify-content: space-between;">
+            <span>卡片标题</span>
+            <span style="font-weight: 400;color: var(--ep-color-primary);cursor: pointer;">更多</span>
+          </div>
+        </template>
+        <div>这里是卡片文字内容区域，用以承载文字信息。卡片组成元素有标题、支持操作的交互以及内容样式。</div>
+      </el-card>
+    </el-form-item>
     <el-form-item label="走马灯" v-if="false"></el-form-item>
-    <el-form-item label="折叠面板" v-if="false"></el-form-item>
+    <el-form-item label="Collapse">
+      <el-collapse v-model="collapseValue">
+        <el-collapse-item title="折叠面板文字" name="1">
+          <div>文字内容</div>
+        </el-collapse-item>
+        <el-collapse-item title="折叠面板文字" name="2">
+          <div>文字内容</div>
+        </el-collapse-item>
+        <el-collapse-item title="折叠面板文字" name="3">
+          <div>文字内容</div>
+        </el-collapse-item>
+        <el-collapse-item title="折叠面板文字" name="4">
+          <div>文字内容</div>
+        </el-collapse-item>
+      </el-collapse>
+    </el-form-item>
     <el-form-item label="Table">
       <el-table
         :data="tableData"
@@ -1256,6 +1282,10 @@ const tagItems = ref<Array<Item>>([
 
 .ep-progress {
   width: 240px;
+}
+
+.ep-collapse {
+  width: 560px;
 }
 
 .ep-dropdown,

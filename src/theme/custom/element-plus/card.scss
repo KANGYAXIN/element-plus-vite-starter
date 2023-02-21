@@ -1,0 +1,17 @@
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use './var.scss' as *;
+
+@include b(card) {
+  @include set-component-css-var('card', $card);
+}
+
+@include b(card) {
+
+  @include e(header) {
+    padding: calc(#{getCssVar('card', 'padding')} - 4px)
+      getCssVar('card', 'padding');
+    color: getCssVar('text-color-regular');
+    font-weight: 500;
+  }
+}

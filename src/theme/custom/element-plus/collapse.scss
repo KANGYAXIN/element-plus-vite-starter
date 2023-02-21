@@ -1,0 +1,16 @@
+// @use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+// @use 'element-plus/theme-chalk/src/mixins/var' as *;
+// @use './var.scss' as *;
+// @use 'element-plus/theme-chalk/src/common/transition';
+
+// @include b(collapse) {
+//   @include set-component-css-var('collapse', $collapse);
+
+// }
+
+// @include b(collapse-item) {
+//   .#{$namespace}-collapse-item__header {
+//     color: getCssVar('text-color-regular');
+//     padding-left: 12px;
+//   }
+// }

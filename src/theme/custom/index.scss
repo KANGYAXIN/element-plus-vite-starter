@@ -133,6 +133,10 @@ $--colors: (
 
 @use "./element-plus/tag.scss" as *;
 
+// @use "./element-plus/collapse.scss" as *; // 待定
+
+@use "./element-plus/card.scss" as *;
+
 //设置本套主题色为custom前缀，当html标签中设置class="custom"此套主题生效
 html.custom {
 

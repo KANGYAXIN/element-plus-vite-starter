@@ -363,6 +363,26 @@ $tag-padding: map.merge(
   $tag-padding
 );
 
+// Collapse
+$collapse: () !default;
+$collapse: map.merge(
+  (
+    'header-height': 39px,
+    'header-bg-color': getCssVar('color', 'primary-light-9'),
+  ),
+  $collapse
+);
+
+// Card
+$card: () !default;
+$card: map.merge(
+  (
+    'border-radius': 2px,
+    'padding': 16px,
+  ),
+  $card
+);
+
 // Button
 $button: () !default;
 $button: map.merge(
