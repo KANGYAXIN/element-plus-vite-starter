@@ -1141,7 +1141,16 @@ const collapseValue = ref([])
       </el-table>
     </el-form-item>
     <el-form-item label="标签选择器（待定）" v-if="false"></el-form-item>
-    <el-form-item label="时间轴" v-if="false"></el-form-item>
+    <el-form-item label="Timeline">
+      <el-timeline>
+        <el-timeline-item type='primary' :hollow="true">环节节点</el-timeline-item>
+        <el-timeline-item type='success' :hollow="true">环节节点</el-timeline-item>
+        <el-timeline-item type='warning' :hollow="true">环节节点</el-timeline-item>
+        <el-timeline-item type='danger' :hollow="true">环节节点</el-timeline-item>
+        <el-timeline-item>环节节点</el-timeline-item>
+        <el-timeline-item>环节节点</el-timeline-item>
+      </el-timeline>
+    </el-form-item>
     <el-form-item label="Alert">
       <el-alert title="info alert" type="success" show-icon />
       <el-alert title="info alert" type="info" show-icon />

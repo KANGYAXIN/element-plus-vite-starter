@@ -1,0 +1,29 @@
+@use 'sass:map';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use './var.scss' as *;
+
+@include b(timeline-item) {
+
+  @include e(wrapper) {
+    padding-left: 18px;
+  }
+  
+  @include e(node) {
+    border-width: 2px;
+    border-style: getCssVar('border-style');
+    border-color: getCssVar('border-color');
+    background: getCssVar('color-white');
+
+    @include m(normal) {
+      left: 0px;
+    }
+
+    @each $type in (primary, success, warning, danger, info) {
+      @include m($type) {
+        background-color: getCssVar('color', $type);
+        border-color: getCssVar('color', $type);
+      }
+    }
+  }
+}
