@@ -383,6 +383,16 @@ $card: map.merge(
   $card
 );
 
+// Badge
+$badge: () !default;
+$badge: map.merge(
+  (
+    'padding': 4px,
+    'size': 14px,
+  ),
+  $badge
+);
+
 // Button
 $button: () !default;
 $button: map.merge(

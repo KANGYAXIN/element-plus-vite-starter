@@ -1072,7 +1072,34 @@ const collapseValue = ref([])
         </template>
       </el-popconfirm>
     </el-form-item>
-    <el-form-item label="微标数" v-if="false"></el-form-item>
+    <el-form-item label="Badge">
+      <div class="flex-content">
+        <div>
+          <p>Number</p>
+          <el-badge :value="9" :max="99" type="primary">
+            <el-avatar shape="square" :size="40" :icon="Eleme" />
+          </el-badge>
+          <el-badge :value="99" :max="99" type="success">
+            <el-avatar shape="square" :size="40" :icon="Eleme" />
+          </el-badge>
+          <el-badge :value="200" :max="99" type="warning">
+            <el-avatar shape="square" :size="40" :icon="Eleme" />
+          </el-badge>
+          <el-badge :value="200" :max="99" type="danger">
+            <el-avatar :icon="Eleme" />
+          </el-badge>
+        </div>
+        <div>
+          <p>Dot</p>
+          <el-badge is-dot>
+            <el-avatar shape="square" :size="40" :icon="Eleme" />
+          </el-badge>
+          <el-badge is-dot>
+            <el-avatar :icon="Eleme" />
+          </el-badge>
+        </div>
+      </div>
+    </el-form-item>
     <el-form-item label="Card">
       <el-card>
         <template #header>
@@ -1315,6 +1342,10 @@ const collapseValue = ref([])
       width: 70px;
       text-align: right;
       margin-right: 12px;
+    }
+
+    > .ep-badge {
+      margin-right: 40px;
     }
   }
 }
