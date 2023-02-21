@@ -334,6 +334,35 @@ $messagebox: map.merge(
   $messagebox
 );
 
+// Tag
+$tag: () !default;
+$tag: map.merge(
+  (
+    'border-radius': 2px,
+  ),
+  $tag
+);
+
+$tag-height: () !default;
+$tag-height: map.merge(
+  (
+    'large': 28px,
+    'default': 24px,
+    'small': 20px,
+  ),
+  $tag-height
+);
+
+$tag-padding: () !default;
+$tag-padding: map.merge(
+  (
+    'large': 12px,
+    'default': 4px,
+    'small': 4px,
+  ),
+  $tag-padding
+);
+
 // Button
 $button: () !default;
 $button: map.merge(

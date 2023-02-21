@@ -49,6 +49,7 @@ $--colors: (
   ),
   'info': (
     'base': #E9E9EA,
+    'light-2': #F8F8F9,
   )
 );
 //通过sass中的@forward with函数对var.scss文件的$colors变量进行重新复制
@@ -129,6 +130,8 @@ $--colors: (
 @use "./element-plus/message-box.scss" as *;
 
 @use "./element-plus/loading.scss" as *;
+
+@use "./element-plus/tag.scss" as *;
 
 //设置本套主题色为custom前缀，当html标签中设置class="custom"此套主题生效
 html.custom {

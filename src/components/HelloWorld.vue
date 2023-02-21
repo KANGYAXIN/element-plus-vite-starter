@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, h } from "vue";
 import { ElMessage, ElNotification, ElMessageBox } from 'element-plus'
+import type { TagProps } from 'element-plus'
 import { ArrowDown, ArrowUp, Eleme, Search, StarFilled, WarningFilled } from '@element-plus/icons-vue'
 
 defineProps<{ msg: string }>();
@@ -592,6 +593,14 @@ const handleMessageBox = () => {
       })
   })
 }
+type Item = { type: TagProps['type']; label: string, size: string }
+const tagItems = ref<Array<Item>>([
+  { type: '', label: 'Tag 1', size: 'small' },
+  { type: 'success', label: 'Tag 2', size: '' },
+  { type: 'info', label: 'Tag 3', size: 'large' },
+  { type: 'danger', label: 'Tag 4', size: '' },
+  { type: 'warning', label: 'Tag 5', size: '' },
+])
 </script>
 
 <template>
@@ -1052,7 +1061,65 @@ const handleMessageBox = () => {
       <el-alert title="error alert" type="error" show-icon />
     </el-form-item>
     <el-form-item label="默认图片" v-if="false"></el-form-item>
-    <el-form-item label="标签" v-if="false"></el-form-item>
+    <el-form-item label="Tag">
+      <div style="display: flex;flex-direction: column;align-items: flex-start;">
+        <div>
+          <span style="display: inline-block;width: 40px;">Dark</span>
+          <el-tag
+            v-for="item in tagItems"
+            :key="item.label"
+            :type="item.type"
+            class="mx-1"
+            effect="dark"
+            :size="item.size"
+          >标签文本</el-tag>
+          <el-tag
+            v-for="item in tagItems"
+            :key="item.label"
+            :type="item.type"
+            class="mx-1"
+            effect="dark"
+            closable
+          >标签文本</el-tag>
+        </div>
+        <div style="margin-top: 12px;">
+          <span style="display: inline-block;width: 40px;">Light</span>
+          <el-tag
+            v-for="item in tagItems"
+            :key="item.label"
+            class="mx-1"
+            :type="item.type"
+            effect="light"
+          >标签文本</el-tag>
+          <el-tag
+            v-for="item in tagItems"
+            :key="item.label"
+            class="mx-1"
+            :type="item.type"
+            effect="light"
+            closable
+          >标签文本</el-tag>
+        </div>
+        <div style="margin-top: 12px;">
+          <span style="display: inline-block;width: 40px;">Plain</span>
+          <el-tag
+            v-for="item in tagItems"
+            :key="item.label"
+            class="mx-1"
+            :type="item.type"
+            effect="plain"
+          >标签文本</el-tag>
+          <el-tag
+            v-for="item in tagItems"
+            :key="item.label"
+            class="mx-1"
+            :type="item.type"
+            effect="plain"
+            closable
+          >标签文本</el-tag>
+        </div>
+      </div>
+    </el-form-item>
     <!-- ------------------------------------------------------------ -->
     <el-form-item label="Message">
       <el-button plain @click="noticeHandle('success')">Success</el-button>
@@ -1113,12 +1180,12 @@ const handleMessageBox = () => {
     <el-form-item label="MessageBox">
       <el-button plain @click="handleMessageBox">MessageBox</el-button>
     </el-form-item>
-    <!-- <el-form-item label="Test">
+    <el-form-item label="TestSvg">
       <svg-icon 
         name="action" 
         color="#327de8"
       />
-    </el-form-item> -->
+    </el-form-item>
   </el-form>
 </template>
 
