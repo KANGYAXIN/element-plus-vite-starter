@@ -22,6 +22,21 @@ $button-icon-span-gap: map.merge(
 
 @include b(button) {
 
+  &:hover,
+  &:focus {
+    color: getCssVar('color', 'primary');
+    background-color: getCssVar('fill-color', 'blank');
+    border-color: getCssVar('color', 'primary');
+    outline: none;
+  }
+
+  &:active {
+    color: getCssVar('color', 'primary-dark-2');
+    border-color: getCssVar('color', 'primary-dark-2');
+    background-color: getCssVar('color', 'white');
+    outline: none;
+  }
+
    @include button-size(
     map.get($button-padding-vertical, 'default') - $button-border-width,
     map.get($button-padding-horizontal, 'default') - $button-border-width,

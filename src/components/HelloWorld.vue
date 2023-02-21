@@ -609,19 +609,54 @@ const tagItems = ref<Array<Item>>([
     label-suffix="："
   >
     <el-form-item label="Button">
-      <el-button size="small">按钮</el-button>
-      <el-button type="primary">按钮</el-button>
-      <el-button type="success" size="large">按钮</el-button>
-      <el-button type="warning">Button</el-button>
-      <el-button type="danger">Button</el-button>
-      <el-button type="info">Button</el-button>
-      <el-button type="primary" disabled>Disabled</el-button>
-      <el-button plain>Plain</el-button>
-      <el-button plain disabled>Plain - Disabled</el-button>
-      <el-button type="primary" plain>Plain</el-button>
-      <el-button type="primary" plain disabled>Plain - Disabled</el-button>
-      <el-button type="primary" text bg>文字链接</el-button>
-      <el-button type="primary" loading>Loading</el-button>
+      <div class="flex-content">
+        <div>
+          <p>Normal</p>
+          <el-button>Default</el-button>
+          <el-button type="primary">Primary</el-button>
+          <el-button type="success">success</el-button>
+          <el-button type="warning">Warning</el-button>
+          <el-button type="danger">Danger</el-button>
+        </div>
+        <div>
+          <p>Size</p>
+          <el-button size="small">Small</el-button>
+          <el-button>Default</el-button>
+          <el-button size="large">Large</el-button>
+        </div>
+        <div>
+          <p>Plain</p>
+          <el-button plain>Plain</el-button>
+          <el-button type="primary" plain>Primary</el-button>
+          <el-button type="success" plain>Success</el-button>
+          <el-button type="warning" plain>Warning</el-button>
+          <el-button type="danger" plain>Danger</el-button>
+        </div>
+        <div>
+          <p>Disabled</p>
+          <el-button disabled>Default</el-button>
+          <el-button type="primary" disabled>Primary</el-button>
+          <el-button type="success" disabled>Success</el-button>
+          <el-button type="warning" disabled>Warning</el-button>
+          <el-button type="danger" disabled>Danger</el-button>
+          <el-button plain disabled>Default</el-button>
+          <el-button type="primary" plain disabled>Primary</el-button>
+          <el-button type="success" plain disabled>Success</el-button>
+          <el-button type="warning" plain disabled>Warning</el-button>
+          <el-button type="danger" plain disabled>Danger</el-button>
+        </div>
+        <div>
+          <p>Text</p>
+          <el-button type="primary" text bg>Primary</el-button>
+          <el-button type="success" text bg>Success</el-button>
+          <el-button type="warning" text bg>Warning</el-button>
+          <el-button type="danger" text bg>Danger</el-button>
+        </div>
+        <div>
+          <p>Loading</p>
+          <el-button type="primary" loading>Primary</el-button>
+        </div>
+      </div>
     </el-form-item>
     <!-- ------------------------------------------------------------ -->
     <el-form-item label="Breadcrumb">
@@ -773,7 +808,7 @@ const tagItems = ref<Array<Item>>([
       <el-select v-model="selectValue" clearable disabled></el-select>
     </el-form-item>
     <el-form-item label="DatePicker">
-      <div style="display: flex;flex-direction: column;align-items: flex-start;">
+      <div class="flex-content">
         <div>
           <el-date-picker
             v-model="dateValue1"
@@ -805,7 +840,7 @@ const tagItems = ref<Array<Item>>([
             placeholder="请选择时间"
           />
         </div>
-        <div style="margin-top: 12px;">
+        <div>
           <el-date-picker
             v-model="dateValue6"
             type="daterange"
@@ -840,7 +875,7 @@ const tagItems = ref<Array<Item>>([
             style="margin-left: 12px;"
           />
         </div>
-        <div style="margin-top: 12px;">
+        <div>
           <el-date-picker
             v-model="dateValue10"
             type="datetime"
@@ -1062,60 +1097,69 @@ const tagItems = ref<Array<Item>>([
     </el-form-item>
     <el-form-item label="默认图片" v-if="false"></el-form-item>
     <el-form-item label="Tag">
-      <div style="display: flex;flex-direction: column;align-items: flex-start;">
+      <div class="flex-content">
         <div>
-          <span style="display: inline-block;width: 40px;">Dark</span>
+          <p>Dark</p>
           <el-tag
             v-for="item in tagItems"
             :key="item.label"
             :type="item.type"
+            class="mx-1"
+            effect="dark"
+          >标签文本</el-tag>
+          <el-tag
+            v-for="item in tagItems"
+            :key="item.label"
+            :type="item.type"
+            class="mx-1"
+            effect="dark"
+            closable
+          >标签文本</el-tag>
+        </div>
+        <div>
+          <p>Light</p>
+          <el-tag
+            v-for="item in tagItems"
+            :key="item.label"
+            class="mx-1"
+            :type="item.type"
+            effect="light"
+          >标签文本</el-tag>
+          <el-tag
+            v-for="item in tagItems"
+            :key="item.label"
+            class="mx-1"
+            :type="item.type"
+            effect="light"
+            closable
+          >标签文本</el-tag>
+        </div>
+        <div>
+          <p>Plain</p>
+          <el-tag
+            v-for="item in tagItems"
+            :key="item.label"
+            class="mx-1"
+            :type="item.type"
+            effect="plain"
+          >标签文本</el-tag>
+          <el-tag
+            v-for="item in tagItems"
+            :key="item.label"
+            class="mx-1"
+            :type="item.type"
+            effect="plain"
+            closable
+          >标签文本</el-tag>
+        </div>
+        <div>
+          <p>Size</p>
+          <el-tag
+            v-for="item in tagItems.slice(0, 3)"
+            :key="item.label"
             class="mx-1"
             effect="dark"
             :size="item.size"
-          >标签文本</el-tag>
-          <el-tag
-            v-for="item in tagItems"
-            :key="item.label"
-            :type="item.type"
-            class="mx-1"
-            effect="dark"
-            closable
-          >标签文本</el-tag>
-        </div>
-        <div style="margin-top: 12px;">
-          <span style="display: inline-block;width: 40px;">Light</span>
-          <el-tag
-            v-for="item in tagItems"
-            :key="item.label"
-            class="mx-1"
-            :type="item.type"
-            effect="light"
-          >标签文本</el-tag>
-          <el-tag
-            v-for="item in tagItems"
-            :key="item.label"
-            class="mx-1"
-            :type="item.type"
-            effect="light"
-            closable
-          >标签文本</el-tag>
-        </div>
-        <div style="margin-top: 12px;">
-          <span style="display: inline-block;width: 40px;">Plain</span>
-          <el-tag
-            v-for="item in tagItems"
-            :key="item.label"
-            class="mx-1"
-            :type="item.type"
-            effect="plain"
-          >标签文本</el-tag>
-          <el-tag
-            v-for="item in tagItems"
-            :key="item.label"
-            class="mx-1"
-            :type="item.type"
-            effect="plain"
-            closable
           >标签文本</el-tag>
         </div>
       </div>
@@ -1189,7 +1233,7 @@ const tagItems = ref<Array<Item>>([
   </el-form>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .ep-form {
   padding-top: 20px;
   padding-bottom: 100px;
@@ -1221,6 +1265,28 @@ const tagItems = ref<Array<Item>>([
 .ep-radio-group,
 .ep-checkbox-group {
   margin-right: 12px;
+}
+
+.flex-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+
+    > p {
+      width: 70px;
+      text-align: right;
+      margin-right: 12px;
+    }
+  }
 }
 
 /* .ep-button .custom-loading .circular {
