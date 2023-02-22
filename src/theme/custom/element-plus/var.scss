@@ -409,9 +409,15 @@ $timeline: map.merge(
 $button: () !default;
 $button: map.merge(
   (
-    'disabled-text-color': #D3D4D6,
+    'disabled-text-color': getCssVar('border-color', ''),
+    'disabled-bg-color': getCssVar('fill-color', ''),
     'disabled-border-color': #E9E9EA,
-    'disabled-bg-color': #F8F8F9,
+    'hover-text-color': getCssVar('color-primary'),
+    'hover-bg-color': getCssVar('fill-color', 'blank'),
+    'hover-border-color': getCssVar('color-primary'),
+    'active-text-color': getCssVar('color-primary', 'dark-2'),
+    'active-border-color': getCssVar('color-primary', 'dark-2'),
+    'active-bg-color': getCssVar('color', 'white'),
   ),
   $button
 );
