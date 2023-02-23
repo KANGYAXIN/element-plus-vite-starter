@@ -55,6 +55,11 @@ $button-icon-span-gap: map.merge(
   @each $type in (primary, success, warning, danger, info) {
     @include m($type) {
       @include button-variant($type);
+
+      @include css-var-from-global(
+        ('button', 'active', 'text-color'),
+        ('color', 'white')
+      );
     }
   }
 
