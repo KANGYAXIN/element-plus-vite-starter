@@ -25,8 +25,8 @@ const svg = `
           L 15 15
         " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
       `
-const inputValue = ref('啊啊啊啊')
-const radioValue = ref(1)
+const inputValue = ref('')
+const radioValue = ref(2)
 const checkValue = ref([1, 5])
 const checkList = ref(
   [
@@ -733,22 +733,23 @@ const collapseValue = ref([])
       <el-steps :active="stepValue" align-center finish-status="success">
         <el-step title="状态文案" description="辅助说明" />
         <el-step title="状态文案" description="辅助说明" />
-        <el-step title="状态文案" description="辅助说明" />
+        <el-step title="状态文案" description="辅助说明" :status="stepValue === 3 ? 'error' : ''" />
       </el-steps>
     </el-form-item>
     <!-- ------------------------------------------------------------ -->
     <el-form-item label="Input">
       <el-input placeholder="暗提示" v-model="inputValue"></el-input>
       <el-input placeholder="暗提示" disabled v-model="inputValue"></el-input>
-      <el-input placeholder="暗提示" disabled v-model="inputValue">
-        <template #prepend>Http://</template>
-        <template #append>.com</template>
+      <el-input placeholder="暗提示" v-model="inputValue">
+        <template #prepend>￥</template>
+      </el-input>
+      <el-input placeholder="暗提示" v-model="inputValue">
+        <template #append>%</template>
       </el-input>
       <el-input
         v-model="inputValue"
         placeholder="暗提示"
         :prefix-icon="Search"
-        :suffix-icon="Search"
         clearable
       />
       <el-input 
@@ -762,7 +763,8 @@ const collapseValue = ref([])
       <el-radio-group v-model="radioValue">
         <el-radio :label="1">Option A</el-radio>
         <el-radio :label="2" disabled>Option B</el-radio>
-        <el-radio :label="3">Option C</el-radio>
+        <el-radio :label="3" disabled>Option <Cap></Cap></el-radio>
+        <el-radio :label="4">Option D</el-radio>
       </el-radio-group>
 
       <el-radio-group v-model="radioValue">

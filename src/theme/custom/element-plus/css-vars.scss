@@ -33,6 +33,8 @@ html.custom {
   // Fill --el-fill-color-#{$type}
   @include set-component-css-var('fill-color', $fill-color);
   @include set-component-css-var('mask-color', $mask-color);
+  // Disable base
+  @include set-component-css-var('disabled', $disabled);
 
   // Border
   @include set-css-var-value('border-width', $border-width);

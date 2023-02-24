@@ -129,12 +129,30 @@ $radio-button: map.merge(
   $radio-button
 );
 
+$radio-disabled: () !default;
+$radio-disabled: map.merge(
+  (
+    'checked-icon-color': getCssVar('disabled-border-color'),
+  ),
+  $radio-disabled
+);
+
+// Disable default
+$disabled: () !default;
+$disabled: map.merge(
+  (
+    'bg-color': #F4F4F5,
+    'border-color': getCssVar('border-color', ''),
+  ),
+  $disabled
+);
+
 // Checkbox
 $checkbox: () !default;
 $checkbox: map.merge(
   (
-    'disabled-input-fill': #F4F4F5,
-    'disabled-checked-input-fill': #F4F4F5,
+    'disabled-input-fill': getCssVar('disabled-bg-color'),
+    'disabled-checked-input-fill': getCssVar('disabled-bg-color'),
     'disabled-checked-icon-color': getCssVar('button-disabled-text-color'),
     'checked-text-color': getCssVar('text-color-regular'),
   ),
@@ -202,7 +220,7 @@ $dialog: () !default;
 $dialog: map.merge(
   (
     'padding-primary': 18px 24px,
-    'header-border-color': #F4F4F5,
+    'header-border-color': getCssVar('disabled-bg-color'),
     'title-font-size': getCssVar('font-size-base'),
     'title-font-weight': 500,
     'font-line-height': 1,
@@ -216,7 +234,7 @@ $dialog: map.merge(
 $skeleton: () !default;
 $skeleton: map.merge(
   (
-    'color': #F4F4F5,
+    'color': getCssVar('disabled-bg-color'),
   ),
   $skeleton
 );

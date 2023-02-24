@@ -29,5 +29,17 @@
         color: map.get($radio-checked, 'text-color');
       }
     }
+
+    @include when(disabled) {
+      
+      &.is-checked {
+        .#{$namespace}-radio__inner {
+
+          &::after {
+            background-color: map.get($radio-disabled, 'checked-icon-color');
+          }
+        }
+      }
+    }
   }
 }
