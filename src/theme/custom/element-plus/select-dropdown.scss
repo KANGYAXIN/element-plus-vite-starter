@@ -5,16 +5,27 @@
 
 @include b(select-dropdown) {
 
+  @include when(multiple) {
+    & .#{$namespace}-select-dropdown__item.selected {
+      background-color: map.get($radio-button, 'checked-bg-color');
+    }
+  }
+
   .#{$namespace}-select-dropdown__item.hover {
-    background-color: #F8F8F9;
+    background-color: map.get($fill-color, '');
   }
 
   .#{$namespace}-select-dropdown__item.selected {
-    background-color: #F4F8FE;
+    background-color: map.get($radio-button, 'checked-bg-color');
     font-weight: 500;
   }
+
 
   .#{$namespace}-select-dropdown__item.is-disabled {
     color: getCssVar('border-color');
   }
+}
+
+@include b(select-dropdown__list) {
+  padding: map.get($select-dropdown, 'padding');
 }

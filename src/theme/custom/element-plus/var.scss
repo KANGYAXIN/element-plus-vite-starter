@@ -162,10 +162,18 @@ $checkbox: map.merge(
 $checkbox-button: () !default;
 $checkbox-button: map.merge(
   (
-    'checked-bg-color': #F4F8FE,
+    'checked-bg-color': map.get($radio-button, 'checked-bg-color'),
     'checked-text-color': getCssVar('color-primary'),
   ),
   $checkbox-button
+);
+
+$select-dropdown: () !default;
+$select-dropdown: map.merge(
+  (
+    'padding': 0,
+  ),
+  $select-dropdown
 );
 
 // Notification
