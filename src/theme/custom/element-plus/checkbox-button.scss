@@ -19,13 +19,14 @@
 
     & .#{$namespace}-checkbox-button__inner {
       background-color: #E9E9EA;
-      border-color: #D3D4D6;
-      color: #D3D4D6;
+      border-color: getCssVar('border-color', '');
+      color: getCssVar('text-color', 'placeholder');
     }
   }
   &.is-disabled {
 
     & .#{$namespace}-checkbox-button__inner {
+      color: getCssVar('border-color', '');
       border-color: var(
         #{getCssVarName('button-disabled-text-color')},
         map.get($button, 'disabled-text-color')

@@ -10,6 +10,10 @@
 
 @include b(textarea) {
   width: 240px;
+
+  & .#{$namespace}-input__count {
+    color: getCssVar('border-color', '');
+  }
 }
 
 @include b(input) {

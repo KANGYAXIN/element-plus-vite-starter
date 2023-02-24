@@ -757,6 +757,8 @@ const collapseValue = ref([])
         v-model="inputValue"
         :rows="3"
         type="textarea"
+        show-word-limit
+        maxlength="50"
       />
     </el-form-item>
     <el-form-item label="Radio">
