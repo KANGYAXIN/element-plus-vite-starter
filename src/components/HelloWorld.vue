@@ -2,7 +2,7 @@
 import { ref, h } from "vue";
 import { ElMessage, ElNotification, ElMessageBox } from 'element-plus'
 import type { TagProps } from 'element-plus'
-import { ArrowDown, ArrowUp, Eleme, Search, StarFilled, WarningFilled, ArrowRight } from '@element-plus/icons-vue'
+import { ArrowDown, ArrowUp, Eleme, Search, StarFilled, WarningFilled, ArrowRight, Picture } from '@element-plus/icons-vue'
 
 defineProps<{ msg: string }>();
 
@@ -71,7 +71,8 @@ const checkList = ref(
 const arrowFlag1 = ref(true)
 const arrowFlag2 = ref(true)
 const arrowFlag3 = ref(true)
-const selectValue = ref('')
+const selectValue1 = ref('')
+const selectValue2 = ref([])
 const selectList = ref([
   {
     label: 'Option A',
@@ -602,9 +603,11 @@ const tagItems = ref<Array<Item>>([
   { type: 'warning', label: 'Tag 5', size: '' },
 ])
 const collapseValue = ref([])
+const tabValue = ref('first')
+const imageValue = ref('../../assets/img.png')
 </script>
 
-<template>
+<template>  
   <el-form
     label-width="140px"
     label-suffix="："
@@ -673,8 +676,7 @@ const collapseValue = ref([])
         <el-button-group>
           <el-button type="primary" @click.stop>Dropdown List</el-button>
           <el-button type="primary" style="width: 32px;" @click="arrowFlag1 = !arrowFlag1">
-            <el-icon v-if="arrowFlag1"><ArrowDown /></el-icon>
-            <el-icon v-else><ArrowUp /></el-icon>
+            <el-icon ><ArrowDown /></el-icon>
           </el-button>
         </el-button-group>
         <template #dropdown>
@@ -796,7 +798,19 @@ const collapseValue = ref([])
     </el-form-item>
     <el-form-item label="Select">
       <el-select 
-        v-model="selectValue" 
+        v-model="selectValue1" 
+        clearable 
+      >
+        <el-option
+          v-for="item in selectList"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+          :disabled="item.disabled"
+        ></el-option>
+      </el-select>
+      <el-select 
+        v-model="selectValue2" 
         clearable 
         multiple
         collapse-tags
@@ -810,7 +824,7 @@ const collapseValue = ref([])
           :disabled="item.disabled"
         ></el-option>
       </el-select>
-      <el-select v-model="selectValue" clearable disabled></el-select>
+      <el-select v-model="selectValue2" clearable disabled></el-select>
     </el-form-item>
     <el-form-item label="DatePicker">
       <div class="flex-content">
@@ -903,6 +917,7 @@ const collapseValue = ref([])
       <el-cascader 
         v-model="cascaderValue" 
         :options="cascaderOptions" 
+        clearable
       ></el-cascader>
     </el-form-item>
     <el-form-item label="ColorPicke">
@@ -1115,7 +1130,24 @@ const collapseValue = ref([])
         <div>这里是卡片文字内容区域，用以承载文字信息。卡片组成元素有标题、支持操作的交互以及内容样式。</div>
       </el-card>
     </el-form-item>
-    <el-form-item label="走马灯" v-if="false"></el-form-item>
+    <el-form-item label="Carousel">
+      <div class="flex-content">
+        <div>
+          <el-carousel indicator-position="outside">
+            <el-carousel-item v-for="item in 4" :key="item">
+              <h3 text="2xl" justify="center">{{ item }}</h3>
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+        <div>
+          <el-carousel :interval="4000" type="card" height="200px">
+            <el-carousel-item v-for="item in 6" :key="item">
+              <h3 text="2xl" justify="center">{{ item }}</h3>
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+      </div>
+    </el-form-item>
     <el-form-item label="Collapse">
       <el-collapse v-model="collapseValue">
         <el-collapse-item title="折叠面板文字" name="1">
@@ -1144,7 +1176,34 @@ const collapseValue = ref([])
         <el-table-column label="订单编号" prop="orderSn" header-align="center" show-overflow-tooltip></el-table-column>
       </el-table>
     </el-form-item>
-    <el-form-item label="标签选择器（待定）" v-if="false"></el-form-item>
+    <el-form-item label="Tabs">
+      <div class="flex-content">
+        <div>
+          <el-tabs v-model="tabValue" class="demo-tabs">
+            <el-tab-pane label="可选标签" name="first">可选标签</el-tab-pane>
+            <el-tab-pane label="可选标签" name="second">可选标签</el-tab-pane>
+            <el-tab-pane label="可选标签" name="third">可选标签</el-tab-pane>
+            <el-tab-pane label="可选标签" name="fourth">可选标签</el-tab-pane>
+          </el-tabs>
+        </div>
+        <div>
+          <el-tabs v-model="tabValue" class="demo-tabs" type="border-card">
+            <el-tab-pane label="可选标签" name="first">可选标签</el-tab-pane>
+            <el-tab-pane label="可选标签" name="second">可选标签</el-tab-pane>
+            <el-tab-pane label="可选标签" name="third">可选标签</el-tab-pane>
+            <el-tab-pane label="可选标签" name="fourth">可选标签</el-tab-pane>
+          </el-tabs>
+        </div>
+        <div>
+          <el-tabs v-model="tabValue" class="demo-tabs" type="card">
+            <el-tab-pane label="可选标签" name="first">可选标签</el-tab-pane>
+            <el-tab-pane label="可选标签" name="second">可选标签</el-tab-pane>
+            <el-tab-pane label="可选标签" name="third">可选标签</el-tab-pane>
+            <el-tab-pane label="可选标签" name="fourth">可选标签</el-tab-pane>
+          </el-tabs>
+        </div>
+      </div>
+    </el-form-item>
     <el-form-item label="Timeline">
       <el-timeline>
         <el-timeline-item type='primary' :hollow="true">环节节点</el-timeline-item>
@@ -1161,7 +1220,13 @@ const collapseValue = ref([])
       <el-alert title="warning alert" type="warning" show-icon />
       <el-alert title="error alert" type="error" show-icon />
     </el-form-item>
-    <el-form-item label="默认图片" v-if="false"></el-form-item>
+    <el-form-item label="Image">
+      <!-- <el-image src="imageValue">
+        <template #placeholder>
+          <div class="image-slot">Loading<span class="dot">...</span></div>
+        </template>
+      </el-image> -->
+    </el-form-item>
     <el-form-item label="Tag">
       <div class="flex-content">
         <div>
@@ -1335,6 +1400,27 @@ const collapseValue = ref([])
 .ep-radio-group,
 .ep-checkbox-group {
   margin-right: 12px;
+}
+
+.ep-carousel-item {
+  display: flex;
+  color: #475669;
+  opacity: 0.75;
+  line-height: 300px;
+  margin: 0;
+} 
+
+.ep-image{
+  width: 96px;
+  height: 96px;
+}
+
+.ep-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.ep-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
 }
 
 .flex-content {
