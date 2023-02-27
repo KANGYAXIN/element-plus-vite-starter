@@ -41,4 +41,16 @@
   @include e(label) {
     padding: 0px;
   }
+
+  > .#{$namespace}-checkbox {
+    margin-right: 8px;
+  }
+
+  > .#{$namespace}-radio {
+    margin-right: 8px;
+
+    .#{$namespace}-radio__label {
+      padding-left: 0;
+    }
+  }
 }

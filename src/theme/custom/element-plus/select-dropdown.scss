@@ -29,3 +29,8 @@
 @include b(select-dropdown__list) {
   padding: map.get($select-dropdown, 'padding');
 }
+
+@include b(select-dropdown__empty) {
+  padding: map.get($select-dropdown, 'empty-padding');
+  font-size: getCssVar('font-size-base');
+}

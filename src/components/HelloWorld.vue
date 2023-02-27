@@ -72,7 +72,15 @@ const arrowFlag1 = ref(true)
 const arrowFlag2 = ref(true)
 const arrowFlag3 = ref(true)
 const selectValue1 = ref('')
+const selectLoading1 = ref(false)
+const remoteMethod = () => {
+  selectLoading1.value = true
+  setTimeout(() => {
+    selectLoading1.value = false
+  }, 2000)
+}
 const selectValue2 = ref([])
+const selectLoading2 = ref(false)
 const selectList = ref([
   {
     label: 'Option A',
@@ -96,6 +104,9 @@ const selectList = ref([
   }
 ])
 const cascaderValue = ref([])
+const cascaderProp = ref({
+  multiple: true,
+})
 const cascaderOptions = ref([
   {
     value: 'guide',
@@ -677,6 +688,7 @@ const imageValue = ref('../../assets/img.png')
           <el-button type="primary" @click.stop>Dropdown List</el-button>
           <el-button type="primary" style="width: 32px;" @click="arrowFlag1 = !arrowFlag1">
             <el-icon ><ArrowDown /></el-icon>
+            <!-- <el-icon v-else v-if="arrowFlag1"><ArrowUp /></el-icon> -->
           </el-button>
         </el-button-group>
         <template #dropdown>
@@ -740,66 +752,91 @@ const imageValue = ref('../../assets/img.png')
     </el-form-item>
     <!-- ------------------------------------------------------------ -->
     <el-form-item label="Input">
-      <el-input placeholder="暗提示" v-model="inputValue"></el-input>
-      <el-input placeholder="暗提示" disabled v-model="inputValue"></el-input>
-      <el-input placeholder="暗提示" v-model="inputValue">
-        <template #prepend>￥</template>
-      </el-input>
-      <el-input placeholder="暗提示" v-model="inputValue">
-        <template #append>%</template>
-      </el-input>
-      <el-input
-        v-model="inputValue"
-        placeholder="暗提示"
-        :prefix-icon="Search"
-        clearable
-      />
-      <el-input 
-        placeholder="暗提示" 
-        v-model="inputValue"
-        :rows="3"
-        type="textarea"
-        show-word-limit
-        maxlength="50"
-      />
+      <div class="flex-content">
+        <div>
+          <el-input placeholder="请输入" v-model="inputValue" clearable></el-input>
+          <el-input placeholder="请输入" v-model="inputValue" maxlength="10" show-word-limit></el-input>
+          <el-input placeholder="请输入" disabled v-model="inputValue"></el-input>
+        </div>
+        <div>
+          <el-input placeholder="请输入" v-model="inputValue" clearable>
+            <template #prepend>￥</template>
+          </el-input>
+          <el-input placeholder="请输入" v-model="inputValue">
+            <template #append>%</template>
+          </el-input>
+          <el-input
+            v-model="inputValue"
+            placeholder="请输入"
+            :prefix-icon="Search"
+            clearable
+          />
+        </div>
+        <div>
+          <el-input 
+            placeholder="请输入" 
+            v-model="inputValue"
+            :rows="3"
+            type="textarea"
+            show-word-limit
+            maxlength="50"
+          />
+        </div>
+      </div>
     </el-form-item>
     <el-form-item label="Radio">
-      <el-radio-group v-model="radioValue">
-        <el-radio :label="1">Option A</el-radio>
-        <el-radio :label="2" disabled>Option B</el-radio>
-        <el-radio :label="3" disabled>Option <Cap></Cap></el-radio>
-        <el-radio :label="4">Option D</el-radio>
-      </el-radio-group>
-
-      <el-radio-group v-model="radioValue">
-        <el-radio-button :label="1" disabled>Option A</el-radio-button>
-        <el-radio-button :label="2" disabled>Option B</el-radio-button>
-        <el-radio-button :label="3">Option C</el-radio-button>
-      </el-radio-group>
+      <div class="flex-content">
+        <div>
+          <el-radio-group v-model="radioValue">
+            <el-radio :label="1">Option A</el-radio>
+            <el-radio :label="2" disabled>Option B</el-radio>
+            <el-radio :label="3" disabled>Option <Cap></Cap></el-radio>
+            <el-radio :label="4">Option D</el-radio>
+          </el-radio-group>
+        </div>
+        <div>
+          <el-radio-group v-model="radioValue">
+            <el-radio-button :label="1" disabled>Option A</el-radio-button>
+            <el-radio-button :label="2" disabled>Option B</el-radio-button>
+            <el-radio-button :label="3">Option C</el-radio-button>
+          </el-radio-group>
+        </div>
+      </div>
     </el-form-item>
     <el-form-item label="Checkbox">
-      <el-checkbox-group v-model="checkValue">
-        <el-checkbox
-          v-for="item in checkList"
-          :key="item.label"
-          :label="item.label"
-          :indeterminate="item.indeterminate"
-          :disabled="item.disabled"
-        >{{ item.name }}</el-checkbox>
-      </el-checkbox-group>
-      <el-checkbox-group v-model="checkValue">
-        <el-checkbox-button 
-          v-for="item in checkList"
-          :key="item.label"
-          :label="item.label"
-          :disabled="item.disabled"
-        >{{ item.name }}</el-checkbox-button>
-      </el-checkbox-group>
+      <div class="flex-content">
+        <div>
+          <el-checkbox-group v-model="checkValue">
+            <el-checkbox
+              v-for="item in checkList"
+              :key="item.label"
+              :label="item.label"
+              :indeterminate="item.indeterminate"
+              :disabled="item.disabled"
+            >{{ item.name }}</el-checkbox>
+          </el-checkbox-group>
+        </div>
+        <div>
+          <el-checkbox-group v-model="checkValue">
+            <el-checkbox-button 
+              v-for="item in checkList"
+              :key="item.label"
+              :label="item.label"
+              :disabled="item.disabled"
+            >{{ item.name }}</el-checkbox-button>
+          </el-checkbox-group>
+        </div>
+      </div>
     </el-form-item>
     <el-form-item label="Select">
       <el-select 
         v-model="selectValue1" 
         clearable 
+        filterable
+        no-match-text="无搜索结果"
+        loading-text="搜索中..."
+        :loading="selectLoading1"
+        :remote-method="remoteMethod"
       >
         <el-option
           v-for="item in selectList"
@@ -812,9 +849,13 @@ const imageValue = ref('../../assets/img.png')
       <el-select 
         v-model="selectValue2" 
         clearable 
+        filterable
         multiple
         collapse-tags
         collapse-tags-tooltip
+        no-match-text="无搜索结果"
+        loading-text="搜索中..."
+        :loading="selectLoading2"
       >
         <el-option
           v-for="item in selectList"
@@ -907,6 +948,9 @@ const imageValue = ref('../../assets/img.png')
             :shortcuts="shortcuts"
           />
         </div>
+        <div>
+          
+        </div>
       </div>
     </el-form-item>
     <el-form-item label="Switch">
@@ -918,7 +962,16 @@ const imageValue = ref('../../assets/img.png')
         v-model="cascaderValue" 
         :options="cascaderOptions" 
         clearable
+        filterable
       ></el-cascader>
+      <el-cascader
+        :options="cascaderOptions"
+        :props="cascaderProp"
+        collapse-tags
+        collapse-tags-tooltip
+        clearable
+        filterable
+      />
     </el-form-item>
     <el-form-item label="ColorPicke">
       <el-color-picker v-model="colorValue" show-alpha :predefine="predefineColors" />

@@ -26,7 +26,8 @@
         border-radius: 2px;
 
         &:hover {
-          border: getCssVar('border-width') getCssVar('border-style') getCssVar('color-primary');
+          background-color: #F3F8FF; 
+          color: getCssVar('text-color', 'regular');
         }
       }
     }
@@ -46,6 +47,26 @@
     &.end-date .#{$namespace}-date-table-cell {
       border-top-right-radius: 2px;
       border-bottom-right-radius: 2px;
+    }
+
+    &.next-month,
+    &.prev-month {
+      color: getCssVar('datepicker-off-text-color');
+    }
+
+    &.disabled .#{$namespace}-date-table-cell {
+      color: #D3D4D6;
+    }
+
+    &.today {
+      .#{$namespace}-date-table-cell__text {
+        border: getCssVar('border-width') getCssVar('border-style') getCssVar('color-primary');
+        font-weight: normal;
+
+        &:hover {
+          background-color: #F3F8FF; 
+        }
+      }
     }
   }
 }

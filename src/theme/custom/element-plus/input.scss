@@ -53,6 +53,13 @@
       caret-color: getCssVar('color-primary');
     }
   }
+
+  & .#{$namespace}-input__count {
+
+    .#{$namespace}-input__count-inner {
+      color: getCssVar('border-color', '');
+    }
+  }
 }
 
 @include b(input-group) {

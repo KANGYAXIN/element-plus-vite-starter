@@ -18,7 +18,21 @@
       border-radius: 2px;
 
       &:hover {
-        border: getCssVar('border-width') getCssVar('border-style') getCssVar('color-primary'); 
+        background-color: #F3F8FF; 
+        color: getCssVar('text-color', 'regular');
+      }
+    }
+
+    &.today {
+      .cell {
+        border: getCssVar('border-width') getCssVar('border-style') getCssVar('color-primary');
+        background-color: getCssVar('color-white');
+        color: getCssVar('color-primary');
+        font-weight: normal;
+
+        &:hover {
+          background-color: #F3F8FF; 
+        }
       }
     }
 
@@ -26,6 +40,10 @@
       background-color: getCssVar('color-primary');
       color: getCssVar('color-white');
       font-weight: 500;
+
+      &:hover {
+        background-color: getCssVar('color-primary-light-3');
+      }
     }
   }
 }
