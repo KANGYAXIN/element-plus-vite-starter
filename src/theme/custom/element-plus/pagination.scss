@@ -9,17 +9,48 @@
 
   @include set-component-css-var('pagination', $pagination);
 
+  .#{$namespace}-input__inner {
+    padding-left: getCssVar('pagination-item-gap');
+    text-align: left;
+  }
+
+  .#{$namespace}-select .#{$namespace}-input {
+    width: 100px;
+    min-width: 100px;
+  }
+
   @include when(background) {
 
     .btn-prev,
     .btn-next,
     .#{$namespace}-pager li {
+      margin: 0 2px;
       background-color: getCssVar('color', 'white');
       border: getCssVar('border', 'width') getCssVar('border', 'style') getCssVar('pagination-button-bg-color');
 
       &.is-active {
         border: none;
       }
+    }
+  }
+
+  @include e(sizes) {
+    margin-right: calc(getCssVar('pagination-item-gap') - 2px);
+
+    .#{$namespace}-input {
+      margin-right: 0;
+
+      .#{$namespace}-input__wrapper {
+        padding: 1px 8px;
+      }
+    }
+  }
+
+  @include e(jump) {
+    margin-left: calc(getCssVar('pagination-item-gap') - 2px);
+
+    .#{$namespace}-input {
+      margin-right: 0;
     }
   }
 }

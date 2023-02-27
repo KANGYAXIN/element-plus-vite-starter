@@ -58,6 +58,15 @@
       color: #D3D4D6;
     }
 
+    &.selected .#{$namespace}-date-table-cell {
+      background-color: getCssVar('color-white');
+      border-radius: 2px;
+    }
+
+    &.selected .#{$namespace}-date-table-cell__text {
+      border-radius: 2px;
+    }
+
     &.today {
       .#{$namespace}-date-table-cell__text {
         border: getCssVar('border-width') getCssVar('border-style') getCssVar('color-primary');

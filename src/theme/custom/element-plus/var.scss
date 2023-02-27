@@ -265,6 +265,7 @@ $pagination: () !default;
 $pagination: map.merge(
   (
     'button-bg-color': getCssVar('button', 'disabled-border-color'),
+    'item-gap': 8px,
   ),
   $pagination
 );
@@ -446,6 +447,7 @@ $datepicker: () !default;
 $datepicker: map.merge(
   (
     'off-text-color': getCssVar('border-color', ''),
+    'inrange-bg-color': getCssVar('color-primary'),
   ),
   $datepicker
 );

@@ -394,7 +394,7 @@ const noticeHandle = (type: string) => {
 const dialogVisible = ref(false)
 const pagination = ref({
   currentPage: 1,
-  pageSize: 20,
+  pageSize: 100,
 })
 const tableData = ref([
   {
@@ -422,6 +422,7 @@ const dateValue7 = ref('')
 const dateValue8 = ref('')
 const dateValue9 = ref('')
 const dateValue10 = ref('')
+const dateValue11 = ref('')
 
 const disabledDate = (time: Date) => {
   return time.getTime() < Date.now()
@@ -683,64 +684,119 @@ const imageValue = ref('../../assets/img.png')
       </el-breadcrumb>
     </el-form-item>
     <el-form-item label="Dropdown">
-      <el-dropdown trigger="click" placement="bottom-start">
-        <el-button-group>
-          <el-button type="primary" @click.stop>Dropdown List</el-button>
-          <el-button type="primary" style="width: 32px;" @click="arrowFlag1 = !arrowFlag1">
-            <el-icon ><ArrowDown /></el-icon>
-            <!-- <el-icon v-else v-if="arrowFlag1"><ArrowUp /></el-icon> -->
-          </el-button>
-        </el-button-group>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item>Action 1Action 1Action 1Action 1</el-dropdown-item>
-            <el-dropdown-item>Action 2</el-dropdown-item>
-            <el-dropdown-item>Action 3</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-      <el-dropdown trigger="click" placement="bottom-start">
-        <el-button-group>
-          <el-button plain type="primary" @click.stop>Dropdown List</el-button>
-          <el-button plain type="primary" style="width: 32px;"  @click="arrowFlag2 = !arrowFlag2">
-            <el-icon v-if="arrowFlag2"><ArrowDown /></el-icon>
-            <el-icon v-else><ArrowUp /></el-icon>
-          </el-button>
-        </el-button-group>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item>Action 1</el-dropdown-item>
-            <el-dropdown-item>Action 2</el-dropdown-item>
-            <el-dropdown-item>Action 3</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-      <el-dropdown trigger="click" placement="bottom-start">
-        <el-button-group>
-          <el-button plain @click.stop>Dropdown List</el-button>
-          <el-button plain style="width: 32px;" @click="arrowFlag3 = !arrowFlag3">
-            <el-icon v-if="arrowFlag3"><ArrowDown /></el-icon>
-            <el-icon v-else><ArrowUp /></el-icon>
-          </el-button>
-        </el-button-group>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item>Action 1</el-dropdown-item>
-            <el-dropdown-item>Action 2</el-dropdown-item>
-            <el-dropdown-item>Action 3</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
+      <div class="flex-content">
+        <div>
+          <el-dropdown trigger="click" placement="bottom-start">
+            <el-button-group>
+              <el-button type="primary" @click.stop>Dropdown List</el-button>
+              <el-button type="primary" style="width: 32px;" @click="arrowFlag1 = !arrowFlag1">
+                <el-icon ><ArrowDown /></el-icon>
+              </el-button>
+            </el-button-group>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>Action 1Action 1Action 1Action 1</el-dropdown-item>
+                <el-dropdown-item>Action 2</el-dropdown-item>
+                <el-dropdown-item>Action 3</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+          <el-dropdown trigger="click" placement="bottom-start">
+            <el-button-group>
+              <el-button plain type="primary" @click.stop>Dropdown List</el-button>
+              <el-button plain type="primary" style="width: 32px;"  @click="arrowFlag2 = !arrowFlag2">
+                <el-icon><ArrowDown /></el-icon>
+              </el-button>
+            </el-button-group>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>Action 1</el-dropdown-item>
+                <el-dropdown-item>Action 2</el-dropdown-item>
+                <el-dropdown-item>Action 3</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+          <el-dropdown trigger="click" placement="bottom-start">
+            <el-button-group>
+              <el-button plain @click.stop>Dropdown List</el-button>
+              <el-button plain style="width: 32px;" @click="arrowFlag3 = !arrowFlag3">
+                <el-icon><ArrowDown /></el-icon>
+              </el-button>
+            </el-button-group>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>Action 1</el-dropdown-item>
+                <el-dropdown-item>Action 2</el-dropdown-item>
+                <el-dropdown-item>Action 3</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+        </div>
+        <div>
+          <el-dropdown trigger="click" placement="bottom-start">
+            <el-button type="primary">
+              <span style="margin-right: 6px;">主按钮</span>
+              <el-icon class="el-icon--right"><arrow-down /></el-icon>
+            </el-button>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>Action 1Action 1Action 1Action 1</el-dropdown-item>
+                <el-dropdown-item>Action 2</el-dropdown-item>
+                <el-dropdown-item>Action 3</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+          <el-dropdown trigger="click" placement="bottom-start">
+            <el-button type="primary" plain>
+              <span style="margin-right: 6px;">次按钮</span>
+              <el-icon class="el-icon--right"><arrow-down /></el-icon>
+            </el-button>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>Action 1Action 1Action 1Action 1</el-dropdown-item>
+                <el-dropdown-item>Action 2</el-dropdown-item>
+                <el-dropdown-item>Action 3</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+          <el-dropdown trigger="click" placement="bottom-start">
+            <el-button plain>
+              <span style="margin-right: 6px;">次按钮</span>
+              <el-icon class="el-icon--right"><arrow-down /></el-icon>
+            </el-button>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>Action 1Action 1Action 1Action 1</el-dropdown-item>
+                <el-dropdown-item>Action 2</el-dropdown-item>
+                <el-dropdown-item>Action 3</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+        </div>
+      </div>
     </el-form-item>
     <el-form-item label="Pagination">
-      <el-pagination
-        v-model:current-page="pagination.currentPage"
-        v-model:page-size="pagination.pageSize"
-        :page-sizes="[100, 200, 300, 400]"
-        background
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="400"
-      />
+      <div class="flex-content">
+        <div>
+          <el-pagination
+            v-model:current-page="pagination.currentPage"
+            v-model:page-size="pagination.pageSize"
+            background
+            layout="prev, pager, next"
+            :total="400"
+          />
+        </div>
+        <div>
+          <el-pagination
+            v-model:current-page="pagination.currentPage"
+            v-model:page-size="pagination.pageSize"
+            :page-sizes="[100, 200, 300, 400]"
+            background
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="400"
+          />
+        </div>
+      </div>
     </el-form-item>
     <el-form-item label="Step">
       <el-button plain @click="stepHandle">Step</el-button>
@@ -891,8 +947,14 @@ const imageValue = ref('../../assets/img.png')
           />
           <el-date-picker
             v-model="dateValue4"
-            type="dates"
+            type="date"
             placeholder="请选择日期"
+            :disabled-date="disabledDate"
+          />
+          <el-date-picker
+            v-model="dateValue11"
+            type="dates"
+            placeholder="请选择多个日期"
             :disabled-date="disabledDate"
           />
           <el-time-picker
@@ -947,9 +1009,6 @@ const imageValue = ref('../../assets/img.png')
             placeholder="请选择日期"
             :shortcuts="shortcuts"
           />
-        </div>
-        <div>
-          
         </div>
       </div>
     </el-form-item>
