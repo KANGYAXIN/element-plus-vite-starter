@@ -1,5 +1,5 @@
 <template>
-  <el-config-provider namespace="ep">
+  <el-config-provider namespace="ep" :locale="locale">
     <BaseHeader />
     <div style="display: flex">
       <BaseSide />
@@ -10,6 +10,11 @@
     </div>
   </el-config-provider>
 </template>
+
+<script lang="ts" setup>
+import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+const locale = zhCn
+</script>
 
 <style>
 #app {
