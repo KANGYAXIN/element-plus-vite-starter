@@ -452,6 +452,19 @@ $datepicker: map.merge(
   $datepicker
 );
 
+// Carousel
+$carousel: () !default;
+$carousel: map.merge(
+  (
+    'arrow-size': 32px,
+    'arrow-background': rgba(36, 41, 51, 0.2),
+    'arrow-hover-background': rgba(36, 41, 51, 0.2),
+    'indicator-width': 16px,
+    'indicator-height': 4px,
+    'indicator-out-color': #F2F2F2,
+  ),
+  $carousel
+);
 
 // Button
 $button: () !default;

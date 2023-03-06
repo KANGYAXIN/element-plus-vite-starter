@@ -1245,14 +1245,14 @@ const imageValue = ref('../../assets/img.png')
     <el-form-item label="Carousel">
       <div class="flex-content">
         <div>
-          <el-carousel indicator-position="outside">
+          <el-carousel indicator-position="outside" height="160px" style="width: 390px;">
             <el-carousel-item v-for="item in 4" :key="item">
               <h3 text="2xl" justify="center">{{ item }}</h3>
             </el-carousel-item>
           </el-carousel>
         </div>
         <div>
-          <el-carousel :interval="4000" type="card" height="200px">
+          <el-carousel :interval="4000" type="card" height="160px" style="width: 600px;">
             <el-carousel-item v-for="item in 6" :key="item">
               <h3 text="2xl" justify="center">{{ item }}</h3>
             </el-carousel-item>
@@ -1288,7 +1288,7 @@ const imageValue = ref('../../assets/img.png')
         <el-table-column label="订单编号" prop="orderSn" header-align="center" show-overflow-tooltip></el-table-column>
       </el-table>
     </el-form-item>
-    <el-form-item label="Tabs">
+    <el-form-item label="Tabs(未完善)">
       <div class="flex-content">
         <div>
           <el-tabs v-model="tabValue" class="demo-tabs">
@@ -1332,7 +1332,7 @@ const imageValue = ref('../../assets/img.png')
       <el-alert title="warning alert" type="warning" show-icon />
       <el-alert title="error alert" type="error" show-icon />
     </el-form-item>
-    <el-form-item label="Image">
+    <el-form-item label="Image(未完善)">
       <!-- <el-image src="imageValue">
         <template #placeholder>
           <div class="image-slot">Loading<span class="dot">...</span></div>

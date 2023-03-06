@@ -1,0 +1,39 @@
+@use 'sass:math';
+
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use 'element-plus/theme-chalk/src/mixins/var' as *;
+@use 'element-plus/theme-chalk/src/mixins/utils' as *;
+@use './var' as *;
+
+@include b(carousel) {
+  @include set-component-css-var('carousel', $carousel);
+
+  @include e(indicators) {
+
+    @include m(outside) {
+      .#{$namespace}-carousel__indicator:hover button {
+        opacity: 1;
+      }
+      button {
+        opacity: 1;
+      }
+    }
+  }
+
+  @include e(indicator) {
+    @include when(active) {
+      button {
+        background-color: getCssVar('color', 'primary');
+        opacity: 1;
+      }
+    }
+  }
+
+  @include e(button) {
+    opacity: 1;
+    width: getCssVar('carousel-indicator-width');
+    height: getCssVar('carousel-indicator-height');
+    background-color: getCssVar('carousel', 'indicator-out-color');
+    border-radius: 2px;
+  }
+}

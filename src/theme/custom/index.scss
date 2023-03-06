@@ -143,6 +143,8 @@ $--colors: (
 
 @use "./element-plus/timeline-item.scss" as *;
 
+@use "./element-plus/carousel.scss" as *;
+
 //设置本套主题色为custom前缀，当html标签中设置class="custom"此套主题生效
 html.custom {
 
