@@ -1288,30 +1288,22 @@ const imageValue = ref('../../assets/img.png')
         <el-table-column label="订单编号" prop="orderSn" header-align="center" show-overflow-tooltip></el-table-column>
       </el-table>
     </el-form-item>
-    <el-form-item label="Tabs(未完善)">
+    <el-form-item label="Tabs">
       <div class="flex-content">
         <div>
           <el-tabs v-model="tabValue" class="demo-tabs">
-            <el-tab-pane label="可选标签" name="first">可选标签</el-tab-pane>
-            <el-tab-pane label="可选标签" name="second">可选标签</el-tab-pane>
-            <el-tab-pane label="可选标签" name="third">可选标签</el-tab-pane>
-            <el-tab-pane label="可选标签" name="fourth">可选标签</el-tab-pane>
-          </el-tabs>
-        </div>
-        <div>
-          <el-tabs v-model="tabValue" class="demo-tabs" type="border-card">
-            <el-tab-pane label="可选标签" name="first">可选标签</el-tab-pane>
-            <el-tab-pane label="可选标签" name="second">可选标签</el-tab-pane>
-            <el-tab-pane label="可选标签" name="third">可选标签</el-tab-pane>
-            <el-tab-pane label="可选标签" name="fourth">可选标签</el-tab-pane>
+            <el-tab-pane label="选项一" name="first">内容区域</el-tab-pane>
+            <el-tab-pane label="选项二" name="second">内容区域</el-tab-pane>
+            <el-tab-pane label="选项三" name="third">内容区域</el-tab-pane>
+            <el-tab-pane label="选项四" name="fourth" :disabled="true">内容区域</el-tab-pane>
           </el-tabs>
         </div>
         <div>
           <el-tabs v-model="tabValue" class="demo-tabs" type="card">
-            <el-tab-pane label="可选标签" name="first">可选标签</el-tab-pane>
-            <el-tab-pane label="可选标签" name="second">可选标签</el-tab-pane>
-            <el-tab-pane label="可选标签" name="third">可选标签</el-tab-pane>
-            <el-tab-pane label="可选标签" name="fourth">可选标签</el-tab-pane>
+            <el-tab-pane label="选项一" name="first">内容区域</el-tab-pane>
+            <el-tab-pane label="选项二" name="second">内容区域</el-tab-pane>
+            <el-tab-pane label="选项三" name="third">内容区域</el-tab-pane>
+            <el-tab-pane label="选项四" name="fourth" :disabled="true">内容区域</el-tab-pane>
           </el-tabs>
         </div>
       </div>

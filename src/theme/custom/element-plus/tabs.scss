@@ -1,0 +1,61 @@
+@use 'element-plus/theme-chalk/src/mixins/mixins' as *;
+@use './var.scss' as *;
+
+@include b(tabs) {
+
+  @include e(item) {
+    font-weight: 400;
+
+    @include when(active) {
+      font-weight: 500;
+    }
+
+    @include when(disabled) {
+      color: getCssVar('border-color', '');
+    }
+  }
+
+  @include m(card) {
+
+    > .#{$namespace}-tabs__header .#{$namespace}-tabs__nav {
+      border: 1px solid getCssVar('button', 'disabled-border-color');
+      border-bottom: none;
+    }
+
+    > .#{$namespace}-tabs__header .#{$namespace}-tabs__item {
+      padding: 0 35px;
+      border-left: 1px solid getCssVar('button', 'disabled-border-color');;
+      background-color: getCssVar('color-primary', 'light-9');
+
+      &:hover {
+        background-color: getCssVar('disabled', 'bg-color');
+        color: getCssVar('text-color', 'regular');
+      }
+
+      &.is-active {
+        background-color: getCssVar('color', 'white');
+        color: getCssVar('color', 'primary');
+      }
+
+      &.is-disabled {
+        background-color: getCssVar('color-primary', 'light-9');
+        color: getCssVar('border-color', '');
+      }
+    }
+  }
+
+  @include m((top, bottom)) {
+
+    &.#{$namespace}-tabs--card {
+
+      > .#{$namespace}-tabs__header {
+        .#{$namespace}-tabs__item:nth-child(2) {
+          padding-left: 35px;
+        }
+        .#{$namespace}-tabs__item:last-child {
+          padding-right: 35px;
+        }
+      }
+    }
+  }
+}
