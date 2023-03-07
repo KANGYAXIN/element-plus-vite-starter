@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, h } from "vue";
+import { ref, h, reactive } from "vue";
 import { ElMessage, ElNotification, ElMessageBox } from 'element-plus'
-import type { TagProps } from 'element-plus'
-import { ArrowDown, ArrowUp, Eleme, Search, StarFilled, WarningFilled, ArrowRight, Picture } from '@element-plus/icons-vue'
+import type { TagProps, FormInstance, FormRules } from 'element-plus'
+import { ArrowDown, ArrowUp, Eleme, Search, StarFilled, WarningFilled, ArrowRight, Picture, UploadFilled } from '@element-plus/icons-vue'
 
 defineProps<{ msg: string }>();
 
@@ -617,6 +617,43 @@ const tagItems = ref<Array<Item>>([
 const collapseValue = ref([])
 const tabValue = ref('first')
 const imageValue = ref('../../assets/img.png')
+const fileList = ref([
+  {
+    name: 'element-plus-logo.svg',
+    url: 'https://element-plus.org/images/element-plus-logo.svg',
+  },
+  {
+    name: 'element-plus-logo2.svg',
+    url: 'https://element-plus.org/images/element-plus-logo.svg',
+  },
+])
+const form = ref({
+  inputValue: '',
+  selectValue: ''
+})
+const ruleFormRef = ref<FormInstance>()
+const rules = reactive<FormRules>({
+  inputValue: [
+    { required: true, message: '请填写结果', trigger: 'blur' },
+  ],
+  selectValue: [
+    { required: true, message: '请选择选项', trigger: 'change' },
+  ],
+})
+const submitForm = async (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  await formEl.validate((valid, fields) => {
+    if (valid) {
+      console.log('submit!')
+    } else {
+      console.log('error submit!', fields)
+    }
+  })
+}
+const resetForm = (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  formEl.resetFields()
+}
 </script>
 
 <template>  
@@ -1075,7 +1112,33 @@ const imageValue = ref('../../assets/img.png')
     <el-form-item label="Transfer">
       <el-transfer v-model="transferValue" :data="transferData" filterable />
     </el-form-item>
-    <el-form-item label="文件上传" v-if="false"></el-form-item>
+    <el-form-item label="Upload(未完善)">
+      <div class="flex-content">
+        <div>
+          <el-upload 
+            v-model:file-list="fileList"
+            style="text-align: left;"
+          >
+            <el-button plain>选择文件</el-button>
+            <template #tip>
+              <div style="font-size: 12px; margin-top: 4px;color: var(--ep-text-color-placeholder);">仅支持png、jpg、pdf、xlsx、xls格式，单个文件大小不超过 5M</div>
+            </template>
+          </el-upload>
+        </div>
+        <el-divider border-style="dashed" />
+        <div>
+          <el-upload
+            drag
+            multiple
+          >
+            <el-icon :size="24"><UploadFilled /></el-icon>
+            <div style="color: var(--ep-text-color-regular);margin-top: 16px;">单击或将文件拖到该区域以上传</div>
+            <div style="color: var(--ep-text-color-placeholder);font-size: 12px;margin-top: 4px;">仅支持png、jpg、pdf、xlsx、xls格式</div>
+            <div style="color: var(--ep-text-color-placeholder);font-size: 12px;margin-top: 4px;">单个文件大小不超过 5M</div>
+          </el-upload>
+        </div>
+      </div>
+    </el-form-item>
     <!-- ------------------------------------------------------------ -->
     <el-form-item label="Tooltip">
       <el-tooltip
@@ -1459,19 +1522,50 @@ const imageValue = ref('../../assets/img.png')
     <el-form-item label="MessageBox">
       <el-button plain @click="handleMessageBox">MessageBox</el-button>
     </el-form-item>
-    <el-form-item label="TestSvg">
+    <el-form-item label="TestSvg(未完善)">
       <svg-icon 
         name="action" 
         color="#327de8"
       />
     </el-form-item>
   </el-form>
+  <el-form
+    ref="ruleFormRef"
+    :model="form"
+    :rules="rules"
+    label-width="140px"
+    label-suffix="："
+  >
+    <el-form-item label="Form">
+      <el-form-item label="Input" prop="inputValue">
+        <el-input v-model="form.inputValue"></el-input>
+      </el-form-item>
+      <el-form-item label="Select" prop="selectValue">
+        <el-select v-model="form.selectValue">
+          <el-option
+            v-for="item in selectList"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+            :disabled="item.disabled"
+          ></el-option>
+        </el-select>
+      </el-form-item>
+      <el-button plain @click="submitForm(ruleFormRef)">校验</el-button>
+      <el-button plain @click="resetForm(ruleFormRef)">清空校验</el-button>
+    </el-form-item>
+  </el-form>
 </template>
 
 <style scoped lang="scss">
-.ep-form {
-  padding-top: 20px;
-  padding-bottom: 100px;
+.ep-form{
+  &:first-child {
+    padding-top: 20px;
+  }
+
+  &:last-child {
+    padding-bottom: 100px;
+  }
 }
 :deep(.ep-form-item__content) {
   line-height: 1 !important;
