@@ -33,4 +33,10 @@
       );
     }
   }
+  &.is-focus:not(.is-checked) {
+    & .#{$namespace}-checkbox-button__inner {
+      border-color: getCssVar('border-color', '');
+      color: getCssVar('text-color', 'regular');
+    }
+  }
 }

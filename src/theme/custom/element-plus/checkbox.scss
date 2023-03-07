@@ -27,7 +27,9 @@
         border-color: getCssVar('checkbox-checked-input-border-color');
 
         &::before {
+          height: 3px;
           background-color: getCssVar('checkbox-checked-bg-color');
+          top: 4.5px;
         }
       }
     }

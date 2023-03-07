@@ -28,10 +28,14 @@
   &.is-active {
     background-color: getCssVar('color', 'primary', 'light-2');
     font-weight: 500;
+
+    &:hover {
+      background-color: getCssVar('color', 'primary', 'light-2');
+    }
   }
 
   @include e(prefix) {
-    left: -2px;
+    display: none;
   }
 
   @include e(postfix) {
