@@ -1,6 +1,7 @@
 @use 'element-plus/theme-chalk/src/mixins/mixins' as *;
 @use '../var' as *;
 
+// date picker - month
 @include b(month-table) {
 
   td {

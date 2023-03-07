@@ -1,6 +1,7 @@
 @use 'element-plus/theme-chalk/src/mixins/mixins' as *;
 @use '../var' as *;
 
+// date picker - 时分秒
 @include b(time-spinner) {
 
   @include e(item) {
