@@ -266,6 +266,7 @@ $pagination: map.merge(
   (
     'button-bg-color': getCssVar('button', 'disabled-border-color'),
     'item-gap': 8px,
+    'button-color': getCssVar('text-color-regular'),
   ),
   $pagination
 );

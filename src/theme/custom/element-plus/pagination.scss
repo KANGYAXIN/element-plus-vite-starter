@@ -28,8 +28,19 @@
       background-color: getCssVar('color', 'white');
       border: getCssVar('border', 'width') getCssVar('border', 'style') getCssVar('pagination-button-bg-color');
 
+      &:hover:not(.is-active):not(.is-disabled):not(:disabled) {
+        color: getCssVar('text-color', 'regular');
+        background-color: getCssVar('color-primary', 'light-9');
+      }
+
       &.is-active {
         border: none;
+      }
+
+      &:disabled,
+      &.is-disabled {
+        color: getCssVar('border-color', '');
+        background-color: getCssVar('color', 'white');
       }
     }
   }

@@ -790,7 +790,7 @@ const imageValue = ref('../../assets/img.png')
           <el-pagination
             v-model:current-page="pagination.currentPage"
             v-model:page-size="pagination.pageSize"
-            :page-sizes="[100, 200, 300, 400]"
+            :page-sizes="[50, 100, 200, 300]"
             background
             layout="total, sizes, prev, pager, next, jumper"
             :total="400"
@@ -811,14 +811,14 @@ const imageValue = ref('../../assets/img.png')
       <div class="flex-content">
         <div>
           <el-input placeholder="请输入" v-model="inputValue" clearable></el-input>
-          <el-input placeholder="请输入" v-model="inputValue" maxlength="10" show-word-limit></el-input>
+          <el-input placeholder="请输入" v-model="inputValue" maxlength="10" show-word-limit clearable></el-input>
           <el-input placeholder="请输入" disabled v-model="inputValue"></el-input>
         </div>
         <div>
           <el-input placeholder="请输入" v-model="inputValue" clearable>
             <template #prepend>￥</template>
           </el-input>
-          <el-input placeholder="请输入" v-model="inputValue">
+          <el-input placeholder="请输入" v-model="inputValue" clearable>
             <template #append>%</template>
           </el-input>
           <el-input
