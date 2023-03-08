@@ -12,6 +12,7 @@
       &:hover {
         color: getCssVar('border-color');
         border: none;
+        background-color: getCssVar('color', 'white');
       }
     }
 

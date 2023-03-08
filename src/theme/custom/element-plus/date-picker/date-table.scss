@@ -20,6 +20,12 @@
         }
       }
 
+      &.disabled .#{$namespace}-date-table-cell__text {
+        &:hover {
+          background-color: getCssVar('color-primary', 'light-2');
+        }
+      }
+
       &.current .#{$namespace}-date-table-cell {
         background-color: getCssVar('color-primary', 'light-2');
       }
@@ -32,16 +38,17 @@
 
       @include b(date-table-cell__text) {
         border-radius: 2px;
-
-        &:hover {
-          background-color: #F3F8FF; 
-          color: getCssVar('text-color', 'regular');
-        }
       }
     }
 
-    &.available:hover {
+    &.available:not(.selected):not(.in-range):not(.current):hover {
       color: getCssVar('text-color', 'regular');
+
+      .#{$namespace}-date-table-cell__text {
+        &:hover {
+          background-color: #F3F8FF; 
+        }
+      }
     }
 
     &.in-range .#{$namespace}-date-table-cell {
@@ -79,8 +86,10 @@
       color: getCssVar('datepicker-off-text-color');
     }
 
-    &.disabled .#{$namespace}-date-table-cell {
-      color: #D3D4D6;
+    &.disabled .#{$namespace}-date-table-cell__text {
+      &:hover {
+        color: getCssVar('text-color', 'placeholder');
+      }
     }
 
     &.selected .#{$namespace}-date-table-cell {
@@ -100,13 +109,14 @@
       }
     }
 
-    &.today {
+    &.today:not(.start-date):not(.end-date):not(.current) {
       .#{$namespace}-date-table-cell__text {
         border: getCssVar('border-width') getCssVar('border-style') getCssVar('color-primary');
         font-weight: normal;
 
         &:hover {
           background-color: #F3F8FF; 
+          color: getCssVar('color-primary');
         }
       }
     }
