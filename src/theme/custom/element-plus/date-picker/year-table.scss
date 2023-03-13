@@ -1,53 +1,49 @@
 @use 'element-plus/theme-chalk/src/mixins/mixins' as *;
 @use '../var' as *;
 
-
 // date picker - year
 @include b(year-table) {
-
   td {
-
-    &.disabled .cell {
-      color: getCssVar('border-color');
-
-      &:hover {
-        color: getCssVar('border-color');
-        border: none;
-        background-color: getCssVar('color', 'white');
-      }
-    }
-
     .cell {
       border-radius: 2px;
       box-sizing: border-box;
 
       &:hover {
-        background-color: #F3F8FF; 
+        background-color: #f3f8ff;
         color: getCssVar('text-color', 'regular');
       }
     }
 
-    &.today {
-      .cell {
-        border: getCssVar('border-width') getCssVar('border-style') getCssVar('color-primary');
-        background-color: getCssVar('color-white');
-        color: getCssVar('color-primary');
-        font-weight: normal;
+    &.disabled .cell {
+      color: getCssVar('border-color');
+    }
 
-        &:hover {
-          background-color: #F3F8FF; 
-        }
-      }
+    &.today .cell {
+      border: getCssVar('border-width') getCssVar('border-style')
+        getCssVar('color-primary');
+      background-color: getCssVar('color-white');
+      color: getCssVar('color-primary');
+      font-weight: normal;
     }
 
     &.current:not(.disabled) .cell {
       background-color: getCssVar('color-primary');
       color: getCssVar('color-white');
       font-weight: 500;
+    }
 
-      &:hover {
-        background-color: getCssVar('color-primary-light-3');
-      }
+    &.disabled .cell:hover {
+      color: getCssVar('border-color');
+      border: none;
+      background-color: getCssVar('color', 'white');
+    }
+
+    &.today .cell:hover {
+      background-color: #f3f8ff;
+    }
+
+    &.current:not(.disabled) .cell:hover {
+      background-color: getCssVar('color-primary-light-3');
     }
   }
 }
