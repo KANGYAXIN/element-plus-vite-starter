@@ -4,7 +4,6 @@
 
 @include b(popper) {
   padding: 5px 16px;
-  min-width: 160px;
   
   $arrow-selector: #{& + '__arrow'};
 

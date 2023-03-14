@@ -52,6 +52,33 @@ $button-icon-span-gap: map.merge(
     )
   }
 
+  @include when(text) {
+    &:not(.is-disabled) {
+      &:hover,
+      &:focus {
+        color: getCssVar('color', 'primary');
+      }
+
+      &:active {
+        color: getCssVar('color', 'primary', 'dark-2');
+        background-color: getCssVar('color','white');
+      }
+    }
+  }
+
+  @include when(link) {
+    &:not(.is-disabled) {
+      &:hover,
+      &:focus {
+        color: getCssVar('color', 'primary');
+      }
+
+      &:active {
+        color: getCssVar('color', 'primary', 'dark-2');
+      }
+    }
+  }
+
   @each $type in (primary, success, warning, danger, info) {
     @include m($type) {
       @include button-variant($type);
@@ -60,6 +87,53 @@ $button-icon-span-gap: map.merge(
         ('button', 'active', 'text-color'),
         ('color', 'white')
       );
+
+      &.is-link {
+        color: getCssVar('color', $type);
+
+        &:hover,
+        &:focus {
+          color: getCssVar('color', $type, 'light-3');
+        }
+
+        &:active {
+          color: getCssVar('color', $type, 'dark-2');
+        }
+
+        &.is-disabled {
+          color: getCssVar('color', $type, 'light-5');
+        } 
+      }
+
+      &.is-text {
+        color: getCssVar('color', $type);
+
+        &:not(.is-disabled) {
+          &:hover,
+          &:focus {
+            color: getCssVar('color', $type, 'light-3');
+          }
+
+          &:active {
+            color: getCssVar('color', $type, 'dark-2');
+            background-color: getCssVar('color', 'white');
+          }
+        }
+
+        &.is-disabled {
+          color: getCssVar('color', $type, 'light-5') !important;
+        } 
+
+        &.is-has-bg {
+          color: getCssVar('color', $type);
+
+          &:hover,
+          &:focus,
+          &:active {
+            color: getCssVar('color', $type);
+          }
+        }
+      }
     }
   }
 

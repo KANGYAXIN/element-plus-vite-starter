@@ -480,6 +480,7 @@ $button: map.merge(
     'active-text-color': getCssVar('color-primary', 'dark-2'),
     'active-border-color': getCssVar('color-primary', 'dark-2'),
     'active-bg-color': getCssVar('color', 'white'),
+    'hover-link-text-color': getCssVar('text-color', 'regular'),
   ),
   $button
 );

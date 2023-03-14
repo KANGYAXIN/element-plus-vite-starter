@@ -670,6 +670,11 @@ const resetForm = (formEl: FormInstance | undefined) => {
           <el-button type="success">success</el-button>
           <el-button type="warning">Warning</el-button>
           <el-button type="danger">Danger</el-button>
+          <el-button disabled>Default</el-button>
+          <el-button type="primary" disabled>Primary</el-button>
+          <el-button type="success" disabled>Success</el-button>
+          <el-button type="warning" disabled>Warning</el-button>
+          <el-button type="danger" disabled>Danger</el-button>
         </div>
         <div>
           <p>Size</p>
@@ -679,19 +684,11 @@ const resetForm = (formEl: FormInstance | undefined) => {
         </div>
         <div>
           <p>Plain</p>
-          <el-button plain>Plain</el-button>
+          <el-button plain>Default</el-button>
           <el-button type="primary" plain>Primary</el-button>
           <el-button type="success" plain>Success</el-button>
           <el-button type="warning" plain>Warning</el-button>
           <el-button type="danger" plain>Danger</el-button>
-        </div>
-        <div>
-          <p>Disabled</p>
-          <el-button disabled>Default</el-button>
-          <el-button type="primary" disabled>Primary</el-button>
-          <el-button type="success" disabled>Success</el-button>
-          <el-button type="warning" disabled>Warning</el-button>
-          <el-button type="danger" disabled>Danger</el-button>
           <el-button plain disabled>Default</el-button>
           <el-button type="primary" plain disabled>Primary</el-button>
           <el-button type="success" plain disabled>Success</el-button>
@@ -700,10 +697,42 @@ const resetForm = (formEl: FormInstance | undefined) => {
         </div>
         <div>
           <p>Text</p>
+          <el-button text>Default</el-button>
+          <el-button type="primary" text>Primary</el-button>
+          <el-button type="success" text>Success</el-button>
+          <el-button type="warning" text>Warning</el-button>
+          <el-button type="danger" text>Danger</el-button>
+          <el-button text disabled>Default</el-button>
+          <el-button type="primary" text disabled>Primary</el-button>
+          <el-button type="success" text disabled>Success</el-button>
+          <el-button type="warning" text disabled>Warning</el-button>
+          <el-button type="danger" text disabled>Danger</el-button>
+        </div>
+        <div>
+          <p>Text-bg</p>
+          <el-button text bg>Default</el-button>
           <el-button type="primary" text bg>Primary</el-button>
           <el-button type="success" text bg>Success</el-button>
           <el-button type="warning" text bg>Warning</el-button>
           <el-button type="danger" text bg>Danger</el-button>
+          <el-button text bg disabled>Default</el-button>
+          <el-button type="primary" text bg disabled>Primary</el-button>
+          <el-button type="success" text bg disabled>Success</el-button>
+          <el-button type="warning" text bg disabled>Warning</el-button>
+          <el-button type="danger" text bg disabled>Danger</el-button>
+        </div>
+        <div>
+          <p>Link</p>
+          <el-button link>Default</el-button>
+          <el-button type="primary" link>Primary</el-button>
+          <el-button type="success" link>Success</el-button>
+          <el-button type="warning" link>Warning</el-button>
+          <el-button type="danger" link>Danger</el-button>
+          <el-button link disabled>Default</el-button>
+          <el-button type="primary" link disabled>Primary</el-button>
+          <el-button type="success" link disabled>Success</el-button>
+          <el-button type="warning" link disabled>Warning</el-button>
+          <el-button type="danger" link disabled>Danger</el-button>
         </div>
         <div>
           <p>Loading</p>
