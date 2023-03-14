@@ -14,6 +14,7 @@ const toast = (type: any) => {
 }
 
 // 初始化
+const loading = ref(false);
 const loadingValue = ref(false)
 const svg = `
         <path class="path" d="
@@ -427,6 +428,9 @@ const dateValue11 = ref('')
 const disabledDate = (time: Date) => {
   return time.getTime() < Date.now()
 }
+const disabledHours = () => {
+  return [0,1,2,3,4,5]
+}
 const shortcuts = ref([
   {
     text: '近一周',
@@ -616,7 +620,10 @@ const tagItems = ref<Array<Item>>([
 ])
 const collapseValue = ref([])
 const tabValue = ref('first')
-const imageValue = ref('../../assets/img.png')
+const imageValue = ref('');
+const handleToImage = () => {
+  imageValue.value = 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg'
+}
 const fileList = ref([
   {
     name: 'element-plus-logo.svg',
@@ -736,7 +743,16 @@ const resetForm = (formEl: FormInstance | undefined) => {
         </div>
         <div>
           <p>Loading</p>
-          <el-button type="primary" loading>Primary</el-button>
+          <el-button plain @click="loading = !loading">Click</el-button>
+          <el-button type="primary" :loading="loading" style="width: 82px;">
+            <template #loading>
+              <svg-icon
+                color="#808080"
+                name="action"
+              ></svg-icon>
+            </template>
+            {{ loading ? '' : 'Primary' }}
+          </el-button>
         </div>
       </div>
     </el-form-item>
@@ -1023,10 +1039,6 @@ const resetForm = (formEl: FormInstance | undefined) => {
             placeholder="请选择多个日期"
             :disabled-date="disabledDate"
           />
-          <el-time-picker
-            v-model="dateValue5"
-            placeholder="请选择时间"
-          />
         </div>
         <div>
           <el-date-picker
@@ -1074,6 +1086,13 @@ const resetForm = (formEl: FormInstance | undefined) => {
             type="datetime"
             placeholder="请选择日期"
             :shortcuts="shortcuts"
+          />
+        </div>
+        <div>
+          <el-time-picker
+            v-model="dateValue5"
+            placeholder="请选择时间"
+            :disabled-hours="disabledHours"
           />
         </div>
       </div>
@@ -1416,12 +1435,14 @@ const resetForm = (formEl: FormInstance | undefined) => {
       <el-alert title="warning alert" type="warning" show-icon />
       <el-alert title="error alert" type="error" show-icon />
     </el-form-item>
-    <el-form-item label="Image(未完善)">
-      <!-- <el-image src="imageValue">
+    <el-form-item label="Image">
+      <el-button plain style="margin-right: 12px;" @click="handleToImage">加载图片</el-button>
+      <el-image :src="imageValue" v-if="imageValue">
         <template #placeholder>
-          <div class="image-slot">Loading<span class="dot">...</span></div>
+          <div style="line-height: 96px;">加载中...</div>
         </template>
-      </el-image> -->
+      </el-image>
+      <el-image v-else src="//erpx-prod.oss-cn-zhangjiakou.aliyuncs.com/img/default.jpg"></el-image>
     </el-form-item>
     <el-form-item label="Tag">
       <div class="flex-content">
@@ -1551,12 +1572,6 @@ const resetForm = (formEl: FormInstance | undefined) => {
     <el-form-item label="MessageBox">
       <el-button plain @click="handleMessageBox">MessageBox</el-button>
     </el-form-item>
-    <el-form-item label="TestSvg(未完善)">
-      <svg-icon 
-        name="action" 
-        color="#327de8"
-      />
-    </el-form-item>
   </el-form>
   <el-form
     ref="ruleFormRef"
@@ -1640,6 +1655,9 @@ const resetForm = (formEl: FormInstance | undefined) => {
 .ep-image{
   width: 96px;
   height: 96px;
+  background: #F4F4F5;
+  border-radius: 2px;
+  border: 1px solid #F4F4F5;
 }
 
 .ep-carousel__item:nth-child(2n) {

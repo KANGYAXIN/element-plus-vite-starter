@@ -64,6 +64,7 @@ $border-color: () !default;
 $border-color: map.merge(
   (
     '': #D3D4D6,
+    'light': #E9E9EA,
   ),
   $border-color
 );

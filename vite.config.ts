@@ -69,7 +69,7 @@ export default defineConfig({
     //引入SVG图标素材文件
     createSvgIconsPlugin({
       // Specify the icon folder to be cached
-      iconDirs: [path.resolve(process.cwd(), '～/assets/icons/svg')],
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/icons/svg')],
       // Specify symbolId format
       symbolId: 'icon-[name]'
     }),

@@ -1,6 +1,15 @@
 <template>
   <svg aria-hidden="true" class="svg-icon">
     <use :xlink:href="symbolId" :fill="color" />
+    <animateTransform 
+      attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="0 0 0"
+      to="360 0 0"
+      dur="2s"
+      repeatCount="indefinite" 
+    />
   </svg>
 </template>
 

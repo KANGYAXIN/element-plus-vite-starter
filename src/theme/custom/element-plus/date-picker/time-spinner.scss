@@ -5,13 +5,18 @@
 @include b(time-spinner) {
 
   @include e(item) {
+    color: #50545C;
 
     &:hover:not(.is-disabled):not(.is-active) {
       background-color: getCssVar('color-primary-light-2');
     }
 
     &.is-active:not(.is-disabled)  {
-      background-color: getCssVar('color-primary-light-9');
+      color: getCssVar('text-color', 'regular');
+    }
+
+    &.is-disabled {
+      color: getCssVar('border-color', '');
     }
   }
 }
