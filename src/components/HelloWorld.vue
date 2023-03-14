@@ -1436,7 +1436,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
       <el-alert title="error alert" type="error" show-icon />
     </el-form-item>
     <el-form-item label="Image">
-      <el-button plain style="margin-right: 12px;" @click="handleToImage">加载图片</el-button>
+      <el-button plain style="margin-right: 12px;" @click="handleToImage">Click</el-button>
       <el-image :src="imageValue" v-if="imageValue">
         <template #placeholder>
           <div style="line-height: 96px;">加载中...</div>
