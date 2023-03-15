@@ -744,14 +744,50 @@ const resetForm = (formEl: FormInstance | undefined) => {
         <div>
           <p>Loading</p>
           <el-button plain @click="loading = !loading">Click</el-button>
+          <el-button :loading="loading" style="width: 82px;">
+            <template #loading>
+              <svg-icon
+                color="#327DE8"
+                name="loading"
+              ></svg-icon>
+            </template>
+            {{ loading ? '' : 'Default' }}
+          </el-button>
           <el-button type="primary" :loading="loading" style="width: 82px;">
             <template #loading>
               <svg-icon
-                color="#808080"
-                name="action"
+                color="#fff"
+                name="loading"
               ></svg-icon>
             </template>
             {{ loading ? '' : 'Primary' }}
+          </el-button>
+          <el-button type="success" :loading="loading" style="width: 82px;">
+            <template #loading>
+              <svg-icon
+                color="#fff"
+                name="loading"
+              ></svg-icon>
+            </template>
+            {{ loading ? '' : 'Success' }}
+          </el-button>
+          <el-button type="warning" :loading="loading" style="width: 82px;">
+            <template #loading>
+              <svg-icon
+                color="#fff"
+                name="loading"
+              ></svg-icon>
+            </template>
+            {{ loading ? '' : 'Warning' }}
+          </el-button>
+          <el-button type="danger" :loading="loading" style="width: 82px;">
+            <template #loading>
+              <svg-icon
+                color="#fff"
+                name="loading"
+              ></svg-icon>
+            </template>
+            {{ loading ? '' : 'Danger' }}
           </el-button>
         </div>
       </div>
