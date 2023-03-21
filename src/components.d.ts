@@ -72,6 +72,8 @@ declare module '@vue/runtime-core' {
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     HelloWorld_old: typeof import('./components/HelloWorld_old.vue')['default']
     Loading: typeof import('element-plus/es')['ElLoadingDirective']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./components/SvgIcon/index.vue')['default']
   }
 }

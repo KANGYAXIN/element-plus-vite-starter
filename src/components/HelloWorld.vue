@@ -975,7 +975,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
           <el-radio-group v-model="radioValue">
             <el-radio :label="1">Option A</el-radio>
             <el-radio :label="2" disabled>Option B</el-radio>
-            <el-radio :label="3" disabled>Option <Cap></Cap></el-radio>
+            <el-radio :label="3" disabled>Option C</el-radio>
             <el-radio :label="4">Option D</el-radio>
           </el-radio-group>
         </div>

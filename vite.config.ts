@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 import Components from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 import Unocss from 'unocss/vite'
@@ -48,6 +49,15 @@ export default defineConfig({
       ],
       dts: 'src/components.d.ts',
     }),
+    // 自动引入，注意这里需要在Components之后引入
+    AutoImport({
+      resolvers: [
+        ElementPlusResolver({
+          importStyle: 'sass',
+        }),
+      ],
+    }),
+
 
     // https://github.com/antfu/unocss
     // see unocss.config.ts for config
