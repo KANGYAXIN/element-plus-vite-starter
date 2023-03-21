@@ -947,6 +947,17 @@ const resetForm = (formEl: FormInstance | undefined) => {
           />
         </div>
         <div>
+          <el-input
+            v-model="inputValue"
+            placeholder="请输入" 
+          >
+            <template #prepend>
+              <el-select v-model="selectValue1" placeholder="Select" style="width: 120px">
+                <el-option label="11" value="1" />
+                <el-option label="22" value="2" />
+              </el-select>
+            </template>
+          </el-input>
           <el-input 
             placeholder="请输入" 
             v-model="inputValue"
